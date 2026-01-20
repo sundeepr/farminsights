@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Insights - Plant Health Dashboard</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f8fafb;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #2c3e50;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2d6a4f 0%, #40916c 100%);
+            color: white;
+            padding: 24px 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        h1 {
+            font-size: 1.75em;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 32px;
+        }
+
+        .header-stat {
+            text-align: center;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-label {
+            font-size: 0.75em;
+            opacity: 0.9;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            max-width: 1800px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 24px;
+            gap: 24px;
+        }
+
+        /* Map Section */
+        .map-section {
+            flex: 1;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .map-title {
+            font-size: 1.25em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .map-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 26px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #40916c;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2d6a4f 0%, #40916c 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45, 106, 79, 0.3);
+        }
+
+        #map {
+            flex: 1;
+            min-height: 400px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 420px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .sidebar-title {
+            font-size: 1.25em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .filters {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .filter-group label {
+            font-weight: 500;
+            color: #495057;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 0.9em;
+        }
+
+        .filter-group select, .filter-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-group select:focus, .filter-group input:focus {
+            outline: none;
+            border-color: #40916c;
+            box-shadow: 0 0 0 3px rgba(64, 145, 108, 0.1);
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f8fafb;
+            border-radius: 12px;
+        }
+
+        .legend-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #2c3e50;
+            font-size: 0.95em;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .legend-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .legend-color.good { background: linear-gradient(135deg, #2d6a4f 0%, #40916c 100%); }
+        .legend-color.fair { background: linear-gradient(135deg, #95d5b2 0%, #74c69d 100%); }
+        .legend-color.poor { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); }
+        .legend-color.unknown { background: linear-gradient(135deg, #6c757d 0%, #495057 100%); }
+
+        /* Plants List */
+        .plants-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .plant-item {
+            background: #f8fafb;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .plant-item:hover {
+            border-color: #40916c;
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(64, 145, 108, 0.15);
+        }
+
+        .plant-item.selected {
+            border-color: #40916c;
+            background: #f0f9f4;
+        }
+
+        .plant-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .plant-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.95em;
+        }
+
+        .plant-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plant-status.good {
+            background: #d8f3dc;
+            color: #2d6a4f;
+        }
+
+        .plant-status.fair {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .plant-status.poor {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .plant-status.unknown {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .plant-score {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #40916c;
+            margin: 8px 0;
+        }
+
+        .plant-info {
+            font-size: 0.85em;
+            color: #6c757d;
+            line-height: 1.5;
+        }
+
+        /* Popups */
+        .leaflet-popup-content {
+            margin: 0;
+            padding: 0;
+            min-width: 280px;
+        }
+
+        .popup-container {
+            padding: 20px;
+        }
+
+        .popup-header {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .popup-section {
+            margin-bottom: 14px;
+        }
+
+        .popup-label {
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.85em;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .popup-value {
+            color: #6c757d;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        /* Loading */
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            text-align: center;
+            z-index: 10000;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #40916c;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        .loading-text {
+            color: #495057;
+            font-weight: 500;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Scrollbar */
+        .plants-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .plants-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .plants-list::-webkit-scrollbar-thumb {
+            background: #40916c;
+            border-radius: 10px;
+        }
+
+        .plants-list::-webkit-scrollbar-thumb:hover {
+            background: #2d6a4f;
+        }
+
+        @media (max-width: 1200px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                max-height: 400px;
+            }
+
+            .map-section {
+                min-height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="loading" class="loading">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading farm data...</div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">🌱</div>
+                <div>
+                    <h1>Farm Insights Dashboard</h1>
+                    <div style="font-size: 0.85em; opacity: 0.9; margin-top: 4px;">Real-time Plant Health Monitoring</div>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="header-stat">
+                    <div class="stat-label">Total Images</div>
+                    <div class="stat-value" id="totalImages">0</div>
+                </div>
+                <div class="header-stat">
+                    <div class="stat-label">Analyzed</div>
+                    <div class="stat-value" id="analyzedCount">0</div>
+                </div>
+                <div class="header-stat">
+                    <div class="stat-label">Avg Health</div>
+                    <div class="stat-value" id="avgHealth">0</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="map-section">
+            <div class="map-header">
+                <div class="map-title">📍 Field Map View</div>
+                <div class="map-controls">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="heatmapToggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span style="font-size: 0.9em; color: #6c757d;">Heatmap</span>
+                    <button class="btn btn-primary" id="zoomAllBtn">
+                        <span>🔍</span>
+                        View All Plants
+                    </button>
+                </div>
+            </div>
+            <div id="map"></div>
+        </div>
+
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">Filter & Search</div>
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="statusFilter">Health Status</label>
+                        <select id="statusFilter">
+                            <option value="all">All Plants</option>
+                            <option value="good">Good Health</option>
+                            <option value="fair">Fair Health</option>
+                            <option value="unknown">Unknown/Error</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="searchInput">Search by Name</label>
+                        <input type="text" id="searchInput" placeholder="Enter image name...">
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-title">Health Legend</div>
+                    <div class="legend-item">
+                        <div class="legend-color good"></div>
+                        <span>Good (75-100)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color fair"></div>
+                        <span>Fair (65-74)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color poor"></div>
+                        <span>Poor (0-64)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color unknown"></div>
+                        <span>Unknown/Error</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="plants-list" id="plantsList"></div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Leaflet Heat Plugin -->
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+
+    <script>
+        let map;
+        let markers = [];
+        let heatLayer;
+        let allData = [];
+
+        // Initialize the map
+        function initMap(center) {
+            map = L.map('map', {
+                scrollWheelZoom: true,
+                minZoom: 2,
+                maxZoom: 22,
+                preferCanvas: false,
+                zoomControl: true
+            }).setView(center, 18);
+
+            // Add multiple tile layers with improved loading
+            const streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19,
+                id: 'street',
+                keepBuffer: 4,
+                updateWhenIdle: false,
+                updateWhenZooming: false
+            });
+
+            const googleSatellite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                attribution: '© Google',
+                maxZoom: 22,
+                id: 'google-satellite',
+                keepBuffer: 4,
+                updateWhenIdle: false,
+                updateWhenZooming: false
+            });
+
+            const esriSatellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles © Esri',
+                maxZoom: 22,
+                id: 'esri-satellite',
+                keepBuffer: 4,
+                updateWhenIdle: false,
+                updateWhenZooming: false
+            });
+
+            googleSatellite.addTo(map);
+
+            const baseMaps = {
+                "Satellite (Google)": googleSatellite,
+                "Satellite (Esri)": esriSatellite,
+                "Street Map": streetLayer
+            };
+
+            L.control.layers(baseMaps).addTo(map);
+
+            map.on('moveend', function() {
+                setTimeout(() => {
+                    map.invalidateSize();
+                }, 100);
+            });
+        }
+
+        // Load and process data
+        fetch('/api/data')
+            .then(response => response.json())
+            .then(data => {
+                allData = data.images.filter(img => img.gps_coordinates);
+
+                if (allData.length === 0) {
+                    alert('No GPS data found in images');
+                    return;
+                }
+
+                const avgLat = allData.reduce((sum, img) => sum + img.gps_coordinates.latitude, 0) / allData.length;
+                const avgLng = allData.reduce((sum, img) => sum + img.gps_coordinates.longitude, 0) / allData.length;
+                initMap([avgLat, avgLng]);
+
+                updateHeaderStats(data);
+                renderMarkers(allData);
+                renderHeatmap(allData);
+                renderPlantsList(allData);
+                setupFilters();
+                setupZoomAll(allData);
+
+                document.getElementById('loading').style.display = 'none';
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').innerHTML = '<div style="color: red;">Error loading data</div>';
+            });
+
+        function updateHeaderStats(data) {
+            const images = data.images;
+            const analyzed = images.filter(img => img.plant_health_analysis.health_score !== null);
+            const avgHealth = analyzed.length > 0
+                ? (analyzed.reduce((sum, img) => sum + img.plant_health_analysis.health_score, 0) / analyzed.length).toFixed(1)
+                : 'N/A';
+
+            document.getElementById('totalImages').textContent = data.report_metadata.total_images;
+            document.getElementById('analyzedCount').textContent = data.report_metadata.successful_analyses;
+            document.getElementById('avgHealth').textContent = avgHealth;
+        }
+
+        function renderMarkers(data) {
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+
+            data.forEach(image => {
+                const coords = image.gps_coordinates;
+                const marker = L.circleMarker([coords.latitude, coords.longitude], {
+                    radius: 8,
+                    fillOpacity: 0,
+                    opacity: 0,
+                    interactive: true
+                })
+                    .addTo(map)
+                    .bindPopup(createPopupContent(image));
+
+                marker.imageData = image;
+                markers.push(marker);
+
+                marker.on('click', () => {
+                    highlightPlantItem(image.image_name);
+                });
+            });
+        }
+
+        function renderHeatmap(data) {
+            if (heatLayer) {
+                map.removeLayer(heatLayer);
+            }
+
+            const heatData = data
+                .filter(img => img.plant_health_analysis.health_score !== null)
+                .map(img => {
+                    const coords = img.gps_coordinates;
+                    const intensity = (100 - img.plant_health_analysis.health_score) / 100;
+                    return [coords.latitude, coords.longitude, intensity];
+                });
+
+            heatLayer = L.heatLayer(heatData, {
+                radius: 35,
+                blur: 25,
+                maxZoom: 20,
+                max: 1.0,
+                minOpacity: 0.6,
+                gradient: {
+                    0.0: '#00ff00',
+                    0.25: '#66ff66',
+                    0.35: '#99ff99',
+                    0.5: '#ffcc00',
+                    0.7: '#ff6600',
+                    1.0: '#ff0000'
+                }
+            }).addTo(map);
+        }
+
+        function createPopupContent(image) {
+            const analysis = image.plant_health_analysis;
+            const score = analysis.health_score !== null ? `${analysis.health_score}/100` : 'N/A';
+
+            return `
+                <div class="popup-container">
+                    <div class="popup-header">${image.image_name}</div>
+                    <div class="popup-section">
+                        <div class="popup-label">Health Status</div>
+                        <div class="popup-value">
+                            <span class="plant-status ${analysis.health_status}">${analysis.health_status}</span>
+                        </div>
+                    </div>
+                    <div class="popup-section">
+                        <div class="popup-label">Health Score</div>
+                        <div class="popup-value" style="font-weight: 700; color: #40916c; font-size: 1.2em;">${score}</div>
+                    </div>
+                    ${analysis.health_score !== null ? `
+                        <div class="popup-section">
+                            <div class="popup-label">Issues Detected</div>
+                            <div class="popup-value">${analysis.issues_detected}</div>
+                        </div>
+                        <div class="popup-section">
+                            <div class="popup-label">Recommendations</div>
+                            <div class="popup-value">${analysis.recommended_interventions}</div>
+                        </div>
+                    ` : `
+                        <div class="popup-section">
+                            <div class="popup-value" style="color: #ff6b6b;">Analysis error occurred</div>
+                        </div>
+                    `}
+                    <div class="popup-section">
+                        <div class="popup-label">Timestamp</div>
+                        <div class="popup-value">${new Date(image.timestamp).toLocaleString()}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderPlantsList(data) {
+            const listDiv = document.getElementById('plantsList');
+            listDiv.innerHTML = '';
+
+            data.forEach(image => {
+                const analysis = image.plant_health_analysis;
+                const score = analysis.health_score !== null ? `${analysis.health_score}/100` : 'N/A';
+
+                const item = document.createElement('div');
+                item.className = 'plant-item';
+                item.dataset.imageName = image.image_name;
+                item.dataset.status = analysis.health_status;
+
+                item.innerHTML = `
+                    <div class="plant-header">
+                        <div class="plant-name">${image.image_name}</div>
+                        <span class="plant-status ${analysis.health_status}">${analysis.health_status}</span>
+                    </div>
+                    ${analysis.health_score !== null ? `
+                        <div class="plant-score">Score: ${score}</div>
+                        <div class="plant-info">${analysis.issues_detected}</div>
+                    ` : `
+                        <div class="plant-info" style="color: #ff6b6b;">Analysis error</div>
+                    `}
+                `;
+
+                item.addEventListener('click', () => {
+                    const marker = markers.find(m => m.imageData.image_name === image.image_name);
+                    if (marker) {
+                        map.setView(marker.getLatLng(), 19);
+                        marker.openPopup();
+                        highlightPlantItem(image.image_name);
+                    }
+                });
+
+                listDiv.appendChild(item);
+            });
+        }
+
+        function highlightPlantItem(imageName) {
+            document.querySelectorAll('.plant-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            const item = document.querySelector(`[data-image-name="${imageName}"]`);
+            if (item) {
+                item.classList.add('selected');
+                item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function setupFilters() {
+            const statusFilter = document.getElementById('statusFilter');
+            const searchInput = document.getElementById('searchInput');
+            const heatmapToggle = document.getElementById('heatmapToggle');
+
+            function applyFilters() {
+                const statusValue = statusFilter.value;
+                const searchValue = searchInput.value.toLowerCase();
+
+                const filtered = allData.filter(image => {
+                    const matchesStatus = statusValue === 'all' || image.plant_health_analysis.health_status === statusValue;
+                    const matchesSearch = searchValue === '' || image.image_name.toLowerCase().includes(searchValue);
+                    return matchesStatus && matchesSearch;
+                });
+
+                renderMarkers(filtered);
+                renderHeatmap(filtered);
+                renderPlantsList(filtered);
+            }
+
+            statusFilter.addEventListener('change', applyFilters);
+            searchInput.addEventListener('input', applyFilters);
+
+            heatmapToggle.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    renderHeatmap(allData);
+                } else if (heatLayer) {
+                    map.removeLayer(heatLayer);
+                }
+            });
+        }
+
+        function setupZoomAll(data) {
+            const zoomAllBtn = document.getElementById('zoomAllBtn');
+
+            zoomAllBtn.addEventListener('click', () => {
+                if (data.length === 0) return;
+
+                const bounds = L.latLngBounds(
+                    data.map(img => [
+                        img.gps_coordinates.latitude,
+                        img.gps_coordinates.longitude
+                    ])
+                );
+
+                map.fitBounds(bounds, {
+                    padding: [50, 50],
+                    maxZoom: 18
+                });
+            });
+        }
+    </script>
+</body>
+</html>
