@@ -16,7 +16,7 @@ def index():
 def get_data():
     """API endpoint to get plant health data"""
     try:
-        with open('plant_health_report_2026-01-18_00-13-22.json', 'r') as f:
+        with open('data/plant_health_report_2026-01-18_00-13-22.json', 'r') as f:
             data = json.load(f)
         return jsonify(data)
     except FileNotFoundError:
