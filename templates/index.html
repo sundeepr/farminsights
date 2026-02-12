@@ -545,6 +545,13 @@
                 <div class="sidebar-title">Filter & Search</div>
                 <div class="filters">
                     <div class="filter-group">
+                        <label for="timelineSelect">Report Timeline</label>
+                        <select id="timelineSelect">
+                            <option value="">Loading...</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
                         <label for="statusFilter">Health Status</label>
                         <select id="statusFilter">
                             <option value="all">All Plants</option>
@@ -596,9 +603,16 @@
         let markers = [];
         let heatLayer;
         let allData = [];
+        let currentFile = null;
+        let mapInitialized = false;
 
         // Initialize the map
         function initMap(center) {
+            if (mapInitialized) {
+                map.setView(center, 18);
+                return;
+            }
+
             map = L.map('map', {
                 scrollWheelZoom: true,
                 minZoom: 2,
@@ -650,12 +664,54 @@
                     map.invalidateSize();
                 }, 100);
             });
+
+            mapInitialized = true;
         }
 
-        // Load and process data
-        fetch('/api/data')
-            .then(response => response.json())
-            .then(data => {
+        // Load available files and populate dropdown
+        async function loadFileList() {
+            try {
+                const response = await fetch('/api/files');
+                const files = await response.json();
+                const select = document.getElementById('timelineSelect');
+                select.innerHTML = '';
+
+                files.forEach((file, index) => {
+                    const option = document.createElement('option');
+                    option.value = file.filename;
+                    option.textContent = file.display;
+                    select.appendChild(option);
+                });
+
+                // Load the first (most recent) file
+                if (files.length > 0) {
+                    currentFile = files[0].filename;
+                    await loadData(currentFile);
+                    setupFilters();
+                }
+
+                // Setup timeline change listener
+                select.addEventListener('change', async (e) => {
+                    currentFile = e.target.value;
+                    document.getElementById('loading').style.display = 'block';
+                    // Reset filters when changing timeline
+                    document.getElementById('statusFilter').value = 'all';
+                    document.getElementById('searchInput').value = '';
+                    await loadData(currentFile);
+                    document.getElementById('loading').style.display = 'none';
+                });
+            } catch (error) {
+                console.error('Error loading file list:', error);
+            }
+        }
+
+        // Load and process data for a specific file
+        async function loadData(filename) {
+            try {
+                const url = filename ? `/api/data/${filename}` : '/api/data';
+                const response = await fetch(url);
+                const data = await response.json();
+
                 allData = data.images.filter(img => img.gps_coordinates);
 
                 if (allData.length === 0) {
@@ -671,15 +727,17 @@
                 renderMarkers(allData);
                 renderHeatmap(allData);
                 renderPlantsList(allData);
-                setupFilters();
                 setupZoomAll(allData);
 
                 document.getElementById('loading').style.display = 'none';
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('Error loading data:', error);
                 document.getElementById('loading').innerHTML = '<div style="color: red;">Error loading data</div>';
-            });
+            }
+        }
+
+        // Initialize
+        loadFileList();
 
         function updateHeaderStats(data) {
             const images = data.images;

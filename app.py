@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, send_from_directory
 import json
 import os
+import glob
 
 app = Flask(__name__)
 
@@ -12,11 +13,36 @@ def index():
     """Render the main page"""
     return render_template('index.html')
 
+@app.route('/api/files')
+def get_files():
+    """API endpoint to list available data files"""
+    data_files = glob.glob('data/plant_health_report*.json')
+    files = []
+    for f in sorted(data_files, reverse=True):
+        filename = os.path.basename(f)
+        # Extract date from filename (plant_health_report_2026-01-18_00-13-22.json)
+        try:
+            date_part = filename.replace('plant_health_report_', '').replace('.json', '')
+            display_name = date_part.replace('_', ' ').replace('-', '/')
+        except:
+            display_name = filename
+        files.append({'filename': filename, 'display': display_name})
+    return jsonify(files)
+
 @app.route('/api/data')
-def get_data():
+@app.route('/api/data/<filename>')
+def get_data(filename=None):
     """API endpoint to get plant health data"""
+    if filename is None:
+        # Get the most recent file by default
+        data_files = glob.glob('data/plant_health_report*.json')
+        if not data_files:
+            return jsonify({'error': 'No data files found'}), 404
+        filename = os.path.basename(sorted(data_files, reverse=True)[0])
+
+    filepath = os.path.join('data', filename)
     try:
-        with open('data/plant_health_report_2026-01-18_00-13-22.json', 'r') as f:
+        with open(filepath, 'r') as f:
             data = json.load(f)
         return jsonify(data)
     except FileNotFoundError:
