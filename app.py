@@ -16,16 +16,12 @@ def index():
 @app.route('/api/files')
 def get_files():
     """API endpoint to list available data files"""
-    data_files = glob.glob('data/plant_health_report*.json')
+    data_files = glob.glob('data/*.json')
     files = []
     for f in sorted(data_files, reverse=True):
         filename = os.path.basename(f)
-        # Extract date from filename (plant_health_report_2026-01-18_00-13-22.json)
-        try:
-            date_part = filename.replace('plant_health_report_', '').replace('.json', '')
-            display_name = date_part.replace('_', ' ').replace('-', '/')
-        except:
-            display_name = filename
+        # Extract a readable display name from the filename
+        display_name = filename.replace('.json', '').replace('_', ' ').replace('-', '/')
         files.append({'filename': filename, 'display': display_name})
     return jsonify(files)
 
@@ -35,7 +31,7 @@ def get_data(filename=None):
     """API endpoint to get plant health data"""
     if filename is None:
         # Get the most recent file by default
-        data_files = glob.glob('data/plant_health_report*.json')
+        data_files = glob.glob('data/*.json')
         if not data_files:
             return jsonify({'error': 'No data files found'}), 404
         filename = os.path.basename(sorted(data_files, reverse=True)[0])
