@@ -1,0 +1,1995 @@
+{
+  "report_metadata": {
+    "generated_at": "2026-02-15T16:40:37.225856",
+    "input_folder": "/home/sundeep/Pictures/data-cap-13-feb-2026/session_1770958377843",
+    "images_folder": "/home/sundeep/Pictures/data-cap-13-feb-2026/session_1770958377843/images",
+    "metadata_csv": "/home/sundeep/Pictures/data-cap-13-feb-2026/session_1770958377843/metadata.csv",
+    "model_used": "gemini-3-flash-preview",
+    "total_images": 68,
+    "images_with_gps": 68,
+    "successful_analyses": 68,
+    "status": "completed"
+  },
+  "images": [
+    {
+      "image_name": "frame_00001_1770958377909.jpg",
+      "file_size_mb": 3.7316884994506836,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:22:58",
+      "gps_coordinates": {
+        "latitude": 20.2153517,
+        "longitude": 80.1468303,
+        "altitude": 147.7,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00001_1770958377909.jpg",
+        "health_score": 70.0,
+        "health_status": "fair",
+        "issues_detected": "Minor leaf damage consistent with early-stage pest feeding, likely flea beetles. The plant appears slightly stunted, which could be due to transplant shock or slow establishment.",
+        "recommended_interventions": "Monitor the plant for increasing pest activity. If leaf damage progresses significantly, consider applying a neem oil solution. Ensure the area immediately around the seedling is kept free of weeds to reduce pest pressure.",
+        "visual_observations": "A single young eggplant (brinjal) seedling with green, slightly lobed leaves. Small holes and irregular margins are visible on the foliage.",
+        "processing_time_seconds": 3.81
+      }
+    },
+    {
+      "image_name": "frame_00002_1770958378641.jpg",
+      "file_size_mb": 4.047663688659668,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:22:59",
+      "gps_coordinates": {
+        "latitude": 20.2153462,
+        "longitude": 80.1468306,
+        "altitude": 147.7,
+        "accuracy": 7.499
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00002_1770958378641.jpg",
+        "health_score": 70.0,
+        "health_status": "fair",
+        "issues_detected": "Small necrotic spots and tiny holes on the leaves indicate minor insect herbivory. The plant is in a vulnerable early growth stage.",
+        "recommended_interventions": "Scout the underside of leaves for pests like aphids or flea beetles. Maintain current management but be ready to intervene with organic controls if pest populations rise.",
+        "visual_observations": "Young eggplant seedling centered in the frame. The soil surface is dry with visible straw mulch/residue. Leaf color is a healthy green despite minor damage.",
+        "processing_time_seconds": 3.81
+      }
+    },
+    {
+      "image_name": "frame_00003_1770958379373.jpg",
+      "file_size_mb": 3.6659727096557617,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:22:59",
+      "gps_coordinates": {
+        "latitude": 20.2153474,
+        "longitude": 80.1468295,
+        "altitude": 147.5,
+        "accuracy": 6.374
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00003_1770958379373.jpg",
+        "health_score": 72.0,
+        "health_status": "fair",
+        "issues_detected": "Minor physical damage to leaf margins and some small 'shotholes' from pests. No signs of systemic disease or nutrient deficiency are currently visible.",
+        "recommended_interventions": "Continue regular monitoring. No immediate chemical intervention is required, but a light application of a balanced liquid fertilizer could help the plant outgrow early pest damage.",
+        "visual_observations": "Eggplant seedling with approximately 4-5 true leaves. The plant shows decent vigor but has some minor mechanical or pest-related leaf scarring.",
+        "processing_time_seconds": 3.81
+      }
+    },
+    {
+      "image_name": "frame_00004_1770958380118.jpg",
+      "file_size_mb": 2.0204334259033203,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:00",
+      "gps_coordinates": {
+        "latitude": 20.2153479,
+        "longitude": 80.1468292,
+        "altitude": 147.5,
+        "accuracy": 5.699
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00004_1770958380118.jpg",
+        "health_score": 75.0,
+        "health_status": "good",
+        "issues_detected": "The seedling on the right shows very minor leaf spotting. The overall health is better than previous frames, showing slightly more leaf expansion.",
+        "recommended_interventions": "Standard seedling care. Ensure that any future fertilization is applied away from the stem to avoid burn. Monitor for any spreading of the leaf spots.",
+        "visual_observations": "Two eggplant seedlings are visible in this frame. The foliage is a consistent green, and the plants are beginning to establish more firmly in the soil.",
+        "processing_time_seconds": 3.81
+      }
+    },
+    {
+      "image_name": "frame_00005_1770958380785.jpg",
+      "file_size_mb": 3.767911911010742,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:01",
+      "gps_coordinates": {
+        "latitude": 20.215348,
+        "longitude": 80.1468331,
+        "altitude": 147.1,
+        "accuracy": 4.928
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00005_1770958380785.jpg",
+        "health_score": 80.0,
+        "health_status": "good",
+        "issues_detected": "No significant issues detected. Very minor irregularities on leaf edges are likely environmental and not a cause for concern.",
+        "recommended_interventions": "Maintain current management practices. The plant is transitioning well into the vegetative growth phase.",
+        "visual_observations": "A healthy-looking eggplant seedling with well-defined, vibrant green leaves. The growth pattern is symmetrical and shows good vigor.",
+        "processing_time_seconds": 3.81
+      }
+    },
+    {
+      "image_name": "frame_00006_1770958381569.jpg",
+      "file_size_mb": 3.235959053039551,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:02",
+      "gps_coordinates": {
+        "latitude": 20.215348,
+        "longitude": 80.1468331,
+        "altitude": 147.1,
+        "accuracy": 4.928
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00006_1770958381569.jpg",
+        "health_score": 85.0,
+        "health_status": "good",
+        "issues_detected": "No significant issues detected. Minor dust on leaves and very slight evidence of early insect scouting.",
+        "recommended_interventions": "Continue regular monitoring for early-season pests like flea beetles. Consider applying a light mulch to help stabilize soil temperature around the young root system.",
+        "visual_observations": "Young eggplant (brinjal) seedling in the early vegetative stage. Leaves are a healthy green with good turgor. The surrounding soil is cloddy with some crop residue.",
+        "processing_time_seconds": 4.05
+      }
+    },
+    {
+      "image_name": "frame_00007_1770958382317.jpg",
+      "file_size_mb": 3.3282899856567383,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:02",
+      "gps_coordinates": {
+        "latitude": 20.2153478,
+        "longitude": 80.1468352,
+        "altitude": 147.1,
+        "accuracy": 4.687
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00007_1770958382317.jpg",
+        "health_score": 78.0,
+        "health_status": "good",
+        "issues_detected": "Slight leaf curling and minor stunting, likely due to transplant shock or environmental adaptation to high light intensity.",
+        "recommended_interventions": "Monitor for thrips or aphids on the leaf undersides which can cause curling. Ensure the plant is well-established before any heavy nutrient applications.",
+        "visual_observations": "Small eggplant seedling. The leaves show a slight inward curl but maintain a healthy color. Growth appears slightly slower compared to the first specimen.",
+        "processing_time_seconds": 4.05
+      }
+    },
+    {
+      "image_name": "frame_00008_1770958383032.jpg",
+      "file_size_mb": 4.244622230529785,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:03",
+      "gps_coordinates": {
+        "latitude": 20.2153485,
+        "longitude": 80.1468392,
+        "altitude": 146.79999999999998,
+        "accuracy": 4.499
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00008_1770958383032.jpg",
+        "health_score": 72.0,
+        "health_status": "fair",
+        "issues_detected": "Visible small holes in the leaf blades, characteristic of flea beetle or other chewing insect damage.",
+        "recommended_interventions": "Apply neem oil or a suitable organic insecticide if pest populations increase. Maintain a weed-free zone around the seedling to reduce pest habitats.",
+        "visual_observations": "Young eggplant seedling showing clear signs of insect herbivory (shot-hole damage). The plant is otherwise upright and green.",
+        "processing_time_seconds": 4.05
+      }
+    },
+    {
+      "image_name": "frame_00009_1770958383780.jpg",
+      "file_size_mb": 2.797337532043457,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:04",
+      "gps_coordinates": {
+        "latitude": 20.2153498,
+        "longitude": 80.1468411,
+        "altitude": 146.79999999999998,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00009_1770958383780.jpg",
+        "health_score": 70.0,
+        "health_status": "fair",
+        "issues_detected": "Moderate insect feeding damage (holes) on the leaves. The plant shows some signs of stress from pest pressure.",
+        "recommended_interventions": "Scout for active pests during early morning. Implement integrated pest management (IPM) strategies to control chewing insects before they damage the growing point.",
+        "visual_observations": "Eggplant seedling with noticeable leaf perforations. A boot is visible for scale, highlighting the plant's small, vulnerable size.",
+        "processing_time_seconds": 4.05
+      }
+    },
+    {
+      "image_name": "frame_00010_1770958384476.jpg",
+      "file_size_mb": 3.851350784301758,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:04",
+      "gps_coordinates": {
+        "latitude": 20.2153501,
+        "longitude": 80.1468414,
+        "altitude": 146.7,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00010_1770958384476.jpg",
+        "health_score": 65.0,
+        "health_status": "fair",
+        "issues_detected": "Slight drooping/wilting of leaves and minor insect damage. The plant appears less vigorous than the others.",
+        "recommended_interventions": "Observe if the plant recovers turgidity during cooler hours. If wilting persists despite adequate deep soil moisture, check for potential soil-borne pathogens or root damage.",
+        "visual_observations": "Small eggplant seedling with slightly flaccid leaves and minor physical damage. It appears to be struggling slightly with establishment or environmental stress.",
+        "processing_time_seconds": 4.05
+      }
+    },
+    {
+      "image_name": "frame_00011_1770958385202.jpg",
+      "file_size_mb": 2.7616586685180664,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:05",
+      "gps_coordinates": {
+        "latitude": 20.2153538,
+        "longitude": 80.1468399,
+        "altitude": 146.6,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00011_1770958385202.jpg",
+        "health_score": 78.0,
+        "health_status": "good",
+        "issues_detected": "Minor leaf drooping and slight chlorosis on lower leaves, likely due to transplant shock or surface soil dryness.",
+        "recommended_interventions": "Monitor for establishment over the next few days. Ensure the area remains weed-free to reduce competition for nutrients.",
+        "visual_observations": "Young eggplant (Solanum melongena) seedling in early vegetative stage. Soil is cloddy with visible straw mulch residue.",
+        "processing_time_seconds": 9.26
+      }
+    },
+    {
+      "image_name": "frame_00012_1770958385916.jpg",
+      "file_size_mb": 3.6262998580932617,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:06",
+      "gps_coordinates": {
+        "latitude": 20.2153601,
+        "longitude": 80.1468392,
+        "altitude": 146.6,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00012_1770958385916.jpg",
+        "health_score": 82.0,
+        "health_status": "good",
+        "issues_detected": "No significant issues detected; plant appears well-established for its size.",
+        "recommended_interventions": "Scout for early-season pests such as flea beetles or aphids which can target young solanaceous plants.",
+        "visual_observations": "Single eggplant seedling showing healthy green leaf pigmentation and typical growth pattern for the seedling stage.",
+        "processing_time_seconds": 9.26
+      }
+    },
+    {
+      "image_name": "frame_00013_1770958386607.jpg",
+      "file_size_mb": 2.9821243286132812,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:06",
+      "gps_coordinates": {
+        "latitude": 20.2153645,
+        "longitude": 80.1468378,
+        "altitude": 146.6,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00013_1770958386607.jpg",
+        "health_score": 80.0,
+        "health_status": "good",
+        "issues_detected": "No significant issues detected. The plant shows good vigor.",
+        "recommended_interventions": "Maintain current management practices. Consider a light application of balanced fertilizer if growth appears stunted in coming weeks.",
+        "visual_observations": "Eggplant seedling at the 3-4 true leaf stage. Soil surface is dry but plant shows no signs of severe water stress.",
+        "processing_time_seconds": 9.26
+      }
+    },
+    {
+      "image_name": "frame_00014_1770958387278.jpg",
+      "file_size_mb": 3.995695114135742,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:07",
+      "gps_coordinates": {
+        "latitude": 20.2153667,
+        "longitude": 80.1468375,
+        "altitude": 146.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00014_1770958387278.jpg",
+        "health_score": 85.0,
+        "health_status": "good",
+        "issues_detected": "Minor physiological leaf curling at the margins, likely a response to high light intensity or wind.",
+        "recommended_interventions": "Continue to monitor for sucking pests. Ensure no mechanical damage occurs during any upcoming cultivation.",
+        "visual_observations": "Vigorous eggplant seedling with dark green foliage and active new growth at the apical meristem.",
+        "processing_time_seconds": 9.26
+      }
+    },
+    {
+      "image_name": "frame_00015_1770958387999.jpg",
+      "file_size_mb": 3.3968162536621094,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:08",
+      "gps_coordinates": {
+        "latitude": 20.2153739,
+        "longitude": 80.1468356,
+        "altitude": 147.5,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00015_1770958387999.jpg",
+        "health_score": 88.0,
+        "health_status": "excellent",
+        "issues_detected": "No significant issues detected. Plants are healthy and growing well.",
+        "recommended_interventions": "Prepare for side-dressing with nitrogen-rich fertilizer as the plants transition into the rapid vegetative growth phase.",
+        "visual_observations": "Two healthy eggplant seedlings showing excellent vigor and leaf expansion in a field with straw residue.",
+        "processing_time_seconds": 9.26
+      }
+    },
+    {
+      "image_name": "frame_00016_1770958388727.jpg",
+      "file_size_mb": 3.596829414367676,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:09",
+      "gps_coordinates": {
+        "latitude": 20.2153832,
+        "longitude": 80.1468349,
+        "altitude": 147.5,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00016_1770958388727.jpg",
+        "health_score": 85.0,
+        "health_status": "good",
+        "issues_detected": "Minor leaf curling and very slight yellowing on the margins of older leaves, possibly due to transplant shock or minor wind stress. No significant pest or disease presence is visible.",
+        "recommended_interventions": "Monitor for early-season pests like flea beetles or aphids. Consider applying a light organic mulch around the base to help stabilize surface soil temperature and moisture.",
+        "visual_observations": "Young eggplant (brinjal) seedling with approximately 4-5 true leaves. Leaves are a healthy green color. The plant is growing in dry, cloddy soil with straw residue.",
+        "processing_time_seconds": 5.01
+      }
+    },
+    {
+      "image_name": "frame_00017_1770958389433.jpg",
+      "file_size_mb": 2.9494733810424805,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:09",
+      "gps_coordinates": {
+        "latitude": 20.2153941,
+        "longitude": 80.1468337,
+        "altitude": 147.79999999999998,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00017_1770958389433.jpg",
+        "health_score": 82.0,
+        "health_status": "good",
+        "issues_detected": "The visible portions of the seedlings show minor leaf distortion. The primary concern in this view is the dry, cloddy soil surface which can hinder root expansion if it becomes too hard.",
+        "recommended_interventions": "Continue to monitor seedling establishment. Ensure that any emerging weeds are removed early to prevent competition for nutrients.",
+        "visual_observations": "Partial views of eggplant seedlings at the top and bottom of the frame. The soil is brown, dry, and contains significant amounts of crop residue (straw).",
+        "processing_time_seconds": 5.01
+      }
+    },
+    {
+      "image_name": "frame_00018_1770958390147.jpg",
+      "file_size_mb": 3.7238683700561523,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:10",
+      "gps_coordinates": {
+        "latitude": 20.2154011,
+        "longitude": 80.1468332,
+        "altitude": 147.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00018_1770958390147.jpg",
+        "health_score": 84.0,
+        "health_status": "good",
+        "issues_detected": "Slightly irregular leaf margins and minor curling, which is common in young field-planted seedlings. No obvious signs of nutrient deficiency.",
+        "recommended_interventions": "Scout regularly for insect pests. If flea beetle damage (small 'shotholes') increases, consider an appropriate organic or chemical control method based on local thresholds.",
+        "visual_observations": "A single eggplant seedling centered in the frame. It has a sturdy stem and healthy green foliage. The surrounding soil is dry and roughly tilled.",
+        "processing_time_seconds": 5.01
+      }
+    },
+    {
+      "image_name": "frame_00019_1770958390904.jpg",
+      "file_size_mb": 3.3449106216430664,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:11",
+      "gps_coordinates": {
+        "latitude": 20.2154131,
+        "longitude": 80.1468319,
+        "altitude": 147.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00019_1770958390904.jpg",
+        "health_score": 86.0,
+        "health_status": "good",
+        "issues_detected": "No significant issues detected. The seedlings appear well-established for their growth stage.",
+        "recommended_interventions": "Maintain current management practices. Monitor for the first signs of pest pressure as the weather warms.",
+        "visual_observations": "Two young eggplant seedlings are visible. They show good vigor with vibrant green leaves and no obvious signs of stress or damage.",
+        "processing_time_seconds": 5.01
+      }
+    },
+    {
+      "image_name": "frame_00020_1770958391621.jpg",
+      "file_size_mb": 3.453460693359375,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:12",
+      "gps_coordinates": {
+        "latitude": 20.2154191,
+        "longitude": 80.1468308,
+        "altitude": 147.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00020_1770958391621.jpg",
+        "health_score": 83.0,
+        "health_status": "good",
+        "issues_detected": "Minor leaf curling on the newest growth. A small weed is present to the left of the seedling which should be removed.",
+        "recommended_interventions": "Perform manual weeding around the base of the seedlings to eliminate competition. Continue scouting for pests.",
+        "visual_observations": "One eggplant seedling is shown next to a person's foot for scale. The plant is in the early vegetative stage. Soil is dry and contains straw mulch.",
+        "processing_time_seconds": 5.01
+      }
+    },
+    {
+      "image_name": "frame_00021_1770958392324.jpg",
+      "file_size_mb": 3.5959272384643555,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:12",
+      "gps_coordinates": {
+        "latitude": 20.2154257,
+        "longitude": 80.1468304,
+        "altitude": 147.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00021_1770958392324.jpg",
+        "health_score": 78.0,
+        "health_status": "good",
+        "issues_detected": "Minor leaf curling and slight chlorosis on the margins of the older leaves, likely due to transplant shock or early-stage nutrient imbalance. Some small punctures suggest early activity of flea beetles.",
+        "recommended_interventions": "Apply a diluted, balanced liquid fertilizer or seaweed extract to support establishment. Monitor closely for flea beetle damage; if it increases, consider an organic spray like neem oil.",
+        "visual_observations": "Young eggplant (brinjal) seedling with approximately 4-5 true leaves. Foliage is mostly green. Soil is dry and cloddy with straw residue.",
+        "processing_time_seconds": 4.93
+      }
+    },
+    {
+      "image_name": "frame_00022_1770958393069.jpg",
+      "file_size_mb": 3.3492650985717773,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:13",
+      "gps_coordinates": {
+        "latitude": 20.2154297,
+        "longitude": 80.1468306,
+        "altitude": 147.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00022_1770958393069.jpg",
+        "health_score": 75.0,
+        "health_status": "good",
+        "issues_detected": "The plant shows slight drooping, which may indicate mild heat stress or transplant shock. There are minor signs of insect herbivory (small holes) on the leaves.",
+        "recommended_interventions": "Monitor the plant during the hottest part of the day. If wilting persists, check root zone moisture. Scout for small jumping insects (flea beetles) and treat if necessary.",
+        "visual_observations": "Small eggplant seedling in early vegetative stage. Leaves are a medium green. Growing in a field with significant crop residue (straw).",
+        "processing_time_seconds": 4.93
+      }
+    },
+    {
+      "image_name": "frame_00023_1770958393775.jpg",
+      "file_size_mb": 3.8279619216918945,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:14",
+      "gps_coordinates": {
+        "latitude": 20.215434,
+        "longitude": 80.1468319,
+        "altitude": 147.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00023_1770958393775.jpg",
+        "health_score": 85.0,
+        "health_status": "good",
+        "issues_detected": "No significant issues detected. The plant appears well-established with good leaf color and structure for its age.",
+        "recommended_interventions": "Continue standard care. Maintain a weed-free zone around the base of the plant to prevent competition for nutrients and water.",
+        "visual_observations": "Healthy eggplant seedling with vibrant green leaves. Growth pattern is compact and upright. Soil surface is dry but plant shows no signs of water stress.",
+        "processing_time_seconds": 4.93
+      }
+    },
+    {
+      "image_name": "frame_00024_1770958394508.jpg",
+      "file_size_mb": 3.033946990966797,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:14",
+      "gps_coordinates": {
+        "latitude": 20.2154341,
+        "longitude": 80.1468318,
+        "altitude": 148.0,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00024_1770958394508.jpg",
+        "health_score": 82.0,
+        "health_status": "good",
+        "issues_detected": "No major issues detected. The seedlings are small but appear to be growing steadily. Very minor leaf edge yellowing on the upper plant.",
+        "recommended_interventions": "Regular scouting for pests such as aphids or whiteflies. Ensure that any future side-dressing of fertilizer is kept away from the direct stem to avoid burn.",
+        "visual_observations": "Two young eggplant seedlings visible in the frame. Both show typical early-stage growth with healthy green foliage.",
+        "processing_time_seconds": 4.93
+      }
+    },
+    {
+      "image_name": "frame_00025_1770958395240.jpg",
+      "file_size_mb": 3.4028444290161133,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:15",
+      "gps_coordinates": {
+        "latitude": 20.2154424,
+        "longitude": 80.1468338,
+        "altitude": 147.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00025_1770958395240.jpg",
+        "health_score": 84.0,
+        "health_status": "good",
+        "issues_detected": "No significant issues detected. The plant exhibits good vigor and healthy leaf expansion.",
+        "recommended_interventions": "Continue current management practices. Consider adding a bit more mulch around the base to help regulate soil temperature as the plant grows.",
+        "visual_observations": "Single eggplant seedling in the lower right of the frame. Leaves are broad, green, and show no obvious signs of disease or pest infestation.",
+        "processing_time_seconds": 4.93
+      }
+    },
+    {
+      "image_name": "frame_00026_1770958395966.jpg",
+      "file_size_mb": 3.2246475219726562,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:16",
+      "gps_coordinates": {
+        "latitude": 20.2154448,
+        "longitude": 80.1468341,
+        "altitude": 147.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00026_1770958395966.jpg",
+        "health_score": 85.0,
+        "health_status": "good",
+        "issues_detected": "Minor leaf abrasions and soil splash on the foliage. No significant pest or disease symptoms are currently visible.",
+        "recommended_interventions": "Monitor closely for early-season pests like flea beetles. Consider applying a light layer of organic mulch around the base to reduce soil splash and maintain consistent soil temperature.",
+        "visual_observations": "Young eggplant (brinjal) seedling in the early vegetative stage. Leaves are a healthy green color with typical lobed margins. Growing in dry, cloddy soil with straw residue.",
+        "processing_time_seconds": 5.43
+      }
+    },
+    {
+      "image_name": "frame_00027_1770958396675.jpg",
+      "file_size_mb": 3.6476078033447266,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:17",
+      "gps_coordinates": {
+        "latitude": 20.2154448,
+        "longitude": 80.1468341,
+        "altitude": 147.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00027_1770958396675.jpg",
+        "health_score": 82.0,
+        "health_status": "good",
+        "issues_detected": "Small necrotic spots on the leaf surface, likely caused by soil splash or minor mechanical injury. Some slight leaf edge curling is present.",
+        "recommended_interventions": "Avoid overhead irrigation to prevent further soil splash onto leaves. Scout for small insects like aphids or flea beetles that may cause early stress.",
+        "visual_observations": "Single eggplant seedling. The plant shows good vigor for its size. The surrounding soil appears dry on the surface and contains significant crop residue.",
+        "processing_time_seconds": 5.43
+      }
+    },
+    {
+      "image_name": "frame_00028_1770958397414.jpg",
+      "file_size_mb": 3.774867057800293,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:17",
+      "gps_coordinates": {
+        "latitude": 20.2154511,
+        "longitude": 80.1468366,
+        "altitude": 147.6,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00028_1770958397414.jpg",
+        "health_score": 84.0,
+        "health_status": "good",
+        "issues_detected": "Minor mechanical damage on leaf margins and some dust accumulation. No active disease or heavy pest infestation noted.",
+        "recommended_interventions": "Maintain current management practices. Ensure the area immediately around the seedling remains weed-free to prevent competition for nutrients.",
+        "visual_observations": "Healthy green eggplant seedling with well-expanded primary leaves. The plant is centered in a field with rough, tilled soil.",
+        "processing_time_seconds": 5.43
+      }
+    },
+    {
+      "image_name": "frame_00029_1770958398129.jpg",
+      "file_size_mb": 2.9538049697875977,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:18",
+      "gps_coordinates": {
+        "latitude": 20.2154564,
+        "longitude": 80.1468402,
+        "altitude": 147.29999999999998,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00029_1770958398129.jpg",
+        "health_score": 78.0,
+        "health_status": "fair",
+        "issues_detected": "Visible small 'shotholes' in the leaves, which are characteristic signs of flea beetle feeding. The plant appears slightly more stressed than others in the set.",
+        "recommended_interventions": "Apply neem oil or a suitable organic insecticide if the number of holes increases. This will protect the young, vulnerable tissue from further pest damage.",
+        "visual_observations": "Young eggplant seedling showing signs of early pest pressure. The leaf shape is slightly irregular due to the feeding damage.",
+        "processing_time_seconds": 5.43
+      }
+    },
+    {
+      "image_name": "frame_00030_1770958398861.jpg",
+      "file_size_mb": 3.2241477966308594,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:19",
+      "gps_coordinates": {
+        "latitude": 20.2154639,
+        "longitude": 80.1468475,
+        "altitude": 147.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00030_1770958398861.jpg",
+        "health_score": 83.0,
+        "health_status": "good",
+        "issues_detected": "Minor leaf spotting and evidence of light insect nibbling on both seedlings. Overall vigor remains high.",
+        "recommended_interventions": "Continue regular scouting for pests. Consider a light side-dressing of compost or a balanced organic fertilizer to support the next stage of rapid growth.",
+        "visual_observations": "Two eggplant seedlings are visible. The seedling in the lower right is slightly more established and vigorous than the one in the upper left.",
+        "processing_time_seconds": 5.43
+      }
+    },
+    {
+      "image_name": "frame_00031_1770958399596.jpg",
+      "file_size_mb": 3.2220020294189453,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:20",
+      "gps_coordinates": {
+        "latitude": 20.2154639,
+        "longitude": 80.1468475,
+        "altitude": 147.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00031_1770958399596.jpg",
+        "health_score": 75.0,
+        "health_status": "good",
+        "issues_detected": "Minor chlorosis (yellowing) on older leaves and very small holes suggesting early flea beetle activity. Soil surface is dry and cloddy.",
+        "recommended_interventions": "Scout for flea beetles and aphids. Consider a light application of a balanced starter fertilizer to support early vegetative growth. Maintain a weed-free zone around the seedling.",
+        "visual_observations": "Young eggplant (brinjal) seedling with approximately 4-5 true leaves. Leaves are green with a slightly dusty appearance. Growth stage is early vegetative.",
+        "processing_time_seconds": 3.73
+      }
+    },
+    {
+      "image_name": "frame_00032_1770958400289.jpg",
+      "file_size_mb": 3.295623779296875,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:20",
+      "gps_coordinates": {
+        "latitude": 20.2154688,
+        "longitude": 80.146852,
+        "altitude": 147.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00032_1770958400289.jpg",
+        "health_score": 80.0,
+        "health_status": "good",
+        "issues_detected": "Minimal insect feeding damage on leaf margins. Overall plant vigor appears stable for this growth stage.",
+        "recommended_interventions": "Continue regular scouting for pests. Ensure the area immediately surrounding the plant remains clear of weeds to minimize competition for nutrients.",
+        "visual_observations": "Solitary eggplant seedling in a field of tilled, cloddy soil. The plant shows characteristic lobed leaves and a healthy green color.",
+        "processing_time_seconds": 3.73
+      }
+    },
+    {
+      "image_name": "frame_00033_1770958401020.jpg",
+      "file_size_mb": 3.2139692306518555,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:21",
+      "gps_coordinates": {
+        "latitude": 20.2154752,
+        "longitude": 80.1468546,
+        "altitude": 147.29999999999998,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00033_1770958401020.jpg",
+        "health_score": 72.0,
+        "health_status": "fair",
+        "issues_detected": "The upper plant shows some marginal leaf necrosis (browning), which may indicate transplant shock or a localized nutrient imbalance. The lower plant has some pale spotting.",
+        "recommended_interventions": "Monitor new leaf development; if symptoms persist, consider a foliar micronutrient spray. Avoid over-fertilizing near the root zone to prevent chemical burn.",
+        "visual_observations": "Two young eggplant seedlings spaced apart in dry, tilled soil. Some crop residue (straw) is scattered on the surface.",
+        "processing_time_seconds": 3.73
+      }
+    },
+    {
+      "image_name": "frame_00034_1770958401703.jpg",
+      "file_size_mb": 3.7133703231811523,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:22",
+      "gps_coordinates": {
+        "latitude": 20.2154752,
+        "longitude": 80.1468546,
+        "altitude": 147.29999999999998,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00034_1770958401703.jpg",
+        "health_score": 65.0,
+        "health_status": "fair",
+        "issues_detected": "Significant competition from emerging broadleaf weeds. Small 'shotholes' in the leaves are characteristic of flea beetle feeding damage.",
+        "recommended_interventions": "Perform immediate manual weeding to reduce competition. If flea beetle damage increases, apply an appropriate organic or chemical insecticide such as neem oil or carbaryl.",
+        "visual_observations": "Eggplant seedling surrounded by a high density of small green weeds. The eggplant leaves show visible signs of pest herbivory.",
+        "processing_time_seconds": 3.73
+      }
+    },
+    {
+      "image_name": "frame_00035_1770958402403.jpg",
+      "file_size_mb": 3.7461137771606445,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:22",
+      "gps_coordinates": {
+        "latitude": 20.2154829,
+        "longitude": 80.146858,
+        "altitude": 147.29999999999998,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00035_1770958402403.jpg",
+        "health_score": 60.0,
+        "health_status": "fair",
+        "issues_detected": "High weed pressure, including one large competing plant nearby. Leaf stippling and minor discoloration suggest the presence of sucking pests like thrips or mites.",
+        "recommended_interventions": "Urgent weeding is required to prevent the crop from being stunted. Inspect the undersides of leaves for pests and treat with insecticidal soap or neem oil if necessary.",
+        "visual_observations": "Eggplant seedling in a heavily weed-infested area. The plant's growth appears slightly hindered compared to plants in cleaner soil.",
+        "processing_time_seconds": 3.73
+      }
+    },
+    {
+      "image_name": "frame_00036_1770958403152.jpg",
+      "file_size_mb": 3.1082935333251953,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:23",
+      "gps_coordinates": {
+        "latitude": 20.2154877,
+        "longitude": 80.1468612,
+        "altitude": 147.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00036_1770958403152.jpg",
+        "health_score": 65.0,
+        "health_status": "fair",
+        "issues_detected": "Significant competition from surrounding weeds. Some necrotic (brown) edges on older leaves, likely due to transplant shock or minor physical damage. Soil is very cloddy, which can restrict root expansion.",
+        "recommended_interventions": "Manually remove weeds within a 30cm radius of the plant. Gently break up large soil clods around the base. Apply a thin layer of organic mulch to suppress further weed growth and improve soil texture over time.",
+        "visual_observations": "Young eggplant (brinjal) seedling, approximately 10-15cm tall. Leaves are medium green with some brown edges. Growth stage is early vegetative. Soil is brown, dry, and very cloddy with many small weeds.",
+        "processing_time_seconds": 5.67
+      }
+    },
+    {
+      "image_name": "frame_00037_1770958403869.jpg",
+      "file_size_mb": 2.4402990341186523,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:24",
+      "gps_coordinates": {
+        "latitude": 20.2154884,
+        "longitude": 80.1468657,
+        "altitude": 147.1,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00037_1770958403869.jpg",
+        "health_score": 68.0,
+        "health_status": "fair",
+        "issues_detected": "High weed density competing for nutrients and light. Minor leaf abrasions and dust accumulation on leaf surfaces. Soil surface appears dry and poorly structured with large clods.",
+        "recommended_interventions": "Prioritize weeding the immediate area to reduce competition. Shallow cultivation of the soil surface will help break up clods and improve aeration. Monitor for early-season pests like flea beetles.",
+        "visual_observations": "Eggplant seedling with broad, slightly fuzzy green leaves. Early vegetative stage. Significant weed growth is present nearby. Soil is rough and cloddy.",
+        "processing_time_seconds": 5.67
+      }
+    },
+    {
+      "image_name": "frame_00038_1770958404594.jpg",
+      "file_size_mb": 4.206568717956543,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:25",
+      "gps_coordinates": {
+        "latitude": 20.2154814,
+        "longitude": 80.1468677,
+        "altitude": 147.1,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00038_1770958404594.jpg",
+        "health_score": 67.0,
+        "health_status": "fair",
+        "issues_detected": "Competition from a thick carpet of weeds. Some leaves show slight curling and small necrotic spots, possibly indicating early nutrient stress or minor insect feeding damage.",
+        "recommended_interventions": "Clear weeds immediately to reduce competition for resources. Apply a balanced NPK fertilizer or compost tea to support vigorous growth. Check leaf undersides for small pests.",
+        "visual_observations": "Close-up of a young eggplant plant. The central growth point looks healthy, but outer leaves show minor stress. Soil is dry and cloddy with heavy weed pressure.",
+        "processing_time_seconds": 5.67
+      }
+    },
+    {
+      "image_name": "frame_00039_1770958405314.jpg",
+      "file_size_mb": 4.014087677001953,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:25",
+      "gps_coordinates": {
+        "latitude": 20.2154794,
+        "longitude": 80.1468675,
+        "altitude": 147.1,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00039_1770958405314.jpg",
+        "health_score": 66.0,
+        "health_status": "fair",
+        "issues_detected": "Severe weed competition is likely stunting the plant's development. The eggplant is small for its apparent age. Large soil clods may be hindering root penetration and moisture access.",
+        "recommended_interventions": "Remove all weeds in the vicinity. Side-dress with a nitrogen-rich organic fertilizer to boost vegetative growth. Break up the surrounding soil clods to create a better root environment.",
+        "visual_observations": "Eggplant seedling in early growth, shown with a shoe for scale. Leaves are green but the plant appears slightly stunted. High weed density in the immediate area.",
+        "processing_time_seconds": 5.67
+      }
+    },
+    {
+      "image_name": "frame_00040_1770958406050.jpg",
+      "file_size_mb": 3.173518180847168,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:26",
+      "gps_coordinates": {
+        "latitude": 20.2154745,
+        "longitude": 80.1468696,
+        "altitude": 147.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00040_1770958406050.jpg",
+        "health_score": 70.0,
+        "health_status": "fair",
+        "issues_detected": "The plant shows slight chlorosis (yellowing) on newer leaves, suggesting a possible nitrogen deficiency. Soil is extremely cloddy and lacks organic matter on the surface.",
+        "recommended_interventions": "Cultivate the soil to break up large clods and improve the seedbed. Apply a nitrogen-based fertilizer to address the slight leaf paleness. Keep the area weed-free to ensure the plant receives all available nutrients.",
+        "visual_observations": "Small eggplant seedling in a field of large soil clods. Leaves are a slightly pale green. Fewer weeds are immediately adjacent compared to other spots, but the soil structure is poor.",
+        "processing_time_seconds": 5.67
+      }
+    },
+    {
+      "image_name": "frame_00041_1770958406761.jpg",
+      "file_size_mb": 3.726393699645996,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:27",
+      "gps_coordinates": {
+        "latitude": 20.2154704,
+        "longitude": 80.1468696,
+        "altitude": 147.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00041_1770958406761.jpg",
+        "health_score": 85.0,
+        "health_status": "good",
+        "issues_detected": "Minor leaf edge curling and slight irregularity in leaf shape, likely due to environmental fluctuations or minor insect activity. No significant disease symptoms present.",
+        "recommended_interventions": "Monitor closely for flea beetles and aphids, which are common pests for young eggplants. Consider applying a light organic mulch to help regulate soil temperature and improve the cloddy soil structure over time.",
+        "visual_observations": "Young eggplant (brinjal) seedling with characteristic lobed, slightly fuzzy green leaves. The plant is growing in dry, cloddy soil with some crop residue present.",
+        "processing_time_seconds": 7.33
+      }
+    },
+    {
+      "image_name": "frame_00042_1770958407505.jpg",
+      "file_size_mb": 3.188767433166504,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:27",
+      "gps_coordinates": {
+        "latitude": 20.21547,
+        "longitude": 80.146867,
+        "altitude": 147.29999999999998,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00042_1770958407505.jpg",
+        "health_score": 82.0,
+        "health_status": "good",
+        "issues_detected": "Slight chlorosis (yellowing) visible on the older, lower leaves, which may indicate the beginning of a nitrogen deficiency or typical transplant shock.",
+        "recommended_interventions": "Monitor the yellowing; if it progresses to newer leaves, consider a light application of a nitrogen-rich fertilizer. Ensure the plant is well-established before intensive fertilization.",
+        "visual_observations": "Small eggplant seedling in an early vegetative stage. The soil surface is very dry and composed of large clods.",
+        "processing_time_seconds": 7.33
+      }
+    },
+    {
+      "image_name": "frame_00043_1770958408217.jpg",
+      "file_size_mb": 3.1680192947387695,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:28",
+      "gps_coordinates": {
+        "latitude": 20.2154718,
+        "longitude": 80.146864,
+        "altitude": 147.4,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00043_1770958408217.jpg",
+        "health_score": 80.0,
+        "health_status": "good",
+        "issues_detected": "Minor necrotic spots and browning on the edges of one of the primary leaves. This could be due to localized pest feeding or minor wind/mechanical damage.",
+        "recommended_interventions": "Scout the undersides of leaves for small pests like thrips or mites. Avoid mechanical disturbance around the young root zone.",
+        "visual_observations": "Eggplant seedling showing typical growth pattern. A shoe is visible for scale, indicating the plant is quite small (approx. 10-15cm across).",
+        "processing_time_seconds": 7.33
+      }
+    },
+    {
+      "image_name": "frame_00044_1770958408936.jpg",
+      "file_size_mb": 2.991703987121582,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:29",
+      "gps_coordinates": {
+        "latitude": 20.2154744,
+        "longitude": 80.1468645,
+        "altitude": 147.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00044_1770958408936.jpg",
+        "health_score": 75.0,
+        "health_status": "fair",
+        "issues_detected": "More pronounced marginal leaf browning (necrosis) on older leaves. This can sometimes be a sign of potassium deficiency or localized salt accumulation in dry soil conditions.",
+        "recommended_interventions": "Check for any signs of root-knot nematodes or soil-borne pathogens if growth remains stunted. A balanced foliar feed could help the plant overcome early nutrient uptake issues.",
+        "visual_observations": "Young eggplant seedling appearing slightly less vigorous than others. Some leaf tips show distinct browning.",
+        "processing_time_seconds": 7.33
+      }
+    },
+    {
+      "image_name": "frame_00045_1770958409634.jpg",
+      "file_size_mb": 3.6403894424438477,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:30",
+      "gps_coordinates": {
+        "latitude": 20.2154727,
+        "longitude": 80.1468648,
+        "altitude": 147.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00045_1770958409634.jpg",
+        "health_score": 88.0,
+        "health_status": "excellent",
+        "issues_detected": "No significant issues detected. The plant shows good color and vigor for its current growth stage.",
+        "recommended_interventions": "Continue standard cultural practices. Maintain a scouting schedule for common eggplant pests like the shoot and fruit borer as the plant matures.",
+        "visual_observations": "Healthy young eggplant seedling with vibrant green foliage and clear leaf margins. Growing in typical field soil conditions.",
+        "processing_time_seconds": 7.33
+      }
+    },
+    {
+      "image_name": "frame_00046_1770958410360.jpg",
+      "file_size_mb": 3.272275924682617,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:30",
+      "gps_coordinates": {
+        "latitude": 20.2154722,
+        "longitude": 80.1468644,
+        "altitude": 146.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00046_1770958410360.jpg",
+        "health_score": 85.0,
+        "health_status": "good",
+        "issues_detected": "Minor insect feeding damage, likely from flea beetles, evidenced by small 'shot holes' in the leaves. Some dust accumulation on the leaf surfaces.",
+        "recommended_interventions": "Monitor the seedling for increased pest activity. If damage progresses, consider an application of neem oil. Ensure the seedling remains free from weed competition.",
+        "visual_observations": "Young eggplant seedling at the early vegetative stage. It has approximately 4-5 true leaves with a healthy green color. The surrounding soil is dry, cloddy, and contains straw mulch.",
+        "processing_time_seconds": 5.53
+      }
+    },
+    {
+      "image_name": "frame_00047_1770958411075.jpg",
+      "file_size_mb": 3.1486473083496094,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:31",
+      "gps_coordinates": {
+        "latitude": 20.2154695,
+        "longitude": 80.1468632,
+        "altitude": 146.7,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00047_1770958411075.jpg",
+        "health_score": 80.0,
+        "health_status": "good",
+        "issues_detected": "Visible insect feeding damage (shot holes) on the leaves, characteristic of flea beetle activity.",
+        "recommended_interventions": "Regularly inspect the underside of leaves for pests. Consider using yellow sticky traps nearby to monitor and reduce flea beetle populations. Maintain overall plant vigor to help it outgrow minor damage.",
+        "visual_observations": "Small eggplant seedling with several leaves showing minor perforations. The plant is well-established in dry, mulched soil.",
+        "processing_time_seconds": 5.53
+      }
+    },
+    {
+      "image_name": "frame_00048_1770958411798.jpg",
+      "file_size_mb": 3.0430212020874023,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:32",
+      "gps_coordinates": {
+        "latitude": 20.2154648,
+        "longitude": 80.1468608,
+        "altitude": 146.7,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00048_1770958411798.jpg",
+        "health_score": 75.0,
+        "health_status": "fair",
+        "issues_detected": "Moderate insect feeding damage. Multiple leaves show significant 'shot hole' patterns, which can reduce the plant's photosynthetic capacity if it worsens.",
+        "recommended_interventions": "Apply an organic insecticide such as neem oil or pyrethrin if the pest population is high. A light application of a balanced liquid fertilizer could help the plant recover and produce new growth.",
+        "visual_observations": "Eggplant seedling showing more pronounced leaf damage compared to others. The leaves are still a healthy green, but the physical integrity is compromised by pests.",
+        "processing_time_seconds": 5.53
+      }
+    },
+    {
+      "image_name": "frame_00049_1770958412506.jpg",
+      "file_size_mb": 2.844111442565918,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:32",
+      "gps_coordinates": {
+        "latitude": 20.2154606,
+        "longitude": 80.1468571,
+        "altitude": 146.4,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00049_1770958412506.jpg",
+        "health_score": 82.0,
+        "health_status": "good",
+        "issues_detected": "Minor insect feeding damage on the leaf margins and surface. No signs of nutrient deficiency or water stress.",
+        "recommended_interventions": "Continue routine monitoring. Ensure that the straw mulch is not harboring excessive pests. No immediate chemical intervention is required unless damage increases.",
+        "visual_observations": "Young eggplant seedling with good color and vigor. A large, dried-up leaf from a different plant is visible nearby on the soil surface.",
+        "processing_time_seconds": 5.53
+      }
+    },
+    {
+      "image_name": "frame_00050_1770958413220.jpg",
+      "file_size_mb": 3.2874412536621094,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:33",
+      "gps_coordinates": {
+        "latitude": 20.215456,
+        "longitude": 80.1468538,
+        "altitude": 146.1,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00050_1770958413220.jpg",
+        "health_score": 78.0,
+        "health_status": "good",
+        "issues_detected": "Insect feeding damage is present on most leaves. The plant appears slightly smaller, possibly due to the energy diverted to repairing tissue.",
+        "recommended_interventions": "Monitor closely for flea beetles or other chewing insects. If more than 20% of the leaf area is affected, consider a targeted pest control measure. Ensure the soil remains undisturbed around the root zone.",
+        "visual_observations": "Eggplant seedling with several leaves showing typical insect-related perforations. The plant is situated in a field with dry soil and straw residue.",
+        "processing_time_seconds": 5.53
+      }
+    },
+    {
+      "image_name": "frame_00051_1770958413950.jpg",
+      "file_size_mb": 3.165111541748047,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:34",
+      "gps_coordinates": {
+        "latitude": 20.2154551,
+        "longitude": 80.1468516,
+        "altitude": 145.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00051_1770958413950.jpg",
+        "health_score": 75.0,
+        "health_status": "good",
+        "issues_detected": "Minor insect damage observed as small holes in the leaves, likely caused by flea beetles. Some slight yellowing (chlorosis) on the lower, older leaves which may indicate early nitrogen deficiency or transplant stress.",
+        "recommended_interventions": "Monitor for flea beetle populations; if damage increases, consider organic controls like neem oil. Apply a balanced, water-soluble fertilizer to support early vegetative growth.",
+        "visual_observations": "Young eggplant (brinjal) seedling with several true leaves. The plant is growing in dry, cloddy soil with some straw mulch present. A human foot is visible for scale.",
+        "processing_time_seconds": 9.2
+      }
+    },
+    {
+      "image_name": "frame_00052_1770958414668.jpg",
+      "file_size_mb": 3.379945755004883,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:35",
+      "gps_coordinates": {
+        "latitude": 20.2154504,
+        "longitude": 80.1468493,
+        "altitude": 145.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00052_1770958414668.jpg",
+        "health_score": 82.0,
+        "health_status": "good",
+        "issues_detected": "Very minor leaf chewing damage. The plant appears generally healthy but small for its stage.",
+        "recommended_interventions": "Continue standard maintenance. Ensure the soil around the root zone remains undisturbed to allow for better root establishment.",
+        "visual_observations": "Single eggplant seedling centered in the frame. Leaves are a healthy green color with typical lobed margins. Soil is dry on the surface.",
+        "processing_time_seconds": 9.2
+      }
+    },
+    {
+      "image_name": "frame_00053_1770958415420.jpg",
+      "file_size_mb": 2.8752670288085938,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:35",
+      "gps_coordinates": {
+        "latitude": 20.2154489,
+        "longitude": 80.1468472,
+        "altitude": 145.7,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00053_1770958415420.jpg",
+        "health_score": 85.0,
+        "health_status": "good",
+        "issues_detected": "No significant issues detected. The plants show good vigor and color.",
+        "recommended_interventions": "Maintain current management practices. Keep the area around the seedlings free of weeds that might compete for nutrients.",
+        "visual_observations": "Two young eggplant seedlings are visible. The leaves are broad and green, showing no obvious signs of distress or major pest infestation.",
+        "processing_time_seconds": 9.2
+      }
+    },
+    {
+      "image_name": "frame_00054_1770958416117.jpg",
+      "file_size_mb": 3.5816049575805664,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:36",
+      "gps_coordinates": {
+        "latitude": 20.2154374,
+        "longitude": 80.1468429,
+        "altitude": 145.7,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00054_1770958416117.jpg",
+        "health_score": 90.0,
+        "health_status": "excellent",
+        "issues_detected": "No significant issues detected. The plant looks robust with good leaf expansion.",
+        "recommended_interventions": "Continue current care. This plant is establishing well.",
+        "visual_observations": "A healthy eggplant seedling with vibrant green leaves. The growth pattern is compact and sturdy. A foot is visible in the bottom left corner.",
+        "processing_time_seconds": 9.2
+      }
+    },
+    {
+      "image_name": "frame_00055_1770958416869.jpg",
+      "file_size_mb": 2.7132644653320312,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:37",
+      "gps_coordinates": {
+        "latitude": 20.2154351,
+        "longitude": 80.1468449,
+        "altitude": 145.7,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00055_1770958416869.jpg",
+        "health_score": 70.0,
+        "health_status": "fair",
+        "issues_detected": "The seedling in the upper left appears smaller and less developed than others in the field, suggesting possible localized soil issues or weaker seedling vigor.",
+        "recommended_interventions": "Check for soil compaction or uneven nutrient distribution in this area. A light side-dressing of compost or fertilizer may help this smaller plant catch up.",
+        "visual_observations": "Two eggplant seedlings are partially visible. The one in the upper left is noticeably smaller and has fewer leaves than those seen in previous images.",
+        "processing_time_seconds": 9.2
+      }
+    },
+    {
+      "image_name": "frame_00056_1770958417573.jpg",
+      "file_size_mb": 3.7645206451416016,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:37",
+      "gps_coordinates": {
+        "latitude": 20.2154303,
+        "longitude": 80.146845,
+        "altitude": 145.7,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00056_1770958417573.jpg",
+        "health_score": 65.0,
+        "health_status": "fair",
+        "issues_detected": "The seedling shows signs of transplant shock and minor insect herbivory, indicated by small holes and irregular leaf margins. The leaves appear somewhat dull and dusty, which can hinder photosynthesis.",
+        "recommended_interventions": "Apply a balanced liquid starter fertilizer to encourage root establishment. Monitor closely for flea beetles or aphids. Gently clear excessive dust from leaves if possible during next scheduled maintenance.",
+        "visual_observations": "Young eggplant (brinjal) seedling in early vegetative stage. Soil is dry and cloddy with straw mulch residue. Leaves are green but lack high vigor.",
+        "processing_time_seconds": 3.51
+      }
+    },
+    {
+      "image_name": "frame_00057_1770958418295.jpg",
+      "file_size_mb": 2.9341869354248047,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:38",
+      "gps_coordinates": {
+        "latitude": 20.215429,
+        "longitude": 80.1468451,
+        "altitude": 145.6,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00057_1770958418295.jpg",
+        "health_score": 72.0,
+        "health_status": "good",
+        "issues_detected": "Minor leaf damage from chewing insects is visible. Some slight leaf curling suggests environmental stress or early-stage pest pressure.",
+        "recommended_interventions": "Scout for pests under the leaves. Consider applying neem oil if pest population increases. Ensure the area immediately around the base is free of competing weeds.",
+        "visual_observations": "Small eggplant seedling with several true leaves. The plant is centered in a field with significant crop residue (straw) on the surface.",
+        "processing_time_seconds": 3.51
+      }
+    },
+    {
+      "image_name": "frame_00058_1770958418989.jpg",
+      "file_size_mb": 3.709308624267578,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:39",
+      "gps_coordinates": {
+        "latitude": 20.2154241,
+        "longitude": 80.1468444,
+        "altitude": 145.5,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00058_1770958418989.jpg",
+        "health_score": 78.0,
+        "health_status": "good",
+        "issues_detected": "Occasional small holes in leaves indicate minor pest activity. Overall, the plant appears more established than others in the set.",
+        "recommended_interventions": "Continue regular monitoring. No immediate chemical intervention is required for the minor pest damage seen. Maintain current management practices.",
+        "visual_observations": "Eggplant seedling showing good leaf expansion and a healthy green color. Growth pattern is normal for this stage.",
+        "processing_time_seconds": 3.51
+      }
+    },
+    {
+      "image_name": "frame_00059_1770958419704.jpg",
+      "file_size_mb": 3.0376548767089844,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:40",
+      "gps_coordinates": {
+        "latitude": 20.2154241,
+        "longitude": 80.1468444,
+        "altitude": 145.5,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00059_1770958419704.jpg",
+        "health_score": 62.0,
+        "health_status": "fair",
+        "issues_detected": "The plant appears slightly stunted with some pale/yellowish tinting on the newer leaves, which could indicate a mild nitrogen deficiency or poor nutrient uptake due to root establishment issues.",
+        "recommended_interventions": "Consider a light side-dressing of a nitrogen-rich fertilizer. Check for soil compaction around the root zone that might be limiting growth.",
+        "visual_observations": "Small eggplant seedling in the upper left of the frame. The plant looks less vigorous compared to its counterparts in other images.",
+        "processing_time_seconds": 3.51
+      }
+    },
+    {
+      "image_name": "frame_00060_1770958420413.jpg",
+      "file_size_mb": 3.698178291320801,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:40",
+      "gps_coordinates": {
+        "latitude": 20.215418,
+        "longitude": 80.1468419,
+        "altitude": 145.79999999999998,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00060_1770958420413.jpg",
+        "health_score": 74.0,
+        "health_status": "good",
+        "issues_detected": "Minor physical damage or insect nibbling on the leaf edges. The plant is small but appears to be recovering from any initial transplant stress.",
+        "recommended_interventions": "Monitor for pests and ensure no weeds are emerging close to the seedling that could compete for nutrients.",
+        "visual_observations": "Young eggplant seedling with healthy green leaves. The surrounding soil is dry and contains straw mulch.",
+        "processing_time_seconds": 3.51
+      }
+    },
+    {
+      "image_name": "frame_00061_1770958421149.jpg",
+      "file_size_mb": 3.7027111053466797,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:41",
+      "gps_coordinates": {
+        "latitude": 20.2154133,
+        "longitude": 80.1468413,
+        "altitude": 146.0,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00061_1770958421149.jpg",
+        "health_score": 75.0,
+        "health_status": "good",
+        "issues_detected": "Minor leaf edge necrosis and small holes suggesting early-stage insect herbivory, possibly by flea beetles.",
+        "recommended_interventions": "Monitor for increased pest activity. If damage progresses, consider applying a botanical insecticide like neem oil. Ensure the area remains weed-free to reduce pest habitats.",
+        "visual_observations": "Young eggplant (Solanum melongena) seedling with 4-5 true leaves. Green foliage with slight browning on one leaf margin. Soil is dry on the surface with straw mulch.",
+        "processing_time_seconds": 3.69
+      }
+    },
+    {
+      "image_name": "frame_00062_1770958421879.jpg",
+      "file_size_mb": 3.2967729568481445,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:42",
+      "gps_coordinates": {
+        "latitude": 20.2154091,
+        "longitude": 80.1468399,
+        "altitude": 146.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00062_1770958421879.jpg",
+        "health_score": 78.0,
+        "health_status": "good",
+        "issues_detected": "Slight chlorosis on the margins of older leaves, potentially indicating a minor nutrient imbalance or environmental stress.",
+        "recommended_interventions": "Observe new growth for similar symptoms. If yellowing persists or spreads to new leaves, a light application of a balanced NPK fertilizer may be beneficial.",
+        "visual_observations": "Small eggplant seedling in early vegetative stage. Leaves are generally green but show some pale edges. Surrounded by dry, cloddy soil and crop residue.",
+        "processing_time_seconds": 3.69
+      }
+    },
+    {
+      "image_name": "frame_00063_1770958422609.jpg",
+      "file_size_mb": 3.4569053649902344,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:43",
+      "gps_coordinates": {
+        "latitude": 20.2154061,
+        "longitude": 80.1468372,
+        "altitude": 146.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00063_1770958422609.jpg",
+        "health_score": 85.0,
+        "health_status": "good",
+        "issues_detected": "No significant issues detected. The plant appears vigorous for its size.",
+        "recommended_interventions": "Continue standard cultural practices. Maintain a weed-free zone around the seedling to reduce competition for nutrients.",
+        "visual_observations": "Healthy-looking eggplant seedling with vibrant green leaves. Growth pattern is compact and upright. A shoe is visible at the bottom for scale.",
+        "processing_time_seconds": 3.69
+      }
+    },
+    {
+      "image_name": "frame_00064_1770958423366.jpg",
+      "file_size_mb": 2.8289566040039062,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:43",
+      "gps_coordinates": {
+        "latitude": 20.2154016,
+        "longitude": 80.1468324,
+        "altitude": 146.6,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00064_1770958423366.jpg",
+        "health_score": 82.0,
+        "health_status": "good",
+        "issues_detected": "Very minor yellowing on the tip of one leaf, likely non-pathogenic and related to transplanting or slight wind burn.",
+        "recommended_interventions": "No immediate action required. Monitor for any signs of spreading or new pest infestations as the plant grows.",
+        "visual_observations": "Eggplant seedling positioned in the lower right of the frame. Leaves are broad and green. Soil surface is dry with scattered straw.",
+        "processing_time_seconds": 3.69
+      }
+    },
+    {
+      "image_name": "frame_00065_1770958424104.jpg",
+      "file_size_mb": 3.1717329025268555,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:44",
+      "gps_coordinates": {
+        "latitude": 20.2154002,
+        "longitude": 80.1468312,
+        "altitude": 146.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00065_1770958424104.jpg",
+        "health_score": 72.0,
+        "health_status": "fair",
+        "issues_detected": "Visible stippling and small necrotic spots on the leaf surfaces, indicative of early pest feeding (e.g., flea beetles or mites) or a minor fungal leaf spot.",
+        "recommended_interventions": "Carefully inspect the undersides of leaves for pests. If pests are found, apply an appropriate organic pesticide. Avoid overhead watering to minimize leaf wetness and disease spread.",
+        "visual_observations": "Eggplant seedling showing some signs of stress. Leaves have a slightly mottled appearance with small brown spots. Growth stage is early vegetative.",
+        "processing_time_seconds": 3.69
+      }
+    },
+    {
+      "image_name": "frame_00066_1770958424845.jpg",
+      "file_size_mb": 3.4333086013793945,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:45",
+      "gps_coordinates": {
+        "latitude": 20.2153949,
+        "longitude": 80.1468282,
+        "altitude": 146.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00066_1770958424845.jpg",
+        "health_score": 75.0,
+        "health_status": "fair",
+        "issues_detected": "The eggplant seedling shows significant dust accumulation on the leaf surfaces, which can reduce photosynthetic efficiency. There is also slight chlorosis (yellowing) on the older, lower leaves, potentially indicating minor nutrient stress or transplant shock.",
+        "recommended_interventions": "Monitor for progression of yellowing; if it spreads to new growth, consider a diluted liquid fertilizer. Keep the area around the seedling free of competing weeds to reduce nutrient competition.",
+        "visual_observations": "A young eggplant (brinjal) seedling with several true leaves. The plant is small, situated in a field with dry, cloddy soil and straw mulch residue.",
+        "processing_time_seconds": 5.34
+      }
+    },
+    {
+      "image_name": "frame_00067_1770958425583.jpg",
+      "file_size_mb": 3.2435741424560547,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:46",
+      "gps_coordinates": {
+        "latitude": 20.2153897,
+        "longitude": 80.1468226,
+        "altitude": 146.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00067_1770958425583.jpg",
+        "health_score": 78.0,
+        "health_status": "good",
+        "issues_detected": "The plant is generally healthy but covered in soil dust. There is very minor leaf margin curling, likely a physiological response to heat or wind stress common in open field environments.",
+        "recommended_interventions": "No immediate corrective action is required. Continue to monitor for signs of insect pests like aphids or flea beetles as temperatures rise, which are common threats to young solanaceous crops.",
+        "visual_observations": "Eggplant seedling in the early vegetative stage. The leaves are a dull green due to dust, but the central growth point appears active and healthy.",
+        "processing_time_seconds": 5.34
+      }
+    },
+    {
+      "image_name": "frame_00068_1770958426317.jpg",
+      "file_size_mb": 3.611639976501465,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T10:23:46",
+      "gps_coordinates": {
+        "latitude": 20.2153878,
+        "longitude": 80.1468221,
+        "altitude": 146.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00068_1770958426317.jpg",
+        "health_score": 80.0,
+        "health_status": "good",
+        "issues_detected": "Minor holes in the leaves suggest early-stage feeding by insects, possibly flea beetles. Dust accumulation is present on all leaf surfaces, which is typical for this field condition.",
+        "recommended_interventions": "Scout for small jumping beetles (flea beetles). If damage increases significantly, consider applying an appropriate botanical insecticide like neem oil to protect the young foliage.",
+        "visual_observations": "Young eggplant plant with a healthy green color. The plant shows slightly better vigor than the previous examples, with well-defined leaf structure and a sturdy stem for its size.",
+        "processing_time_seconds": 5.34
+      }
+    }
+  ],
+  "summary_statistics": {
+    "average_health_score": 77.38235294117646,
+    "min_health_score": 60.0,
+    "max_health_score": 90.0,
+    "images_with_gps": 68,
+    "total_processing_time_seconds": 371.72,
+    "average_time_per_image_seconds": 5.47
+  }
+}

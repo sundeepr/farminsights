@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block breadcrumb %}
+{% if breadcrumb %}
+    {% for crumb in breadcrumb %}
+        {% if not loop.last %}
+            <a href="/org/{{ crumb.id }}" class="breadcrumb-item">{{ crumb.name }}</a>
+            <span class="breadcrumb-sep">/</span>
+        {% else %}
+            <span class="breadcrumb-item active">{{ crumb.name }}</span>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <span class="breadcrumb-item active">{{ org.name }}</span>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="page-content" id="orgDashboard"
+     data-org-id="{{ org.id }}"
+     data-user-role="{{ user.role if user else '' }}">
+
+    <!-- Metrics Bar -->
+    <div class="metrics-bar" id="metricsBar">
+        <div class="metric-card">
+            <div class="metric-label">Avg Health Score</div>
+            <div class="metric-value" id="metAvgHealth"><span class="skeleton" style="width:60px;height:32px;display:block"></span></div>
+            <div class="metric-sub" id="metHealthStatus">—</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Total Farms</div>
+            <div class="metric-value" id="metFarmCount"><span class="skeleton" style="width:40px;height:32px;display:block"></span></div>
+            <div class="metric-sub" id="metFarmSub">—</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Alerts (Poor Health)</div>
+            <div class="metric-value poor" id="metAlerts"><span class="skeleton" style="width:40px;height:32px;display:block"></span></div>
+            <div class="metric-sub">Farms below threshold</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Last Report</div>
+            <div class="metric-value" id="metLastReport" style="font-size:1em;padding-top:6px;">
+                <span class="skeleton" style="width:80px;height:22px;display:block"></span>
+            </div>
+            <div class="metric-sub">Most recent data collection</div>
+        </div>
+    </div>
+
+    <!-- Sub-Organizations Table -->
+    <div class="section-card" id="subOrgsCard" style="display:none">
+        <div class="section-card-header">
+            <div class="section-card-title">Sub-Organizations</div>
+        </div>
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Farms</th>
+                        <th>Avg Health</th>
+                        <th>Alerts</th>
+                        <th>Last Report</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="subOrgsBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Farms Table -->
+    <div class="section-card">
+        <div class="section-card-header">
+            <div class="section-card-title">Farms</div>
+            {% if user and user.role in ('admin', 'org_admin') %}
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <button class="btn-action" onclick="openFarmModal()">+ New Farm</button>
+                <button class="btn-action" style="background:linear-gradient(135deg,#1565c0,#1976d2);" onclick="openUploadModal()">↑ Upload Report</button>
+            </div>
+            {% endif %}
+        </div>
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Farm Name</th>
+                        <th>Avg Health</th>
+                        <th>Status</th>
+                        <th>Issues</th>
+                        <th>Weather</th>
+                        <th>Rain 24h</th>
+                        <th>Farmers</th>
+                        <th>Last Report</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="farmsBody">
+                    <tr><td colspan="9" style="text-align:center;color:#adb5bd;padding:30px;">Loading farms...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- ===== Modals (admin/org_admin only) ===== -->
+{% if user and user.role in ('admin', 'org_admin') %}
+
+<!-- New Farm Modal -->
+<div id="farmModal" class="admin-modal-overlay" style="display:none">
+    <div class="admin-modal">
+        <div class="admin-modal-header">
+            <div class="admin-modal-title">New Farm</div>
+            <button class="admin-modal-close" onclick="closeFarmModal()">&times;</button>
+        </div>
+        <div id="farmModalError" class="admin-modal-error" style="display:none"></div>
+        <div class="admin-modal-body">
+            <div class="form-group">
+                <label>Farm Name <span class="required">*</span></label>
+                <input type="text" id="farmName" placeholder="e.g. North Plot">
+            </div>
+            <div class="form-group">
+                <label>Organizations <span class="required">*</span></label>
+                <div id="farmOrgCheckboxes" class="checkbox-list"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Latitude <span class="optional">(optional)</span></label>
+                    <input type="number" id="farmLat" placeholder="e.g. 20.3211" step="any">
+                </div>
+                <div class="form-group">
+                    <label>Longitude <span class="optional">(optional)</span></label>
+                    <input type="number" id="farmLng" placeholder="e.g. 80.1898" step="any">
+                </div>
+            </div>
+            <div class="form-hint">GPS coordinates are used for weather data and map display.</div>
+        </div>
+        <div class="admin-modal-footer">
+            <button class="admin-btn-cancel" onclick="closeFarmModal()">Cancel</button>
+            <button class="admin-btn-submit" id="farmSubmitBtn" onclick="submitCreateFarm()">Create Farm</button>
+        </div>
+    </div>
+</div>
+
+<!-- Farmers Modal -->
+<div id="farmersModal" class="admin-modal-overlay" style="display:none">
+    <div class="admin-modal">
+        <div class="admin-modal-header">
+            <div class="admin-modal-title" id="farmersModalTitle">Farmers</div>
+            <button class="admin-modal-close" onclick="closeFarmersModal()">&times;</button>
+        </div>
+        <div class="admin-modal-body" id="farmersModalBody" style="min-height:80px;">
+            <div style="text-align:center;color:#adb5bd;padding:20px;">Loading…</div>
+        </div>
+        <div class="admin-modal-footer">
+            <button class="admin-btn-cancel" onclick="closeFarmersModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Upload Report Modal -->
+<div id="uploadModal" class="admin-modal-overlay" style="display:none">
+    <div class="admin-modal">
+        <div class="admin-modal-header">
+            <div class="admin-modal-title">Upload Farm Report</div>
+            <button class="admin-modal-close" onclick="closeUploadModal()">&times;</button>
+        </div>
+        <div id="uploadModalError" class="admin-modal-error" style="display:none"></div>
+        <div class="admin-modal-body">
+            <div class="form-group">
+                <label>Farm <span class="required">*</span></label>
+                <select id="uploadFarm">
+                    <option value="">— Select farm —</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Report File (.json) <span class="required">*</span></label>
+                <div class="file-drop-zone" id="dropZone" onclick="document.getElementById('reportFile').click()">
+                    <div class="file-drop-icon">📄</div>
+                    <div class="file-drop-text" id="fileDropText">Click to choose a .json file<br><span style="font-size:0.8em;color:#adb5bd;">or drag and drop here</span></div>
+                    <input type="file" id="reportFile" accept=".json" style="display:none" onchange="onFileSelected(this)">
+                </div>
+            </div>
+        </div>
+        <div class="admin-modal-footer">
+            <button class="admin-btn-cancel" onclick="closeUploadModal()">Cancel</button>
+            <button class="admin-btn-submit" id="uploadBtn" onclick="submitUpload()">Upload Report</button>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/org_dashboard.js"></script>
+{% endblock %}

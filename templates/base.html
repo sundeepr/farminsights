@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title | default('Sustainable Automation') }} — Sustainable Automation</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    {% block head_css %}{% endblock %}
+
+    <!-- Shared layout CSS -->
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+
+<!-- Hamburger (mobile) -->
+<button class="hamburger" id="hamburgerBtn" aria-label="Open menu">&#9776;</button>
+<!-- Sidebar backdrop (mobile) -->
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+<!-- ===== Sidebar Navigation ===== -->
+<nav class="sidebar-nav" id="sidebarNav">
+    <a href="{{ nav_context.dashboard_url if nav_context and nav_context.dashboard_url else '/login' }}" class="sidebar-logo">
+        <div class="sidebar-logo-icon">🌱</div>
+        <div>
+            <div class="sidebar-logo-text">Sustainable Automation</div>
+            <div class="sidebar-logo-sub">Farm Health Monitoring</div>
+        </div>
+    </a>
+
+    <div class="sidebar-section">
+        {% if user %}
+            {% if user.role == 'admin' %}
+                <div class="sidebar-section-label">Management</div>
+                <a href="/admin" class="sidebar-link {% if request.path == '/admin' %}active{% endif %}">
+                    <span class="link-icon">🏢</span> All Organizations
+                </a>
+
+            {% elif user.role == 'org_admin' and nav_context and nav_context.orgs_tree %}
+                <div class="sidebar-section-label">Organizations</div>
+                {% set tree = nav_context.orgs_tree %}
+                <a href="/org/{{ tree.id }}"
+                   class="sidebar-link {% if nav_context.current_org_id == tree.id %}active{% endif %}">
+                    <span class="link-icon">🏢</span> {{ tree.name }}
+                </a>
+
+                {% if tree.children %}
+                    <div class="sidebar-org-tree">
+                        {% for child in tree.children %}
+                            <a href="/org/{{ child.id }}"
+                               class="sidebar-org-item {% if nav_context.current_org_id == child.id %}active{% endif %}">
+                                ↳ {{ child.name }}
+                            </a>
+                            {% for farm in child.farms %}
+                                <a href="/farm/{{ farm.id }}"
+                                   class="sidebar-farm-item {% if nav_context.current_farm_id == farm.id %}active{% endif %}"
+                                   style="padding-left: 32px;">
+                                    🌾 {{ farm.name }}
+                                </a>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if tree.farms %}
+                    <div class="sidebar-section-label" style="margin-top: 8px;">Farms</div>
+                    {% for farm in tree.farms %}
+                        <a href="/farm/{{ farm.id }}"
+                           class="sidebar-link {% if nav_context.current_farm_id == farm.id %}active{% endif %}">
+                            <span class="link-icon">🌾</span> {{ farm.name }}
+                        </a>
+                    {% endfor %}
+                {% endif %}
+
+            {% elif user.role == 'user' and nav_context %}
+                <div class="sidebar-section-label">My Farms</div>
+                {% for farm in nav_context.user_farms %}
+                    <a href="/farm/{{ farm.id }}"
+                       class="sidebar-link {% if nav_context.current_farm_id == farm.id %}active{% endif %}">
+                        <span class="link-icon">🌾</span> {{ farm.name }}
+                    </a>
+                {% endfor %}
+            {% endif %}
+
+        {% else %}
+            <div style="padding: 20px; color: rgba(255,255,255,0.4); font-size: 0.85em;">
+                Sign in to access your farms.
+            </div>
+        {% endif %}
+    </div>
+
+    {% if user %}
+    <div class="sidebar-footer">
+        <div class="sidebar-user">
+            <div class="sidebar-avatar">👤</div>
+            <div>
+                <div class="sidebar-username">{{ user.display_name if user.display_name else user.username }}</div>
+                <div class="sidebar-role">{{ user.role | replace('_', ' ') | title }}</div>
+            </div>
+        </div>
+        <button class="btn-logout" id="logoutBtn">Sign Out</button>
+    </div>
+    {% endif %}
+</nav>
+
+<!-- ===== Page Wrapper ===== -->
+<div class="page-wrapper">
+
+    <!-- Top bar / Breadcrumb -->
+    <div class="top-bar">
+        {% block breadcrumb %}
+        <span class="breadcrumb-item active">Home</span>
+        {% endblock %}
+    </div>
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+</div>
+
+<!-- Shared JS -->
+<script src="/static/js/auth.js"></script>
+<script src="/static/js/nav.js"></script>
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>

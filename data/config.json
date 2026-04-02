@@ -1,0 +1,216 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "username": "admin",
+      "display_name": "Administrator",
+      "password": "admin123",
+      "role": "admin",
+      "org_id": null,
+      "farm_ids": []
+    },
+    {
+      "id": "u2",
+      "username": "anil",
+      "display_name": "Anil Kumar",
+      "password": "secret123",
+      "role": "org_admin",
+      "org_id": "org_root",
+      "farm_ids": []
+    },
+    {
+      "id": "u3",
+      "username": "sundeep",
+      "display_name": "Sundeep Reddy",
+      "password": "farmerpass",
+      "role": "user",
+      "org_id": null,
+      "farm_ids": [
+        "farm_001"
+      ]
+    },
+    {
+      "id": "u4",
+      "username": "priya",
+      "display_name": "Priya Sharma",
+      "password": "priya123",
+      "role": "org_admin",
+      "org_id": "org_region_mh",
+      "farm_ids": []
+    },
+    {
+      "id": "u5",
+      "username": "kavitha",
+      "display_name": "Kavitha Nair",
+      "password": "kavitha123",
+      "role": "user",
+      "org_id": null,
+      "farm_ids": [
+        "farm_002"
+      ]
+    },
+    {
+      "id": "u6",
+      "username": "arjun",
+      "display_name": "Arjun Patil",
+      "password": "arjun123",
+      "role": "user",
+      "org_id": null,
+      "farm_ids": [
+        "farm_003",
+        "farm_004"
+      ]
+    },
+    {
+      "id": "u7",
+      "username": "meena",
+      "display_name": "Meena Rao",
+      "password": "meena123",
+      "role": "org_admin",
+      "org_id": "org_region_tg",
+      "farm_ids": []
+    },
+    {
+      "id": "u8",
+      "username": "rajesh",
+      "display_name": "Rajesh Desai",
+      "password": "rajesh123",
+      "role": "user",
+      "org_id": null,
+      "farm_ids": [
+        "farm_005"
+      ]
+    },
+    {
+      "id": "u9",
+      "username": "deepak",
+      "display_name": "Deepak Verma",
+      "password": "deepak123",
+      "role": "user",
+      "org_id": null,
+      "farm_ids": [
+        "farm_006"
+      ]
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org_root",
+      "name": "Sunrise Agri Group",
+      "parent_id": null,
+      "children": [
+        "org_region_mh",
+        "org_region_tg"
+      ],
+      "farms": []
+    },
+    {
+      "id": "org_region_mh",
+      "name": "Maharashtra",
+      "parent_id": "org_root",
+      "children": [
+        "org_district_gadchiroli"
+      ],
+      "farms": []
+    },
+    {
+      "id": "org_district_gadchiroli",
+      "name": "Gadchiroli District",
+      "parent_id": "org_region_mh",
+      "children": [
+        "org_taluka_dhanora"
+      ],
+      "farms": []
+    },
+    {
+      "id": "org_taluka_dhanora",
+      "name": "Dhanora Taluka",
+      "parent_id": "org_district_gadchiroli",
+      "children": [],
+      "farms": [
+        "farm_001",
+        "farm_002",
+        "farm_006"
+      ]
+    },
+    {
+      "id": "org_region_tg",
+      "name": "Telangana",
+      "parent_id": "org_root",
+      "children": [
+        "org_district_sangareddy"
+      ],
+      "farms": []
+    },
+    {
+      "id": "org_district_sangareddy",
+      "name": "Sangareddy District",
+      "parent_id": "org_region_tg",
+      "children": [
+        "org_mandal_gummadidala"
+      ],
+      "farms": []
+    },
+    {
+      "id": "org_mandal_gummadidala",
+      "name": "Gummadidala Mandal",
+      "parent_id": "org_district_sangareddy",
+      "children": [],
+      "farms": [
+        "farm_003",
+        "farm_004",
+        "farm_005"
+      ]
+    }
+  ],
+  "farms": [
+    {
+      "id": "farm_001",
+      "name": "Nimgaon Farm",
+      "org_ids": ["org_taluka_dhanora"],
+      "data_folder": "data/farm_001",
+      "lat": 20.3211,
+      "lng": 80.1898
+    },
+    {
+      "id": "farm_002",
+      "name": "Kudakwahi Farm",
+      "org_ids": ["org_taluka_dhanora"],
+      "data_folder": "data/farm_002",
+      "lat": 20.2155,
+      "lng": 80.1468
+    },
+    {
+      "id": "farm_003",
+      "name": "Gummadidala Farm",
+      "org_ids": ["org_mandal_gummadidala"],
+      "data_folder": "data/farm_003",
+      "lat": 17.7097,
+      "lng": 78.4235
+    },
+    {
+      "id": "farm_004",
+      "name": "Gummadidala East Plot",
+      "org_ids": ["org_mandal_gummadidala"],
+      "data_folder": "data/farm_004",
+      "lat": 17.7097,
+      "lng": 78.4238
+    },
+    {
+      "id": "farm_005",
+      "name": "Gummadidala South Plot",
+      "org_ids": ["org_mandal_gummadidala"],
+      "data_folder": "data/farm_005",
+      "lat": 17.7097,
+      "lng": 78.4235
+    },
+    {
+      "id": "farm_006",
+      "name": "Dhanora Farm",
+      "org_ids": ["org_taluka_dhanora"],
+      "data_folder": "data/farm_006",
+      "lat": 20.3211,
+      "lng": 80.1898
+    }
+  ]
+}

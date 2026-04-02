@@ -1,0 +1,2802 @@
+{
+  "report_metadata": {
+    "generated_at": "2026-02-15T16:50:11.468326",
+    "input_folder": "/home/sundeep/Pictures/data-cap-13-feb-2026/session_1770963959096",
+    "images_folder": "/home/sundeep/Pictures/data-cap-13-feb-2026/session_1770963959096/images",
+    "metadata_csv": "/home/sundeep/Pictures/data-cap-13-feb-2026/session_1770963959096/metadata.csv",
+    "model_used": "gemini-3-flash-preview",
+    "total_images": 96,
+    "images_with_gps": 95,
+    "successful_analyses": 96,
+    "status": "completed"
+  },
+  "images": [
+    {
+      "image_name": "frame_00001_1770963959177.jpg",
+      "file_size_mb": 3.71700382232666,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:55:59",
+      "gps_coordinates": {
+        "latitude": 20.3209583,
+        "longitude": 80.1897517,
+        "altitude": 163.0,
+        "accuracy": 3.2
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00001_1770963959177.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Significant weed competition is present, competing for nutrients and light. Several legume plants show chlorosis (yellowing) and stunted growth, which are characteristic symptoms of Mungbean Yellow Mosaic Virus (MYMV) or a nitrogen deficiency.",
+        "recommended_interventions": "Implement immediate weed control through manual weeding or appropriate post-emergence herbicides. Apply a systemic insecticide to control whiteflies, which are the primary vectors for MYMV. Consider a foliar spray of micronutrients to boost plant vigor.",
+        "visual_observations": "Young legume plants (likely mung bean) at the vegetative stage. The field contains heavy weed growth and significant crop residue. Leaves show noticeable yellowing.",
+        "processing_time_seconds": 5.69
+      }
+    },
+    {
+      "image_name": "frame_00002_1770963960317.jpg",
+      "file_size_mb": 2.86514949798584,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:00",
+      "gps_coordinates": {
+        "latitude": 20.3209583,
+        "longitude": 80.1897567,
+        "altitude": 163.1,
+        "accuracy": 3.05
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00002_1770963960317.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Severe weed infestation is causing significant stress to the crop. The legume plants exhibit stunted growth and widespread chlorosis, likely due to nutrient competition and potential viral infection.",
+        "recommended_interventions": "Prioritize thorough weed removal to reduce competition. Apply a balanced NPK fertilizer if soil fertility is low. Monitor closely for whitefly activity and treat with an insecticide if necessary.",
+        "visual_observations": "Sparse and stunted legume plants surrounded by a high density of broadleaf and grassy weeds. Significant yellowing is visible on the crop foliage.",
+        "processing_time_seconds": 5.69
+      }
+    },
+    {
+      "image_name": "frame_00003_1770963961100.jpg",
+      "file_size_mb": 3.416876792907715,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:01",
+      "gps_coordinates": {
+        "latitude": 20.3209467,
+        "longitude": 80.1897633,
+        "altitude": 163.5,
+        "accuracy": 2.7
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00003_1770963961100.jpg",
+        "health_score": 35.0,
+        "health_status": "poor",
+        "issues_detected": "Clear symptoms of a viral infection, specifically mottling and yellowing of the leaves consistent with Yellow Mosaic Virus. High weed density is further stressing the plants.",
+        "recommended_interventions": "Remove and destroy (rogue out) severely infected plants to prevent the virus from spreading. Implement a strict vector control program using systemic insecticides. Apply a foliar fertilizer to support the remaining healthy plants.",
+        "visual_observations": "Close-up view of legume plants showing distinct yellow mosaic patterns on the leaves. The soil surface is visible and heavily populated with weeds.",
+        "processing_time_seconds": 5.69
+      }
+    },
+    {
+      "image_name": "frame_00004_1770963961776.jpg",
+      "file_size_mb": 3.1209802627563477,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:02",
+      "gps_coordinates": {
+        "latitude": 20.3209467,
+        "longitude": 80.1897683,
+        "altitude": 163.79999999999998,
+        "accuracy": 2.45
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00004_1770963961776.jpg",
+        "health_score": 30.0,
+        "health_status": "critical",
+        "issues_detected": "Advanced chlorosis and leaf mottling indicate a severe viral outbreak. The crop is also suffering from extreme competition with weeds, leading to very poor vigor and stunted development.",
+        "recommended_interventions": "Immediate and aggressive weed management is required. Apply insecticides to manage the insect vectors of the virus. Evaluate the overall field infection rate to determine if the crop remains economically viable.",
+        "visual_observations": "Legume plants exhibiting severe yellowing and stunted growth. Weeds are dominant throughout the area, and the crop appears highly stressed.",
+        "processing_time_seconds": 5.69
+      }
+    },
+    {
+      "image_name": "frame_00005_1770963962464.jpg",
+      "file_size_mb": 3.3073673248291016,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:02",
+      "gps_coordinates": {
+        "latitude": 20.3209433,
+        "longitude": 80.1897717,
+        "altitude": 164.5,
+        "accuracy": 2.133
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00005_1770963962464.jpg",
+        "health_score": 35.0,
+        "health_status": "poor",
+        "issues_detected": "The plants show stunted growth and significant yellowing of the foliage. High weed pressure and potential nutrient deficiencies (like nitrogen or iron) are evident.",
+        "recommended_interventions": "Apply a systemic insecticide to manage whitefly populations. Use a foliar fertilizer containing nitrogen and chelated iron to address the chlorosis. Ensure the field is cleared of weeds to improve resource availability for the crop.",
+        "visual_observations": "Small legume plants with yellowed leaves situated in a weed-heavy field with crop residue. The surface soil shows some signs of drying.",
+        "processing_time_seconds": 5.69
+      }
+    },
+    {
+      "image_name": "frame_00006_1770963963169.jpg",
+      "file_size_mb": 3.1861696243286133,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:03",
+      "gps_coordinates": {
+        "latitude": 20.3209433,
+        "longitude": 80.1897717,
+        "altitude": 164.5,
+        "accuracy": 2.133
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00006_1770963963169.jpg",
+        "health_score": 50.0,
+        "health_status": "poor",
+        "issues_detected": "The plants exhibit significant chlorosis (yellowing) on the leaves, which is characteristic of nitrogen deficiency or potentially a viral infection like Mungbean Yellow Mosaic Virus (MYMV). There is also high competition from various weed species.",
+        "recommended_interventions": "Apply a nitrogen-rich fertilizer or a balanced NPK to address potential nutrient deficiencies. Implement immediate weed control measures (manual or herbicide) to reduce competition. Monitor for whiteflies, which are common vectors for yellow mosaic viruses.",
+        "visual_observations": "Small legume plants, likely mung bean, at an early vegetative stage. Leaves show patchy yellowing. The soil is dry and cloddy with significant straw residue and weed growth.",
+        "processing_time_seconds": 3.73
+      }
+    },
+    {
+      "image_name": "frame_00007_1770963963892.jpg",
+      "file_size_mb": 2.686216354370117,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:04",
+      "gps_coordinates": {
+        "latitude": 20.3209417,
+        "longitude": 80.189775,
+        "altitude": 164.79999999999998,
+        "accuracy": 2.042
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00007_1770963963892.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Sparse crop establishment with visible plants showing severe chlorosis and stunted growth. Heavy weed pressure is competing for resources.",
+        "recommended_interventions": "Prioritize weeding around the crop plants. Apply a foliar spray of micronutrients and a nitrogenous fertilizer to boost growth. Inspect for sucking pests like aphids or whiteflies that may be transmitting diseases.",
+        "visual_observations": "Sparse legume seedlings in a field with heavy straw mulch and emerging weeds. Significant yellowing is visible on the plant in the upper right corner.",
+        "processing_time_seconds": 3.73
+      }
+    },
+    {
+      "image_name": "frame_00008_1770963964557.jpg",
+      "file_size_mb": 3.365377426147461,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:04",
+      "gps_coordinates": {
+        "latitude": 20.3209417,
+        "longitude": 80.189775,
+        "altitude": 164.79999999999998,
+        "accuracy": 2.042
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00008_1770963964557.jpg",
+        "health_score": 48.0,
+        "health_status": "poor",
+        "issues_detected": "Chlorosis on the leaves and stunted growth patterns. Significant competition from a variety of weeds is evident.",
+        "recommended_interventions": "Perform thorough weeding to eliminate competition. Apply a balanced fertilizer. Monitor the plants closely for any signs of pest damage or further disease progression.",
+        "visual_observations": "Small mung bean plants with yellowing leaves. The field has a high density of weeds and dry, cloddy soil with straw mulch.",
+        "processing_time_seconds": 3.73
+      }
+    },
+    {
+      "image_name": "frame_00009_1770963965289.jpg",
+      "file_size_mb": 3.6180734634399414,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:05",
+      "gps_coordinates": {
+        "latitude": 20.32094,
+        "longitude": 80.1897833,
+        "altitude": 165.1,
+        "accuracy": 1.8
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00009_1770963965289.jpg",
+        "health_score": 42.0,
+        "health_status": "poor",
+        "issues_detected": "Widespread yellowing of the foliage across multiple plants, suggesting either a systemic nutrient deficiency or a viral infection. Very high weed density is likely suppressing crop growth.",
+        "recommended_interventions": "Immediate weed control is necessary. Apply a nitrogen-based fertilizer. If viral symptoms (bright yellow patches) persist despite fertilization, consider removing the most severely infected plants.",
+        "visual_observations": "Multiple small legume plants showing distinct yellowing. The ground is heavily infested with weeds among dry soil clods and straw.",
+        "processing_time_seconds": 3.73
+      }
+    },
+    {
+      "image_name": "frame_00010_1770963966004.jpg",
+      "file_size_mb": 3.138484001159668,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:06",
+      "gps_coordinates": {
+        "latitude": 20.3209383,
+        "longitude": 80.1897883,
+        "altitude": 165.6,
+        "accuracy": 1.533
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00010_1770963966004.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "The crop plants show chlorotic leaves and stunted growth. There is significant competition from weeds throughout the area.",
+        "recommended_interventions": "Weed the field to reduce competition for nutrients and light. Apply a foliar fertilizer for rapid nutrient absorption. Monitor for insect pest activity that could be stressing the plants.",
+        "visual_observations": "Legume plants on the edges of the frame show yellowing. The central area is dominated by weeds and dry soil with straw residue.",
+        "processing_time_seconds": 3.73
+      }
+    },
+    {
+      "image_name": "frame_00011_1770963966722.jpg",
+      "file_size_mb": 3.083613395690918,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:07",
+      "gps_coordinates": {
+        "latitude": 20.3209383,
+        "longitude": 80.1897883,
+        "altitude": 165.6,
+        "accuracy": 1.533
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00011_1770963966722.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Significant interveinal chlorosis and yellow mosaic patterns on the leaves, which are characteristic symptoms of Mungbean Yellow Mosaic Virus (MYMV). Some plants show stunted growth compared to healthy development for this stage.",
+        "recommended_interventions": "Apply a systemic insecticide (e.g., Acetamiprid or Imidacloprid) to control whiteflies, which are the primary vectors for yellow mosaic viruses. Consider a foliar application of a 2% Urea solution or a multi-micronutrient spray to help the plants overcome nutritional stress and boost vigor.",
+        "visual_observations": "Young legume plants, likely mung beans, showing bright yellow patches on trifoliate leaves. The soil surface is dry with visible crop residue (straw) and some weed growth.",
+        "processing_time_seconds": 7.45
+      }
+    },
+    {
+      "image_name": "frame_00012_1770963967413.jpg",
+      "file_size_mb": 3.506747245788574,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:07",
+      "gps_coordinates": {
+        "latitude": 20.3209367,
+        "longitude": 80.189795,
+        "altitude": 166.1,
+        "accuracy": 1.5
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00012_1770963967413.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Severe yellowing and stunting of the plants. The mosaic pattern is widespread, indicating a high incidence of viral infection. The plants lack the deep green color expected for healthy legumes.",
+        "recommended_interventions": "Prioritize vector management to prevent further spread to healthier plants. Remove and destroy heavily infected, severely stunted plants if the infection rate is low; otherwise, focus on foliar nutrition (NPK + micronutrients) to support remaining growth.",
+        "visual_observations": "Legume crop at the vegetative stage. Multiple plants exhibit chlorotic leaves and reduced leaf area. An irrigation pipe is visible in the upper right corner.",
+        "processing_time_seconds": 7.45
+      }
+    },
+    {
+      "image_name": "frame_00013_1770963968120.jpg",
+      "file_size_mb": 3.3028478622436523,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:08",
+      "gps_coordinates": {
+        "latitude": 20.320935,
+        "longitude": 80.1898,
+        "altitude": 166.5,
+        "accuracy": 1.5
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00013_1770963968120.jpg",
+        "health_score": 42.0,
+        "health_status": "poor",
+        "issues_detected": "Stunted growth and irregular yellowing of foliage. The symptoms suggest a combination of viral stress and potential micronutrient deficiency (possibly Zinc or Iron) given the soil conditions.",
+        "recommended_interventions": "Scout for whiteflies and aphids. Apply a foliar spray containing chelated micronutrients and a balanced liquid fertilizer. Ensure that any further nitrogen application is balanced to avoid attracting more sap-sucking pests.",
+        "visual_observations": "Small legume plants with mottled yellow and green leaves. The soil is cloddy and dry on the surface. A person's boot is visible at the bottom for scale.",
+        "processing_time_seconds": 7.45
+      }
+    },
+    {
+      "image_name": "frame_00014_1770963968860.jpg",
+      "file_size_mb": 3.433163642883301,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:09",
+      "gps_coordinates": {
+        "latitude": 20.3209333,
+        "longitude": 80.189805,
+        "altitude": 166.79999999999998,
+        "accuracy": 1.5
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00014_1770963968860.jpg",
+        "health_score": 38.0,
+        "health_status": "poor",
+        "issues_detected": "Widespread chlorosis and noticeable leaf distortion/crinkling. The plants are significantly under-developed, likely due to early-stage viral infection which severely limits photosynthesis.",
+        "recommended_interventions": "Implement an Integrated Pest Management (IPM) strategy focusing on whitefly control. Use yellow sticky traps for monitoring. Apply a foliar spray of 1% Potassium Nitrate to improve plant resilience against environmental and biotic stress.",
+        "visual_observations": "Top-down view of several legume plants showing varying degrees of chlorosis. The yellowing is most prominent on the newer growth at the top of the plants.",
+        "processing_time_seconds": 7.45
+      }
+    },
+    {
+      "image_name": "frame_00015_1770963969613.jpg",
+      "file_size_mb": 2.9755773544311523,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:09",
+      "gps_coordinates": {
+        "latitude": 20.3209333,
+        "longitude": 80.189805,
+        "altitude": 166.79999999999998,
+        "accuracy": 1.5
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00015_1770963969613.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Prominent yellow mosaic symptoms across most plants in the frame. The stunting is evident, and the plants are not closing the canopy as expected for their age.",
+        "recommended_interventions": "Control the insect vectors immediately to stop the cycle of infection. Follow up with a foliar application of seaweed extract or amino acid-based biostimulants to help the plants recover from the physiological stress caused by the virus.",
+        "visual_observations": "Legume plants with clear yellowing and mosaic patterns on the leaves. The plants are growing in a field with significant straw mulch and dry, cracked surface soil.",
+        "processing_time_seconds": 7.45
+      }
+    },
+    {
+      "image_name": "frame_00016_1770963970292.jpg",
+      "file_size_mb": 2.876418113708496,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:10",
+      "gps_coordinates": {
+        "latitude": 20.320935,
+        "longitude": 80.1898083,
+        "altitude": 166.6,
+        "accuracy": 1.5
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00016_1770963970292.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Significant yellowing and mottling of leaves consistent with Mungbean Yellow Mosaic Virus (MYMV). Some plants show stunted growth. Presence of competing weeds (grasses).",
+        "recommended_interventions": "Apply an insecticide to control whiteflies, which are the primary vectors for the virus. Use a foliar spray of 2% Urea or a micronutrient mix containing Iron and Zinc to address potential deficiencies and boost vigor. Implement weed management to reduce competition for nutrients.",
+        "visual_observations": "Young legume plants, likely mung bean, in the early vegetative stage. Leaves show bright yellow mosaic patterns. The soil is covered with straw mulch, and a large black irrigation pipe is visible.",
+        "processing_time_seconds": 3.81
+      }
+    },
+    {
+      "image_name": "frame_00017_1770963970959.jpg",
+      "file_size_mb": 3.110135078430176,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:11",
+      "gps_coordinates": {
+        "latitude": 20.320935,
+        "longitude": 80.189815,
+        "altitude": 166.5,
+        "accuracy": 1.5
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00017_1770963970959.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Widespread chlorosis (yellowing) and mosaic symptoms indicating viral infection. Significant weed competition from grasses is visible around the crop plants, which may be exacerbating nutrient stress.",
+        "recommended_interventions": "Prioritize weed control (manual or selective herbicide) to ensure nutrients reach the crop. Monitor for whitefly activity and treat with a systemic insecticide if necessary. Apply a balanced foliar fertilizer to help the plants recover from stress.",
+        "visual_observations": "Mung bean seedlings showing varied levels of yellowing. A boot is visible for scale. The field has significant crop residue and emerging grass weeds.",
+        "processing_time_seconds": 3.81
+      }
+    },
+    {
+      "image_name": "frame_00018_1770963971671.jpg",
+      "file_size_mb": 3.0833168029785156,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:12",
+      "gps_coordinates": {
+        "latitude": 20.320935,
+        "longitude": 80.189815,
+        "altitude": 166.5,
+        "accuracy": 1.5
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00018_1770963971671.jpg",
+        "health_score": 42.0,
+        "health_status": "poor",
+        "issues_detected": "Interveinal chlorosis and yellow spotting, likely due to viral infection or micronutrient deficiency (such as Iron or Manganese). Growth is uneven across the patch.",
+        "recommended_interventions": "Foliar application of chelated micronutrients is recommended. Scout for pests like whiteflies or jassids that may be spreading disease. Ensure the soil remains well-aerated around the root zone.",
+        "visual_observations": "Young legume crop with trifoliate leaves. Many leaves exhibit yellowing while a few remain green. The soil is cloddy with straw mulch and a large pipe present.",
+        "processing_time_seconds": 3.81
+      }
+    },
+    {
+      "image_name": "frame_00019_1770963972403.jpg",
+      "file_size_mb": 3.5337018966674805,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:12",
+      "gps_coordinates": {
+        "latitude": 20.3209317,
+        "longitude": 80.1898233,
+        "altitude": 166.29999999999998,
+        "accuracy": 1.5
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00019_1770963972403.jpg",
+        "health_score": 38.0,
+        "health_status": "poor",
+        "issues_detected": "Severe yellowing in young seedlings, indicating early-stage viral infection or acute nutrient stress. High weed pressure in the immediate vicinity is competing for resources.",
+        "recommended_interventions": "Immediate intervention with a systemic insecticide for vector control. Apply a foliar nutrient spray (NPK + micronutrients). Manual weeding around the base of the plants is recommended to reduce stress.",
+        "visual_observations": "Very small mung bean seedlings. The yellowing is intense on the newest leaves. The irrigation pipe runs through the center of the frame.",
+        "processing_time_seconds": 3.81
+      }
+    },
+    {
+      "image_name": "frame_00020_1770963973138.jpg",
+      "file_size_mb": 3.493978500366211,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:13",
+      "gps_coordinates": {
+        "latitude": 20.3209283,
+        "longitude": 80.1898283,
+        "altitude": 165.9,
+        "accuracy": 1.48
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00020_1770963973138.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Chlorotic leaves and stunted development. The symptoms are consistent with Mungbean Yellow Mosaic Virus. Competition from weeds is also a significant factor in the poor vigor.",
+        "recommended_interventions": "Control whitefly vectors using appropriate pesticides. Apply foliar fertilizers to help the plants overcome viral stress. Maintain weed-free conditions around the seedlings to maximize available nutrients.",
+        "visual_observations": "Mung bean plants at the 2-3 trifoliate leaf stage. Significant yellowing is present. The plants are situated next to a large black pipe in a field with straw residue.",
+        "processing_time_seconds": 3.81
+      }
+    },
+    {
+      "image_name": "frame_00021_1770963973831.jpg",
+      "file_size_mb": 3.3794898986816406,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:14",
+      "gps_coordinates": {
+        "latitude": 20.3209283,
+        "longitude": 80.1898283,
+        "altitude": 165.9,
+        "accuracy": 1.48
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00021_1770963973831.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Significant chlorosis (yellowing) of leaves, likely indicative of Mungbean Yellow Mosaic Virus (MYMV). There is also heavy weed competition from broadleaf weeds and grasses, which are competing for nutrients and light.",
+        "recommended_interventions": "Implement immediate weed control (manual or selective herbicide). Apply an insecticide (e.g., Imidacloprid or Thiamethoxam) to control whiteflies, which are the primary vector for yellow mosaic virus. Consider a foliar spray of 2% Urea or a micronutrient mix to boost plant vigor.",
+        "visual_observations": "Young Mung bean plants showing trifoliate leaves with prominent yellow patches. The soil is covered with dry crop residue and a high density of small flowering weeds. A black irrigation pipe is visible.",
+        "processing_time_seconds": 3.55
+      }
+    },
+    {
+      "image_name": "frame_00022_1770963974523.jpg",
+      "file_size_mb": 3.4116125106811523,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:14",
+      "gps_coordinates": {
+        "latitude": 20.320925,
+        "longitude": 80.189835,
+        "altitude": 165.5,
+        "accuracy": 1.466
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00022_1770963974523.jpg",
+        "health_score": 42.0,
+        "health_status": "poor",
+        "issues_detected": "Widespread leaf yellowing and stunted growth. The pattern of yellowing suggests a viral infection (MYMV). High weed pressure is also evident, which can harbor pests and deplete soil resources.",
+        "recommended_interventions": "Prioritize weed removal to reduce competition. Use yellow sticky traps to monitor and manage whitefly populations. Avoid over-fertilization with nitrogen if the virus is widespread, but a balanced foliar micronutrient spray may help healthy plants resist further stress.",
+        "visual_observations": "Mung bean crop at an early vegetative stage. Many plants exhibit bright yellow leaves. The ground is dry with significant weed growth and straw mulch.",
+        "processing_time_seconds": 3.55
+      }
+    },
+    {
+      "image_name": "frame_00023_1770963975211.jpg",
+      "file_size_mb": 3.1990280151367188,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:15",
+      "gps_coordinates": {
+        "latitude": 20.320925,
+        "longitude": 80.18984,
+        "altitude": 165.29999999999998,
+        "accuracy": 1.44
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00023_1770963975211.jpg",
+        "health_score": 48.0,
+        "health_status": "fair",
+        "issues_detected": "Patchy growth with varying degrees of chlorosis. While some plants remain green, many show the early stages of yellowing. Weed competition remains a significant stressor.",
+        "recommended_interventions": "Conduct thorough weeding. Monitor for whiteflies and apply systemic insecticides if populations are high. Ensure any infected plants that are severely stunted are removed to prevent further viral spread.",
+        "visual_observations": "Mung bean plants interspersed with weeds. Some plants show better green color than others, but yellowing is still present across the plot. Soil surface appears dry and cloddy.",
+        "processing_time_seconds": 3.55
+      }
+    },
+    {
+      "image_name": "frame_00024_1770963975911.jpg",
+      "file_size_mb": 3.391765594482422,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:16",
+      "gps_coordinates": {
+        "latitude": 20.3209233,
+        "longitude": 80.189845,
+        "altitude": 165.0,
+        "accuracy": 1.433
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00024_1770963975911.jpg",
+        "health_score": 38.0,
+        "health_status": "poor",
+        "issues_detected": "Severe stunting and intense yellowing of the foliage. The plants are struggling significantly, likely due to a combination of viral load and competition from surrounding weeds.",
+        "recommended_interventions": "Immediate intervention for whitefly control is necessary to save the remaining crop. Manual weeding is highly recommended to alleviate resource competition. A foliar application of Zinc and Iron might help if the yellowing is partially due to micronutrient deficiency.",
+        "visual_observations": "Close-up of Mung bean plants showing severe chlorosis. The plants are small for their growth stage. The background shows a mix of soil, straw, and weeds.",
+        "processing_time_seconds": 3.55
+      }
+    },
+    {
+      "image_name": "frame_00025_1770963976628.jpg",
+      "file_size_mb": 3.1358461380004883,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:17",
+      "gps_coordinates": {
+        "latitude": 20.3209233,
+        "longitude": 80.189845,
+        "altitude": 165.0,
+        "accuracy": 1.433
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00025_1770963976628.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "High incidence of yellowing across most visible plants. The crop vigor is low, and the plants are being outcompeted by weeds. The yellowing pattern is consistent with viral mosaic disease.",
+        "recommended_interventions": "Implement an Integrated Pest Management (IPM) strategy focusing on vector control. Remove weeds that may act as alternative hosts for the virus or its vectors. Apply a balanced foliar fertilizer to support the growth of less-affected plants.",
+        "visual_observations": "Mung bean plants showing widespread yellowing. The growth is uneven. The presence of an irrigation pipe suggests a managed field, but weed management is currently insufficient.",
+        "processing_time_seconds": 3.55
+      }
+    },
+    {
+      "image_name": "frame_00026_1770963977340.jpg",
+      "file_size_mb": 3.1644201278686523,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:17",
+      "gps_coordinates": {
+        "latitude": 20.3209233,
+        "longitude": 80.18985,
+        "altitude": 164.9,
+        "accuracy": 1.416
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00026_1770963977340.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Widespread chlorosis (yellowing) of leaves, likely due to nutrient deficiency or viral infection (e.g., Mungbean Yellow Mosaic Virus). Significant weed competition is present. Growth appears stunted.",
+        "recommended_interventions": "Apply a foliar fertilizer containing nitrogen and micronutrients (Iron, Zinc). Implement manual or chemical weed control. Monitor for and control sap-sucking insects like whiteflies which can transmit viruses.",
+        "visual_observations": "Young legume plants with trifoliate leaves showing patchy yellowing. Soil is dry and cloddy with straw residue. A black irrigation pipe is visible.",
+        "processing_time_seconds": 3.77
+      }
+    },
+    {
+      "image_name": "frame_00027_1770963978056.jpg",
+      "file_size_mb": 3.405576705932617,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:18",
+      "gps_coordinates": {
+        "latitude": 20.3209233,
+        "longitude": 80.1898567,
+        "altitude": 164.7,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00027_1770963978056.jpg",
+        "health_score": 35.0,
+        "health_status": "poor",
+        "issues_detected": "Severe chlorosis and stunting. High density of competing weeds (both grasses and broadleaf). Possible nitrogen deficiency or viral stress.",
+        "recommended_interventions": "Prioritize weed removal to reduce competition for nutrients and light. Apply a balanced liquid fertilizer. Scout for pests.",
+        "visual_observations": "Small legume seedlings, many showing bright yellow leaves. High weed pressure. Soil surface is dry with visible cracks.",
+        "processing_time_seconds": 3.77
+      }
+    },
+    {
+      "image_name": "frame_00028_1770963978782.jpg",
+      "file_size_mb": 3.541410446166992,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:19",
+      "gps_coordinates": {
+        "latitude": 20.3209233,
+        "longitude": 80.1898567,
+        "altitude": 164.7,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00028_1770963978782.jpg",
+        "health_score": 20.0,
+        "health_status": "critical",
+        "issues_detected": "Very poor crop stand. Surviving plants are extremely stunted and chlorotic. Overwhelming weed competition.",
+        "recommended_interventions": "Assess the viability of the remaining crop; if too few plants remain, consider tilling and replanting. If continuing, immediate and thorough weeding is mandatory followed by fertilization.",
+        "visual_observations": "Field dominated by weeds and straw mulch. Only a few tiny, yellowed legume plants are visible. Foot included for scale.",
+        "processing_time_seconds": 3.77
+      }
+    },
+    {
+      "image_name": "frame_00029_1770963979485.jpg",
+      "file_size_mb": 3.570368766784668,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:19",
+      "gps_coordinates": {
+        "latitude": 20.320925,
+        "longitude": 80.1898633,
+        "altitude": 164.4,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00029_1770963979485.jpg",
+        "health_score": 15.0,
+        "health_status": "critical",
+        "issues_detected": "The crop is almost entirely suppressed by weeds. The few visible crop plants are severely stressed and yellowed.",
+        "recommended_interventions": "Urgent weed management is required. This area may need to be abandoned or replanted due to the low density of healthy crop plants.",
+        "visual_observations": "Dense weed growth covering most of the soil. Crop plants are difficult to distinguish due to small size and poor health.",
+        "processing_time_seconds": 3.77
+      }
+    },
+    {
+      "image_name": "frame_00030_1770963980199.jpg",
+      "file_size_mb": 3.5461549758911133,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:20",
+      "gps_coordinates": {
+        "latitude": 20.3209267,
+        "longitude": 80.1898683,
+        "altitude": 164.1,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00030_1770963980199.jpg",
+        "health_score": 25.0,
+        "health_status": "poor",
+        "issues_detected": "High weed pressure and nutrient stress. Crop plants are small and show signs of chlorosis.",
+        "recommended_interventions": "Remove weeds immediately. Apply a foliar nutrient spray to boost plant vigor. Ensure no pests are further damaging the young leaves.",
+        "visual_observations": "Patchy legume seedlings interspersed with various weeds and crop residue. Leaves show light green to yellow coloration.",
+        "processing_time_seconds": 3.77
+      }
+    },
+    {
+      "image_name": "frame_00031_1770963980929.jpg",
+      "file_size_mb": 3.8461055755615234,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:21",
+      "gps_coordinates": {
+        "latitude": 20.3209283,
+        "longitude": 80.189875,
+        "altitude": 163.9,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00031_1770963980929.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Severe competition from various weeds (broadleaf and grasses). Significant chlorosis (yellowing) on some crop leaves, suggesting nitrogen or sulfur deficiency. Stunted growth due to competition.",
+        "recommended_interventions": "Prioritize immediate manual or mechanical weeding to reduce competition for nutrients and light. Apply a balanced NPK fertilizer to address nutrient deficiencies. Monitor for any emerging pest issues once weeds are cleared.",
+        "visual_observations": "Young legume plants (likely mung bean) are scattered among heavy weed growth and dry crop residue. Soil is dry and cracked. Crop plants show varying degrees of greenness, with several showing yellowed leaves.",
+        "processing_time_seconds": 3.23
+      }
+    },
+    {
+      "image_name": "frame_00032_1770963981665.jpg",
+      "file_size_mb": 3.591867446899414,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:22",
+      "gps_coordinates": {
+        "latitude": 20.3209283,
+        "longitude": 80.189875,
+        "altitude": 163.9,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00032_1770963981665.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Heavy weed infestation. Pronounced chlorosis on the older leaves of the central mung bean plant, indicating mobile nutrient deficiency (likely Nitrogen). Stunted development.",
+        "recommended_interventions": "Immediate weed control is essential. Apply a nitrogen-based top-dressing to help the crop recover. Ensure the soil is not overly compacted around the root zone during weeding.",
+        "visual_observations": "A central mung bean plant shows significant yellowing on its lower leaves. It is surrounded by dense weeds and dry straw mulch on cracked soil.",
+        "processing_time_seconds": 3.23
+      }
+    },
+    {
+      "image_name": "frame_00033_1770963982392.jpg",
+      "file_size_mb": 3.225541114807129,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:22",
+      "gps_coordinates": {
+        "latitude": 20.32093,
+        "longitude": 80.1898783,
+        "altitude": 163.79999999999998,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00033_1770963982392.jpg",
+        "health_score": 35.0,
+        "health_status": "critical",
+        "issues_detected": "Extreme weed pressure is choking out the crop. The few visible mung bean plants are small and showing signs of nutrient stress (yellowing). Poor crop stand density.",
+        "recommended_interventions": "Aggressive weeding is required immediately. If the crop stand is too thin after weeding, consider if the field needs to be replanted. Apply supplemental fertilizer if the crop is retained.",
+        "visual_observations": "The image shows a field dominated by weeds with very few, struggling mung bean plants. A boot is visible for scale, showing the plants are very small for their likely age.",
+        "processing_time_seconds": 3.23
+      }
+    },
+    {
+      "image_name": "frame_00034_1770963983102.jpg",
+      "file_size_mb": 3.1438045501708984,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:23",
+      "gps_coordinates": {
+        "latitude": 20.32093,
+        "longitude": 80.1898817,
+        "altitude": 164.0,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00034_1770963983102.jpg",
+        "health_score": 42.0,
+        "health_status": "poor",
+        "issues_detected": "High weed density competing for resources. Interveinal chlorosis and general yellowing on crop leaves suggest nutrient deficiencies. Some leaves show minor physical damage or possible early pest feeding.",
+        "recommended_interventions": "Remove weeds to allow the crop access to light and soil nutrients. Apply a foliar or soil-based fertilizer. Scout for small insects like aphids or leafhoppers that may be causing minor damage.",
+        "visual_observations": "Small mung bean plants with trifoliate leaves are visible, but they are being overtaken by weeds. The soil surface is dry with significant residue.",
+        "processing_time_seconds": 3.23
+      }
+    },
+    {
+      "image_name": "frame_00035_1770963983799.jpg",
+      "file_size_mb": 3.0937414169311523,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:24",
+      "gps_coordinates": {
+        "latitude": 20.32093,
+        "longitude": 80.1898817,
+        "altitude": 164.0,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00035_1770963983799.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Severe weed competition. Significant yellowing of the mung bean plant in the upper left corner. Stunted growth across all visible crop plants.",
+        "recommended_interventions": "Implement a thorough weeding program. Apply a balanced fertilizer to boost plant vigor. Monitor the crop closely for recovery after the weeds are removed.",
+        "visual_observations": "Mung bean plants are struggling to grow through a thick layer of weeds and straw. The crop leaves show varying shades of green and yellow, indicating stress.",
+        "processing_time_seconds": 3.23
+      }
+    },
+    {
+      "image_name": "frame_00036_1770963984478.jpg",
+      "file_size_mb": 3.4863786697387695,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:24",
+      "gps_coordinates": {
+        "latitude": 20.32093,
+        "longitude": 80.18988,
+        "altitude": 163.7,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00036_1770963984478.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Significant chlorosis (yellowing) of leaves suggesting nitrogen or sulfur deficiency. High weed competition is visible, which competes for nutrients and light. Stunted growth patterns are evident.",
+        "recommended_interventions": "Apply a nitrogen-based fertilizer or a balanced NPK mix. Implement immediate weed control through manual hoeing or targeted herbicide application to reduce competition for resources.",
+        "visual_observations": "Young legume plants (likely mung bean) with trifoliate leaves. Leaves show general yellowing. Soil is dry and cloddy with significant weed growth and crop residue.",
+        "processing_time_seconds": 8.12
+      }
+    },
+    {
+      "image_name": "frame_00037_1770963985146.jpg",
+      "file_size_mb": 3.5662355422973633,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:25",
+      "gps_coordinates": {
+        "latitude": 20.3209317,
+        "longitude": 80.189875,
+        "altitude": 163.5,
+        "accuracy": 1.383
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00037_1770963985146.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Severe weed infestation and nutrient deficiency. The crop plants are small and show yellowing, indicating they are being outcompeted for resources by surrounding weeds.",
+        "recommended_interventions": "Prioritize thorough weed removal to allow the crop to access soil nutrients. Follow with a top-dressing of fertilizer to boost plant vigor and recovery.",
+        "visual_observations": "Small, chlorotic legume seedlings scattered among dense weeds. Dry soil surface with straw mulch and crop residue.",
+        "processing_time_seconds": 8.12
+      }
+    },
+    {
+      "image_name": "frame_00038_1770963985868.jpg",
+      "file_size_mb": 3.544724464416504,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:26",
+      "gps_coordinates": {
+        "latitude": 20.3209317,
+        "longitude": 80.1898733,
+        "altitude": 163.29999999999998,
+        "accuracy": 1.383
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00038_1770963985868.jpg",
+        "health_score": 35.0,
+        "health_status": "poor",
+        "issues_detected": "Extreme weed pressure and nutrient stress. The crop plants are stunted and chlorotic, showing very poor vigor and limited leaf area development.",
+        "recommended_interventions": "Immediate manual weeding is required. Apply a foliar fertilizer for quick nutrient uptake to help the plants recover from severe competition stress.",
+        "visual_observations": "Stunted legume plants with yellowed leaves. The field is dominated by various weed species. Soil appears dry and hard-packed.",
+        "processing_time_seconds": 8.12
+      }
+    },
+    {
+      "image_name": "frame_00039_1770963986593.jpg",
+      "file_size_mb": 3.5344810485839844,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:27",
+      "gps_coordinates": {
+        "latitude": 20.3209317,
+        "longitude": 80.1898733,
+        "altitude": 163.29999999999998,
+        "accuracy": 1.383
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00039_1770963986593.jpg",
+        "health_score": 30.0,
+        "health_status": "critical",
+        "issues_detected": "Symptoms of Yellow Mosaic Virus (bright yellow mottling) are evident on several plants, along with severe nutrient deficiency and heavy weed competition. Stunted growth is prominent.",
+        "recommended_interventions": "Monitor for and control whiteflies, which are common vectors for mosaic viruses. Apply balanced fertilization. Remove and destroy severely infected plants to prevent further spread of the virus.",
+        "visual_observations": "Legume plants showing distinct yellow mosaic patterns on leaves. High density of weeds surrounding the crop in cloddy soil.",
+        "processing_time_seconds": 8.12
+      }
+    },
+    {
+      "image_name": "frame_00040_1770963987322.jpg",
+      "file_size_mb": 3.7356929779052734,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:27",
+      "gps_coordinates": {
+        "latitude": 20.3209333,
+        "longitude": 80.1898683,
+        "altitude": 163.2,
+        "accuracy": 1.416
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00040_1770963987322.jpg",
+        "health_score": 30.0,
+        "health_status": "critical",
+        "issues_detected": "Widespread chlorosis and mosaic symptoms suggesting viral infection and nutrient depletion. Heavy weed competition is further stressing the crop and likely harboring pests.",
+        "recommended_interventions": "Implement an integrated pest management (IPM) strategy to control viral vectors like whiteflies. Provide supplemental nutrition through fertilization. Thorough weeding is essential to salvage the crop.",
+        "visual_observations": "Multiple legume plants with severe yellowing and stunted growth. The ground is heavily covered with weeds and crop residue, showing poor crop establishment.",
+        "processing_time_seconds": 8.12
+      }
+    },
+    {
+      "image_name": "frame_00041_1770963988003.jpg",
+      "file_size_mb": 3.3778152465820312,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:28",
+      "gps_coordinates": {
+        "latitude": 20.320935,
+        "longitude": 80.1898633,
+        "altitude": 163.0,
+        "accuracy": 1.45
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00041_1770963988003.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Significant leaf chlorosis (yellowing) and mottling, highly indicative of Mungbean Yellow Mosaic Virus (MYMV). Plants appear stunted with sparse foliage. Presence of weeds competing for nutrients.",
+        "recommended_interventions": "Implement vector control for whiteflies using systemic insecticides like Imidacloprid. Apply a foliar spray of 2% Urea and multi-micronutrients to boost plant vigor. Practice manual weeding to reduce competition.",
+        "visual_observations": "Young mung bean plants in a field with dry, cloddy soil and straw mulch. Leaves show irregular yellow patches and stunted growth.",
+        "processing_time_seconds": 5.12
+      }
+    },
+    {
+      "image_name": "frame_00042_1770963988703.jpg",
+      "file_size_mb": 2.959016799926758,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:29",
+      "gps_coordinates": {
+        "latitude": 20.320935,
+        "longitude": 80.1898633,
+        "altitude": 163.0,
+        "accuracy": 1.45
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00042_1770963988703.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Chlorosis on young leaves, likely viral infection (MYMV). Some plants show better green color but are still small. Weed pressure is evident in the surrounding soil.",
+        "recommended_interventions": "Monitor for whitefly activity and use yellow sticky traps for detection. Apply a foliar micronutrient spray (Iron, Zinc, Manganese). Ensure proper weed management to improve nutrient availability.",
+        "visual_observations": "Mung bean crop at early vegetative stage. Soil surface is dry with crop residues. Mixed health among individual plants with some showing severe yellowing.",
+        "processing_time_seconds": 5.12
+      }
+    },
+    {
+      "image_name": "frame_00043_1770963989413.jpg",
+      "file_size_mb": 3.169344902038574,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:29",
+      "gps_coordinates": {
+        "latitude": 20.3209383,
+        "longitude": 80.1898567,
+        "altitude": 162.79999999999998,
+        "accuracy": 1.483
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00043_1770963989413.jpg",
+        "health_score": 38.0,
+        "health_status": "poor",
+        "issues_detected": "Severe yellow mosaic symptoms on several plants. This viral disease significantly reduces photosynthetic capacity and potential yield. Growth is uneven across the patch.",
+        "recommended_interventions": "Rogue out and destroy heavily infected plants to reduce the inoculum source. Spray Acetamiprid or similar to control whitefly vectors. Apply a balanced foliar fertilizer to support remaining healthy tissue.",
+        "visual_observations": "Close-up of mung bean plants showing bright yellow mottling on leaves. The plants are small for their growth stage.",
+        "processing_time_seconds": 5.12
+      }
+    },
+    {
+      "image_name": "frame_00044_1770963990149.jpg",
+      "file_size_mb": 3.5062732696533203,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:30",
+      "gps_coordinates": {
+        "latitude": 20.32094,
+        "longitude": 80.189855,
+        "altitude": 162.7,
+        "accuracy": 1.54
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00044_1770963990149.jpg",
+        "health_score": 35.0,
+        "health_status": "poor",
+        "issues_detected": "High incidence of yellowing across the plant cluster. Symptoms are consistent with a viral outbreak (MYMV). Stunted growth is prominent, and plants lack overall vigor.",
+        "recommended_interventions": "Prioritize whitefly management. Use a combination of cultural practices (removing alternate hosts) and chemical control. Foliar application of Nitrogen and Magnesium may help mitigate some chlorosis symptoms.",
+        "visual_observations": "A group of mung bean plants with widespread yellowing. The surrounding soil is covered with rice straw mulch and appears dry.",
+        "processing_time_seconds": 5.12
+      }
+    },
+    {
+      "image_name": "frame_00045_1770963990851.jpg",
+      "file_size_mb": 3.26889705657959,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:31",
+      "gps_coordinates": {
+        "latitude": 20.32094,
+        "longitude": 80.1898517,
+        "altitude": 162.79999999999998,
+        "accuracy": 1.56
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00045_1770963990851.jpg",
+        "health_score": 42.0,
+        "health_status": "poor",
+        "issues_detected": "Yellow mosaic virus symptoms present. Significant weed infestation (broadleaf weeds) competing for resources. Some leaves show signs of minor insect chewing damage.",
+        "recommended_interventions": "Perform thorough weeding to reduce resource competition. Apply a systemic insecticide for whitefly control. Consider a foliar spray containing Zinc and Iron to address potential micronutrient deficiencies.",
+        "visual_observations": "Mung bean plants interspersed with various weeds. Many plants exhibit the characteristic yellow-green mottling of Mungbean Yellow Mosaic Virus.",
+        "processing_time_seconds": 5.12
+      }
+    },
+    {
+      "image_name": "frame_00046_1770963991595.jpg",
+      "file_size_mb": 3.3101205825805664,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:32",
+      "gps_coordinates": {
+        "latitude": 20.32094,
+        "longitude": 80.1898517,
+        "altitude": 162.79999999999998,
+        "accuracy": 1.56
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00046_1770963991595.jpg",
+        "health_score": 55.0,
+        "health_status": "fair",
+        "issues_detected": "Significant weed competition, particularly a large spreading weed (likely Euphorbia hirta) in the center. The crop plants (likely mung bean/black gram) show early signs of chlorosis (yellowing), which could indicate nutrient deficiency or the onset of Mungbean Yellow Mosaic Virus (MYMV).",
+        "recommended_interventions": "Prioritize weed removal through manual hoeing or targeted post-emergence herbicides. Monitor for whiteflies, which are vectors for MYMV. Consider a foliar application of 2% Urea or a micronutrient mix to address potential nutrient deficiencies.",
+        "visual_observations": "Young pulse crop with trifoliate leaves. Soil is cloddy with significant crop residue. A large weed is dominant in the center of the frame.",
+        "processing_time_seconds": 4.63
+      }
+    },
+    {
+      "image_name": "frame_00047_1770963992342.jpg",
+      "file_size_mb": 3.4799556732177734,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:32",
+      "gps_coordinates": {
+        "latitude": 20.32094,
+        "longitude": 80.189845,
+        "altitude": 162.9,
+        "accuracy": 1.54
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00047_1770963992342.jpg",
+        "health_score": 50.0,
+        "health_status": "fair",
+        "issues_detected": "Noticeable yellowing (chlorosis) on several crop plants, suggesting Mungbean Yellow Mosaic Virus (MYMV) or nitrogen deficiency. High weed pressure is competing for resources.",
+        "recommended_interventions": "Implement weed control immediately. If yellowing is patchy and bright, treat for whiteflies using insecticides like Imidacloprid to prevent further viral spread. Apply a foliar booster of nitrogen if soil fertility is suspected to be low.",
+        "visual_observations": "Mung bean plants at the vegetative stage. Several plants show distinct yellowing compared to healthier green neighbors. High weed density present.",
+        "processing_time_seconds": 4.63
+      }
+    },
+    {
+      "image_name": "frame_00048_1770963993085.jpg",
+      "file_size_mb": 3.160395622253418,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:33",
+      "gps_coordinates": {
+        "latitude": 20.32094,
+        "longitude": 80.18984,
+        "altitude": 162.7,
+        "accuracy": 1.516
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00048_1770963993085.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Clear symptoms of Mungbean Yellow Mosaic Virus (MYMV) characterized by bright yellow mottling on the leaves. Significant weed infestation is also present, hindering crop development.",
+        "recommended_interventions": "Control whitefly populations to stop the spread of the virus. Remove and destroy severely infected plants if the infestation is localized. Apply a foliar spray of multi-micronutrients to improve plant resilience.",
+        "visual_observations": "Close-up of pulse plants showing irregular yellow patches on leaves. The soil surface is covered with dry straw residue and emerging weeds.",
+        "processing_time_seconds": 4.63
+      }
+    },
+    {
+      "image_name": "frame_00049_1770963993814.jpg",
+      "file_size_mb": 3.6045961380004883,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:34",
+      "gps_coordinates": {
+        "latitude": 20.32094,
+        "longitude": 80.18984,
+        "altitude": 162.7,
+        "accuracy": 1.516
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00049_1770963993814.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Widespread chlorosis across the crop patch, likely due to viral infection (MYMV). The plants appear stunted compared to healthy growth expectations for this stage. Weed competition is severe.",
+        "recommended_interventions": "Urgent weed management is required. Use systemic insecticides to manage whitefly vectors. A foliar application of 1-2% Potassium Nitrate might help the plants cope with stress, though it will not cure the virus.",
+        "visual_observations": "A cluster of young pulse plants with a high proportion of yellowed foliage. Weed growth is interspersed throughout the crop row.",
+        "processing_time_seconds": 4.63
+      }
+    },
+    {
+      "image_name": "frame_00050_1770963994553.jpg",
+      "file_size_mb": 3.391878128051758,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:34",
+      "gps_coordinates": {
+        "latitude": 20.3209383,
+        "longitude": 80.1898367,
+        "altitude": 162.6,
+        "accuracy": 1.483
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00050_1770963994553.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Severe yellowing and mottling of leaves consistent with viral disease. The crop is struggling with heavy weed pressure and potential nutrient immobilization from the high amount of surface residue.",
+        "recommended_interventions": "Integrated Pest Management (IPM) for whiteflies is essential. Manual weeding should be performed to reduce competition. Check for any signs of root rot or pests at the base of the plants due to the high residue levels.",
+        "visual_observations": "Young plants showing significant chlorosis. The field has a high amount of previous crop residue (straw) and a variety of broadleaf and grassy weeds.",
+        "processing_time_seconds": 4.63
+      }
+    },
+    {
+      "image_name": "frame_00051_1770963995272.jpg",
+      "file_size_mb": 3.386819839477539,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:35",
+      "gps_coordinates": {
+        "latitude": 20.3209367,
+        "longitude": 80.18983,
+        "altitude": 162.4,
+        "accuracy": 1.45
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00051_1770963995272.jpg",
+        "health_score": 60.0,
+        "health_status": "fair",
+        "issues_detected": "Significant yellowing (chlorosis) is visible on several plants, which is characteristic of Mungbean Yellow Mosaic Virus (MYMV). There is also some weed competition and uneven plant stand.",
+        "recommended_interventions": "Monitor for whiteflies, which are the primary vectors for MYMV, and apply appropriate insecticides if thresholds are met. Remove and destroy severely infected plants to reduce the virus source. Consider a foliar application of micronutrients to address any potential deficiencies.",
+        "visual_observations": "Young mung bean plants with trifoliate leaves. Some plants are healthy green, while others show bright yellow patches. The soil is dry with visible crop residue (straw).",
+        "processing_time_seconds": 5.45
+      }
+    },
+    {
+      "image_name": "frame_00052_1770963996014.jpg",
+      "file_size_mb": 3.265822410583496,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:36",
+      "gps_coordinates": {
+        "latitude": 20.3209333,
+        "longitude": 80.189825,
+        "altitude": 162.1,
+        "accuracy": 1.42
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00052_1770963996014.jpg",
+        "health_score": 55.0,
+        "health_status": "fair",
+        "issues_detected": "Widespread chlorosis and mosaic patterns on the leaves, likely due to a viral infection like MYMV. Some plants appear stunted compared to healthier neighbors.",
+        "recommended_interventions": "Implement integrated pest management (IPM) strategies to control whitefly populations. Use yellow sticky traps to monitor pest levels. Ensure the field is kept free of weeds that may host the virus or its vectors.",
+        "visual_observations": "Mung bean crop in early vegetative stage. High incidence of yellowing across the foliage. Soil surface is cloddy and covered with straw mulch.",
+        "processing_time_seconds": 5.45
+      }
+    },
+    {
+      "image_name": "frame_00053_1770963996749.jpg",
+      "file_size_mb": 3.1745290756225586,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:37",
+      "gps_coordinates": {
+        "latitude": 20.3209333,
+        "longitude": 80.189825,
+        "altitude": 162.1,
+        "accuracy": 1.42
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00053_1770963996749.jpg",
+        "health_score": 50.0,
+        "health_status": "poor",
+        "issues_detected": "Prominent yellow mosaic symptoms on a large portion of the visible plants. This suggests a significant viral load in this area of the field, which will likely impact yield.",
+        "recommended_interventions": "Prioritize vector control. If the infection is widespread, evaluate the cost-benefit of continued chemical intervention versus maintaining the crop. Avoid excessive nitrogen which can attract more sucking pests.",
+        "visual_observations": "Mung bean plants showing severe yellowing and mottling. A person's foot is visible for scale. The growth is uneven.",
+        "processing_time_seconds": 5.45
+      }
+    },
+    {
+      "image_name": "frame_00054_1770963997450.jpg",
+      "file_size_mb": 3.6033477783203125,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:37",
+      "gps_coordinates": {
+        "latitude": 20.320935,
+        "longitude": 80.18982,
+        "altitude": 161.9,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00054_1770963997450.jpg",
+        "health_score": 58.0,
+        "health_status": "fair",
+        "issues_detected": "Continued evidence of yellow mosaic virus. While some plants remain green, the infection is clearly spreading through the patch.",
+        "recommended_interventions": "Apply a systemic insecticide targeted at whiteflies if they are present. A foliar spray of 2% Urea or a balanced micronutrient mix may help the plants better tolerate the stress, though it won't cure the virus.",
+        "visual_observations": "Denser cluster of mung bean plants. The contrast between bright yellow infected leaves and darker green healthy leaves is sharp.",
+        "processing_time_seconds": 5.45
+      }
+    },
+    {
+      "image_name": "frame_00055_1770963998198.jpg",
+      "file_size_mb": 3.321146011352539,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:38",
+      "gps_coordinates": {
+        "latitude": 20.320935,
+        "longitude": 80.1898167,
+        "altitude": 161.6,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00055_1770963998198.jpg",
+        "health_score": 55.0,
+        "health_status": "fair",
+        "issues_detected": "Systemic yellowing and mosaic symptoms consistent with MYMV. The overall vigor of the affected plants is reduced.",
+        "recommended_interventions": "Continue monitoring for pests. For future seasons, select virus-resistant varieties and ensure proper seed treatment. Maintain good field sanitation by removing alternative weed hosts.",
+        "visual_observations": "Mung bean field showing typical viral symptoms. The plants are at a similar growth stage, but health is compromised by chlorosis.",
+        "processing_time_seconds": 5.45
+      }
+    },
+    {
+      "image_name": "frame_00056_1770963998941.jpg",
+      "file_size_mb": 3.5101232528686523,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:39",
+      "gps_coordinates": {
+        "latitude": 20.3209367,
+        "longitude": 80.1898133,
+        "altitude": 161.4,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00056_1770963998941.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Widespread chlorosis and mottling consistent with Mungbean Yellow Mosaic Virus (MYMV). Stunted growth and some weed competition are also evident.",
+        "recommended_interventions": "Implement whitefly control using systemic insecticides like Imidacloprid or Thiamethoxam to stop the spread of the virus. Apply a foliar spray of 2% Urea and a micronutrient mix to support plant recovery and boost vigor.",
+        "visual_observations": "Mung bean plants at the vegetative stage. Leaves show irregular yellow patches and mottling. Soil appears dry with crop residue and some emerging weeds.",
+        "processing_time_seconds": 4.39
+      }
+    },
+    {
+      "image_name": "frame_00057_1770963999718.jpg",
+      "file_size_mb": 3.435112953186035,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:40",
+      "gps_coordinates": {
+        "latitude": 20.3209367,
+        "longitude": 80.1898133,
+        "altitude": 161.4,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00057_1770963999718.jpg",
+        "health_score": 50.0,
+        "health_status": "poor",
+        "issues_detected": "Symptoms of Mungbean Yellow Mosaic Virus (MYMV) are present across several plants. Weed pressure is competing for nutrients and space.",
+        "recommended_interventions": "Control whitefly vectors immediately. Conduct manual weeding to reduce competition and remove potential alternative hosts for the virus. Apply foliar nutrients to improve overall plant health.",
+        "visual_observations": "Young mung bean plants. Significant variation in leaf color from dark green to bright yellow, indicating varying levels of viral infection.",
+        "processing_time_seconds": 4.39
+      }
+    },
+    {
+      "image_name": "frame_00058_1770964000424.jpg",
+      "file_size_mb": 3.3757896423339844,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:40",
+      "gps_coordinates": {
+        "latitude": 20.3209367,
+        "longitude": 80.18981,
+        "altitude": 161.1,
+        "accuracy": 1.4
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00058_1770964000424.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Severe Mungbean Yellow Mosaic Virus (MYMV) infection, characterized by intense yellowing of the foliage. This level of infection will likely lead to significant yield loss.",
+        "recommended_interventions": "Prioritize whitefly management to prevent further spread to healthier plants. Consider rogueing out (removing) the most severely affected plants. For future seasons, ensure the use of MYMV-resistant varieties.",
+        "visual_observations": "Close-up of mung bean plants showing intense, bright yellow mosaic patterns on the trifoliate leaves. Growth is noticeably stunted.",
+        "processing_time_seconds": 4.39
+      }
+    },
+    {
+      "image_name": "frame_00059_1770964001166.jpg",
+      "file_size_mb": 3.4707155227661133,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:41",
+      "gps_coordinates": {
+        "latitude": 20.3209383,
+        "longitude": 80.189805,
+        "altitude": 161.0,
+        "accuracy": 1.42
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00059_1770964001166.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Mungbean Yellow Mosaic Virus (MYMV) is the primary concern. The patchy yellowing suggests an active spread by insect vectors throughout the field.",
+        "recommended_interventions": "Spray recommended insecticides for whitefly control. Apply a balanced foliar fertilizer (e.g., 19-19-19 NPK) at a low concentration to mitigate physiological stress caused by the virus.",
+        "visual_observations": "Field view of mung bean crop. Numerous plants show characteristic yellowing, while others remain green but appear slightly stunted.",
+        "processing_time_seconds": 4.39
+      }
+    },
+    {
+      "image_name": "frame_00060_1770964001889.jpg",
+      "file_size_mb": 3.3244266510009766,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:42",
+      "gps_coordinates": {
+        "latitude": 20.3209383,
+        "longitude": 80.1898017,
+        "altitude": 161.0,
+        "accuracy": 1.44
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00060_1770964001889.jpg",
+        "health_score": 48.0,
+        "health_status": "poor",
+        "issues_detected": "Presence of Mungbean Yellow Mosaic Virus (MYMV) combined with significant weed competition (e.g., Amaranthus species). Weeds may be acting as alternative hosts for both the virus and its vector.",
+        "recommended_interventions": "Immediate weed control is necessary to reduce competition for resources. Follow up with whitefly management and foliar nutrition to help the mung bean plants recover as much as possible.",
+        "visual_observations": "Mung bean plants interspersed with large broadleaf weeds. Yellowing is visible on several mung bean plants, indicating viral spread.",
+        "processing_time_seconds": 4.39
+      }
+    },
+    {
+      "image_name": "frame_00061_1770964002613.jpg",
+      "file_size_mb": 3.4415645599365234,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:43",
+      "gps_coordinates": {
+        "latitude": 20.3209383,
+        "longitude": 80.1898017,
+        "altitude": 161.0,
+        "accuracy": 1.44
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00061_1770964002613.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Significant weed competition, notably a large Amaranthus (pigweed) specimen. Crop plants (likely mung bean) show signs of chlorosis (yellowing) and stunted growth, suggesting nutrient deficiency or competition stress.",
+        "recommended_interventions": "Perform immediate manual or mechanical weeding to reduce competition. Apply a nitrogen-based fertilizer or a balanced NPK mix to support early-stage growth and correct chlorosis.",
+        "visual_observations": "Young legume plants with trifoliate leaves. One large broadleaf weed with a reddish stem. Soil is dry, cloddy, and covered with straw residue. Crop plants are small and unevenly distributed.",
+        "processing_time_seconds": 7.15
+      }
+    },
+    {
+      "image_name": "frame_00062_1770964003346.jpg",
+      "file_size_mb": 3.559886932373047,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:43",
+      "gps_coordinates": {
+        "latitude": 20.3209367,
+        "longitude": 80.189795,
+        "altitude": 161.1,
+        "accuracy": 1.46
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00062_1770964003346.jpg",
+        "health_score": 30.0,
+        "health_status": "critical",
+        "issues_detected": "Severe weed infestation including grasses and small broadleaf weeds. The primary crop is sparse and exhibits extreme chlorosis and stunting, likely due to intense competition for nutrients and light.",
+        "recommended_interventions": "Prioritize aggressive weed control. If the crop stand is too thin, consider the economic viability of maintaining the current crop versus replanting. Apply foliar nutrients to provide a quick boost to surviving plants.",
+        "visual_observations": "Very sparse, small, yellowed legume plants. High density of various weed species. Soil surface is dry and contains significant crop residue.",
+        "processing_time_seconds": 7.15
+      }
+    },
+    {
+      "image_name": "frame_00063_1770964004075.jpg",
+      "file_size_mb": 3.58990478515625,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:44",
+      "gps_coordinates": {
+        "latitude": 20.3209383,
+        "longitude": 80.1897883,
+        "altitude": 161.0,
+        "accuracy": 1.466
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00063_1770964004075.jpg",
+        "health_score": 35.0,
+        "health_status": "poor",
+        "issues_detected": "Widespread chlorosis in crop plants. High weed pressure. Poor overall plant vigor and uneven growth across the field section.",
+        "recommended_interventions": "Implement weed management strategies immediately. Apply a top-dressing of nitrogen fertilizer. Investigate for potential soil-borne issues if yellowing persists after weeding and feeding.",
+        "visual_observations": "Mung bean plants at early vegetative stage. Leaves range from pale green to bright yellow. Significant presence of weeds and old straw mulch.",
+        "processing_time_seconds": 7.15
+      }
+    },
+    {
+      "image_name": "frame_00064_1770964004818.jpg",
+      "file_size_mb": 3.836000442504883,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:45",
+      "gps_coordinates": {
+        "latitude": 20.3209383,
+        "longitude": 80.1897817,
+        "altitude": 160.79999999999998,
+        "accuracy": 1.483
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00064_1770964004818.jpg",
+        "health_score": 30.0,
+        "health_status": "critical",
+        "issues_detected": "Severe stunting and yellowing of the crop. High competition from weeds. The plants appear to be struggling significantly to establish.",
+        "recommended_interventions": "Immediate intervention required: weed the area thoroughly. Apply a quick-release nitrogen fertilizer. Monitor for sucking pests like aphids which could be contributing to the stunting.",
+        "visual_observations": "Small, chlorotic legume seedlings. Soil is dry and cloddy. High weed density relative to crop density.",
+        "processing_time_seconds": 7.15
+      }
+    },
+    {
+      "image_name": "frame_00065_1770964005592.jpg",
+      "file_size_mb": 3.3296546936035156,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:46",
+      "gps_coordinates": {
+        "latitude": 20.3209383,
+        "longitude": 80.1897817,
+        "altitude": 160.79999999999998,
+        "accuracy": 1.483
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00065_1770964005592.jpg",
+        "health_score": 50.0,
+        "health_status": "fair",
+        "issues_detected": "Moderate weed competition. Some crop plants show better color (greener) but others remain chlorotic. Growth is still somewhat stunted for the expected stage.",
+        "recommended_interventions": "Continue with weed control. Apply a balanced fertilizer to promote uniform growth. Monitor for any signs of pest damage on the newer, greener leaves.",
+        "visual_observations": "Legume plants showing some variation in health; a few are greener and more vigorous, while others are small and yellow. Weeds are present but slightly less dominant than in other frames.",
+        "processing_time_seconds": 7.15
+      }
+    },
+    {
+      "image_name": "frame_00066_1770964006319.jpg",
+      "file_size_mb": 3.1998090744018555,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:46",
+      "gps_coordinates": {
+        "latitude": 20.3209342,
+        "longitude": 80.1897758,
+        "altitude": 160.7,
+        "accuracy": 1.8
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00066_1770964006319.jpg",
+        "health_score": 65.0,
+        "health_status": "fair",
+        "issues_detected": "Moderate weed competition is present. Some plants exhibit interveinal chlorosis (yellowing between leaf veins) on newer growth, which may indicate a micronutrient deficiency such as iron or manganese. There are also early signs of leaf crinkling.",
+        "recommended_interventions": "Perform manual weeding or apply a selective post-emergence herbicide to reduce competition. Apply a foliar spray containing chelated micronutrients to address the chlorosis.",
+        "visual_observations": "Young mung bean plants with trifoliate leaves at the vegetative stage. The field has significant crop residue (straw) and emerging weeds.",
+        "processing_time_seconds": 4.73
+      }
+    },
+    {
+      "image_name": "frame_00067_1770964007047.jpg",
+      "file_size_mb": 3.310511589050293,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:47",
+      "gps_coordinates": {
+        "latitude": 20.3209342,
+        "longitude": 80.1897698,
+        "altitude": 160.6,
+        "accuracy": 2.25
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00067_1770964007047.jpg",
+        "health_score": 60.0,
+        "health_status": "fair",
+        "issues_detected": "Increased chlorosis is visible on several plants. High weed density is competing with the crop for nutrients and light. The yellowing pattern on some leaves suggests the possible onset of Mungbean Yellow Mosaic Virus (MYMV).",
+        "recommended_interventions": "Prioritize weed removal. Apply a balanced NPK foliar fertilizer with micronutrients to boost plant vigor. Monitor for whiteflies, which are common vectors for viral diseases.",
+        "visual_observations": "Mung bean plants showing uneven growth and distinct yellowing. Soil appears dry on the surface with heavy straw mulch.",
+        "processing_time_seconds": 4.73
+      }
+    },
+    {
+      "image_name": "frame_00068_1770964007784.jpg",
+      "file_size_mb": 3.2612390518188477,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:48",
+      "gps_coordinates": {
+        "latitude": 20.3209342,
+        "longitude": 80.1897649,
+        "altitude": 160.6,
+        "accuracy": 2.357
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00068_1770964007784.jpg",
+        "health_score": 55.0,
+        "health_status": "fair",
+        "issues_detected": "Severe weed competition is suppressing crop growth. Some crop plants show distinct yellow mottling and stunting, which are classic symptoms of Mungbean Yellow Mosaic Virus (MYMV).",
+        "recommended_interventions": "Immediate weeding is necessary. If whiteflies are present, apply a systemic insecticide (e.g., Imidacloprid) to prevent the spread of viral vectors. Use a foliar nutrient spray to support recovery.",
+        "visual_observations": "The legume crop is struggling against a high density of broadleaf and grassy weeds. Some crop plants are significantly smaller than others.",
+        "processing_time_seconds": 4.73
+      }
+    },
+    {
+      "image_name": "frame_00069_1770964008510.jpg",
+      "file_size_mb": 3.2787342071533203,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:48",
+      "gps_coordinates": {
+        "latitude": 20.3209367,
+        "longitude": 80.1897612,
+        "altitude": 160.6,
+        "accuracy": 2.625
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00069_1770964008510.jpg",
+        "health_score": 50.0,
+        "health_status": "poor",
+        "issues_detected": "The crop is being overtaken by a carpet of weeds, leading to extreme nutrient competition and stunting. Most visible crop plants show generalized chlorosis due to stress.",
+        "recommended_interventions": "Urgent mechanical or chemical weed control is required. Following weeding, apply a nitrogen-rich foliar feed to help the crop recover from the intense competition stress.",
+        "visual_observations": "Top-down view showing sparse mung bean plants heavily surrounded and outcompeted by various weed species.",
+        "processing_time_seconds": 4.73
+      }
+    },
+    {
+      "image_name": "frame_00070_1770964009241.jpg",
+      "file_size_mb": 3.0375986099243164,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:49",
+      "gps_coordinates": {
+        "latitude": 20.3209392,
+        "longitude": 80.1897603,
+        "altitude": 160.6,
+        "accuracy": 2.666
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00070_1770964009241.jpg",
+        "health_score": 55.0,
+        "health_status": "fair",
+        "issues_detected": "Widespread chlorosis and yellow mottling on the leaves are highly indicative of Mungbean Yellow Mosaic Virus (MYMV) or a severe nutrient imbalance. Weed pressure remains a significant secondary stressor.",
+        "recommended_interventions": "Control insect vectors (whiteflies) with appropriate insecticides. Apply foliar micronutrients (specifically Zinc and Iron). Remove weeds to reduce competition for soil nutrients.",
+        "visual_observations": "Multiple mung bean plants showing significant yellowing, mottling, and patchy growth patterns across the frame.",
+        "processing_time_seconds": 4.73
+      }
+    },
+    {
+      "image_name": "frame_00071_1770964009980.jpg",
+      "file_size_mb": 3.3919925689697266,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:50",
+      "gps_coordinates": {
+        "latitude": 20.3209452,
+        "longitude": 80.1897628,
+        "altitude": 160.6,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00071_1770964009980.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Significant yellowing and mottling on leaves, characteristic of Yellow Mosaic Virus (YMV). Uneven growth and presence of weeds competing for nutrients.",
+        "recommended_interventions": "Control whitefly populations which act as vectors for viral diseases using appropriate insecticides or neem oil. Remove and destroy severely infected plants to prevent spread. Apply a foliar micronutrient spray to alleviate stress. Implement manual weeding.",
+        "visual_observations": "Young legume plants (likely mung bean) in early vegetative stage. Soil is dry and cloddy with straw residue. Leaves show bright yellow patches and some stunting.",
+        "processing_time_seconds": 3.84
+      }
+    },
+    {
+      "image_name": "frame_00072_1770964010677.jpg",
+      "file_size_mb": 3.0499744415283203,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:51",
+      "gps_coordinates": {
+        "latitude": 20.3209477,
+        "longitude": 80.1897631,
+        "altitude": 160.6,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00072_1770964010677.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Widespread chlorosis and stunting. The yellowing pattern strongly suggests a viral infection. High weed pressure is visible in the surrounding soil.",
+        "recommended_interventions": "Use yellow sticky traps to monitor whiteflies. Apply an appropriate systemic insecticide if vector thresholds are reached. Ensure balanced fertilization, preferably through foliar application to bypass potentially compromised root uptake.",
+        "visual_observations": "Small legume seedlings with varying degrees of yellowing. Ground cover is sparse with visible straw mulch and emerging weeds.",
+        "processing_time_seconds": 3.84
+      }
+    },
+    {
+      "image_name": "frame_00073_1770964011418.jpg",
+      "file_size_mb": 3.1112852096557617,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:51",
+      "gps_coordinates": {
+        "latitude": 20.3209501,
+        "longitude": 80.1897648,
+        "altitude": 160.7,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00073_1770964011418.jpg",
+        "health_score": 35.0,
+        "health_status": "poor",
+        "issues_detected": "Severe viral symptoms (mosaic/yellowing) in the crop. Significant competition from a large, healthy broadleaf weed (Amaranthus sp.) which is significantly more vigorous than the crop.",
+        "recommended_interventions": "Immediate manual removal of large weeds to reduce competition for light and nutrients. Rogue out the most diseased crop plants. Monitor for insect pests that may be spreading the virus.",
+        "visual_observations": "Legume plants showing intense yellow mottling situated next to a vigorous, healthy green broadleaf weed. Soil appears dry and undisturbed.",
+        "processing_time_seconds": 3.84
+      }
+    },
+    {
+      "image_name": "frame_00074_1770964012140.jpg",
+      "file_size_mb": 2.7369909286499023,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:52",
+      "gps_coordinates": {
+        "latitude": 20.3209535,
+        "longitude": 80.1897654,
+        "altitude": 161.0,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00074_1770964012140.jpg",
+        "health_score": 30.0,
+        "health_status": "critical",
+        "issues_detected": "Very poor plant stand and low vigor. Most plants are stunted and show severe chlorosis. Heavy weed competition is further stressing the crop.",
+        "recommended_interventions": "Prioritize thorough weeding. If the majority of the crop is infected with Yellow Mosaic Virus, evaluate if the potential yield justifies further chemical inputs. Apply foliar nutrients to any surviving healthy-looking plants.",
+        "visual_observations": "Sparse population of small, yellowed legume seedlings. Large weeds are present in the foreground. Soil surface is dry and cracked.",
+        "processing_time_seconds": 3.84
+      }
+    },
+    {
+      "image_name": "frame_00075_1770964012840.jpg",
+      "file_size_mb": 3.608539581298828,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:53",
+      "gps_coordinates": {
+        "latitude": 20.3209564,
+        "longitude": 80.1897653,
+        "altitude": 161.4,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00075_1770964012840.jpg",
+        "health_score": 35.0,
+        "health_status": "poor",
+        "issues_detected": "High incidence of yellowing and leaf distortion, likely due to viral infection. Stunted growth is evident across the visible plot.",
+        "recommended_interventions": "Implement an integrated pest management (IPM) strategy focused on whitefly control. Apply a balanced foliar fertilizer containing Nitrogen and micronutrients (Iron, Zinc) to help plants cope with viral stress.",
+        "visual_observations": "Multiple legume plants showing chlorotic leaves and stunted growth. The field has significant straw mulch and some emerging grassy weeds.",
+        "processing_time_seconds": 3.84
+      }
+    },
+    {
+      "image_name": "frame_00076_1770964013588.jpg",
+      "file_size_mb": 2.6392459869384766,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:54",
+      "gps_coordinates": {
+        "latitude": 20.3209564,
+        "longitude": 80.1897653,
+        "altitude": 161.4,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00076_1770964013588.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Significant yellowing and mottling on leaves, characteristic of Yellow Mosaic Virus (YMV). There is also evidence of weed competition and some stunted growth.",
+        "recommended_interventions": "Apply systemic insecticides (e.g., Imidacloprid or Thiamethoxam) to control whiteflies, which are the primary vectors for YMV. Remove and safely destroy severely infected plants (rogueing) to prevent further spread. Implement manual or chemical weeding.",
+        "visual_observations": "Young pulse crop (likely mung bean or black gram) in early vegetative stage. Leaves show irregular yellow patches. Soil is dry and cloddy with straw mulch.",
+        "processing_time_seconds": 3.22
+      }
+    },
+    {
+      "image_name": "frame_00077_1770964014317.jpg",
+      "file_size_mb": 3.0308971405029297,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:54",
+      "gps_coordinates": {
+        "latitude": 20.3209588,
+        "longitude": 80.1897644,
+        "altitude": 162.29999999999998,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00077_1770964014317.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Widespread chlorosis and yellow mosaic patterns indicating a viral infection, likely Yellow Mosaic Virus. Plants appear under stress and growth is uneven.",
+        "recommended_interventions": "Prioritize whitefly management to stop the spread of the virus. Consider a foliar application of a balanced micronutrient spray to support plant resilience, although it will not cure the virus.",
+        "visual_observations": "Pulse crop plants showing varying degrees of yellowing. The most affected plants are significantly smaller than healthier ones.",
+        "processing_time_seconds": 3.22
+      }
+    },
+    {
+      "image_name": "frame_00078_1770964015045.jpg",
+      "file_size_mb": 3.0330142974853516,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:55",
+      "gps_coordinates": {
+        "latitude": 20.3209651,
+        "longitude": 80.1897555,
+        "altitude": 162.7,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00078_1770964015045.jpg",
+        "health_score": 35.0,
+        "health_status": "poor",
+        "issues_detected": "Severe symptoms of Yellow Mosaic Virus with bright yellow mottling covering most of the leaf surface. Some leaf crinkling is also visible.",
+        "recommended_interventions": "Immediately spray with an insecticide to target whiteflies. Rogue out the most severely infected plants. Ensure no alternative weed hosts for the virus are present in or around the field.",
+        "visual_observations": "Close-up of pulse crop plants. The trifoliate leaves exhibit distinct yellow and green mosaic patterns. Growth is stunted.",
+        "processing_time_seconds": 3.22
+      }
+    },
+    {
+      "image_name": "frame_00079_1770964015755.jpg",
+      "file_size_mb": 3.436398506164551,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:56",
+      "gps_coordinates": {
+        "latitude": 20.3209651,
+        "longitude": 80.1897555,
+        "altitude": 162.7,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00079_1770964015755.jpg",
+        "health_score": 35.0,
+        "health_status": "poor",
+        "issues_detected": "High incidence of Yellow Mosaic Virus. The yellowing is pervasive across the visible plants, which will severely limit photosynthesis and subsequent yield.",
+        "recommended_interventions": "Continue vector control protocols. If the infection rate is extremely high across the entire field, evaluate the economic viability of maintaining the crop versus replanting with a resistant variety if the season permits.",
+        "visual_observations": "Pulse crop plants with extensive yellowing. The surrounding soil is dry with visible crop residues.",
+        "processing_time_seconds": 3.22
+      }
+    },
+    {
+      "image_name": "frame_00080_1770964016456.jpg",
+      "file_size_mb": 3.4331674575805664,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:56",
+      "gps_coordinates": {
+        "latitude": 20.3209676,
+        "longitude": 80.189754,
+        "altitude": 163.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00080_1770964016456.jpg",
+        "health_score": 30.0,
+        "health_status": "critical",
+        "issues_detected": "Severe Yellow Mosaic Virus infection. The plant in the center is attempting to flower while heavily diseased, which typically results in poor pod set and shriveled seeds.",
+        "recommended_interventions": "Immediate intervention for whitefly control is necessary to protect any remaining healthy tissue. Avoid nitrogen-heavy fertilizers which can attract more sap-sucking pests.",
+        "visual_observations": "Pulse crop at the beginning of the flowering stage. Small white flowers are visible, but the foliage is heavily chlorotic and mottled with yellow.",
+        "processing_time_seconds": 3.22
+      }
+    },
+    {
+      "image_name": "frame_00081_1770964017196.jpg",
+      "file_size_mb": 3.133622169494629,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:57",
+      "gps_coordinates": {
+        "latitude": 20.3209729,
+        "longitude": 80.1897498,
+        "altitude": 163.6,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00081_1770964017196.jpg",
+        "health_score": 55.0,
+        "health_status": "fair",
+        "issues_detected": "Significant yellowing (chlorosis) on several plants, which may indicate a nutrient deficiency (likely nitrogen) or the early stages of a viral infection like Yellow Mosaic Virus. There is also noticeable weed competition.",
+        "recommended_interventions": "Apply a nitrogen-rich fertilizer or a balanced NPK mix. Implement manual or chemical weed control to reduce competition for nutrients and light. Monitor for whiteflies, which are common vectors for viral diseases.",
+        "visual_observations": "Young legume plants (likely mung bean) with trifoliate leaves. Some plants are vibrant green, while others show distinct yellowing. Soil is dry and cloddy with crop residue.",
+        "processing_time_seconds": 4.06
+      }
+    },
+    {
+      "image_name": "frame_00082_1770964017955.jpg",
+      "file_size_mb": 2.6012630462646484,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:58",
+      "gps_coordinates": {
+        "latitude": 20.3209749,
+        "longitude": 80.1897472,
+        "altitude": 163.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00082_1770964017955.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Widespread chlorosis and mottling of leaves, highly characteristic of Mungbean Yellow Mosaic Virus (MYMV). Significant weed pressure is also present, competing with the crop.",
+        "recommended_interventions": "Rogue out and destroy severely infected plants to prevent further spread of the virus. Control whitefly populations using appropriate insecticides. Improve weed management practices.",
+        "visual_observations": "Legume crop showing varying degrees of leaf yellowing. The plants are at a vegetative growth stage. Ground cover is sparse with many weeds and dry soil clods.",
+        "processing_time_seconds": 4.06
+      }
+    },
+    {
+      "image_name": "frame_00083_1770964018680.jpg",
+      "file_size_mb": 3.2769689559936523,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:59",
+      "gps_coordinates": {
+        "latitude": 20.3209767,
+        "longitude": 80.1897455,
+        "altitude": 163.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00083_1770964018680.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Severe and widespread yellowing of the foliage across most plants in the frame. This suggests a systemic issue like a viral infection or a major nutrient deficiency. High weed density is also a concern.",
+        "recommended_interventions": "Conduct a soil test to confirm nutrient levels. Apply a foliar spray of micronutrients and nitrogen to boost plant vigor. Prioritize weed removal to reduce stress on the crop.",
+        "visual_observations": "A cluster of legume plants with a high proportion of yellowed leaves. Various weed species are intermixed with the crop. The soil surface is dry.",
+        "processing_time_seconds": 4.06
+      }
+    },
+    {
+      "image_name": "frame_00084_1770964019387.jpg",
+      "file_size_mb": 2.555413246154785,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:56:59",
+      "gps_coordinates": {
+        "latitude": 20.3209776,
+        "longitude": 80.1897461,
+        "altitude": 163.9,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00084_1770964019387.jpg",
+        "health_score": 48.0,
+        "health_status": "poor",
+        "issues_detected": "Chlorosis is evident on several plants. Some plants appear stunted. The field has a high population of weeds, which are likely outcompeting the crop for resources.",
+        "recommended_interventions": "Immediate weed control is necessary. Apply a balanced fertilizer to support growth. Monitor closely for signs of pest damage, particularly sap-sucking insects.",
+        "visual_observations": "Legume plants at an early growth stage. One central plant is almost entirely yellow, while others show partial chlorosis. Significant weed growth is visible.",
+        "processing_time_seconds": 4.06
+      }
+    },
+    {
+      "image_name": "frame_00085_1770964020093.jpg",
+      "file_size_mb": 3.0827159881591797,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:57:00",
+      "gps_coordinates": {
+        "latitude": 20.3209804,
+        "longitude": 80.1897444,
+        "altitude": 164.1,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00085_1770964020093.jpg",
+        "health_score": 42.0,
+        "health_status": "poor",
+        "issues_detected": "Prominent yellowing of the leaves, likely due to viral infection (MYMV) or nutrient stress. Weed competition is high, further stressing the crop.",
+        "recommended_interventions": "Implement an integrated pest management (IPM) strategy to control viral vectors. Use a foliar fertilizer to provide immediate nutrient relief. Clear weeds from the immediate vicinity of the crop plants.",
+        "visual_observations": "Legume crop with significant chlorotic symptoms. The plants are small and struggling against weed competition. Soil appears dry and unmulched.",
+        "processing_time_seconds": 4.06
+      }
+    },
+    {
+      "image_name": "frame_00086_1770964020789.jpg",
+      "file_size_mb": 3.0817785263061523,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:57:01",
+      "gps_coordinates": {
+        "latitude": 20.3209804,
+        "longitude": 80.1897444,
+        "altitude": 164.1,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00086_1770964020789.jpg",
+        "health_score": 65.0,
+        "health_status": "fair",
+        "issues_detected": "Significant weed competition, including a large thistle-like weed in the center. Mild interveinal chlorosis (yellowing) on some leaves, suggesting a potential nutrient deficiency such as nitrogen or iron.",
+        "recommended_interventions": "Perform thorough manual or mechanical weeding to eliminate competition for nutrients and light. Apply a balanced NPK fertilizer or a nitrogen-rich top dressing to address the chlorosis.",
+        "visual_observations": "Mung bean crop (trifoliate leaves) in a vegetative stage. Soil appears dry and cloddy with high weed pressure. Crop plants show a mix of healthy green and pale yellow leaves.",
+        "processing_time_seconds": 6.79
+      }
+    },
+    {
+      "image_name": "frame_00087_1770964021521.jpg",
+      "file_size_mb": 3.1546154022216797,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:57:01",
+      "gps_coordinates": {
+        "latitude": 20.3209825,
+        "longitude": 80.1897448,
+        "altitude": 164.1,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00087_1770964021521.jpg",
+        "health_score": 60.0,
+        "health_status": "fair",
+        "issues_detected": "Visible nutrient deficiency manifested as leaf yellowing. Minor insect herbivory (small holes in leaves). Weed pressure continues to compete with the crop.",
+        "recommended_interventions": "Implement immediate weed management. Apply a foliar micronutrient spray or soil-applied fertilizer. Monitor for leaf-eating pests and use appropriate organic or chemical control measures if damage increases.",
+        "visual_observations": "Mung bean plants showing clear signs of chlorosis on newer growth. Small holes from pest feeding are visible on several leaves. Ground cover is a mix of crop, weeds, and bare soil.",
+        "processing_time_seconds": 6.79
+      }
+    },
+    {
+      "image_name": "frame_00088_1770964022236.jpg",
+      "file_size_mb": 3.004068374633789,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:57:02",
+      "gps_coordinates": {
+        "latitude": 20.3209849,
+        "longitude": 80.1897442,
+        "altitude": 164.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00088_1770964022236.jpg",
+        "health_score": 55.0,
+        "health_status": "poor",
+        "issues_detected": "Widespread chlorosis across the crop. Some plants show mottled yellow patterns which could indicate a viral infection like mosaic virus. High weed density is severely impacting vigor.",
+        "recommended_interventions": "Prioritize weeding to reduce stress. Conduct a soil test to check for specific nutrient gaps. If viral symptoms persist or spread, consider removing the most affected plants to prevent further transmission by vectors.",
+        "visual_observations": "A patch of mung bean plants showing significant yellowing. Mosaic-like patterns and some leaf distortion are visible. Weeds are heavily interspersed throughout the crop row.",
+        "processing_time_seconds": 6.79
+      }
+    },
+    {
+      "image_name": "frame_00089_1770964022958.jpg",
+      "file_size_mb": 3.249508857727051,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:57:03",
+      "gps_coordinates": {
+        "latitude": 20.3209902,
+        "longitude": 80.1897406,
+        "altitude": 164.6,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00089_1770964022958.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Very poor crop stand with low plant density. Remaining plants are stunted and chlorotic. Severe competition from various grass and broadleaf weed species.",
+        "recommended_interventions": "Intensive weeding is required. Evaluate if the low density warrants a late-season replanting or if it's better to focus resources on healthier areas of the field. Apply fertilizer to boost the remaining plants.",
+        "visual_observations": "Mostly bare soil and weeds with a few scattered, unhealthy-looking mung bean plants. The crop plants are small, stunted, and predominantly yellow.",
+        "processing_time_seconds": 6.79
+      }
+    },
+    {
+      "image_name": "frame_00090_1770964023682.jpg",
+      "file_size_mb": 2.896055221557617,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:57:04",
+      "gps_coordinates": {
+        "latitude": 20.3209902,
+        "longitude": 80.1897406,
+        "altitude": 164.6,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00090_1770964023682.jpg",
+        "health_score": 58.0,
+        "health_status": "fair",
+        "issues_detected": "Moderate chlorosis and potential viral mosaic symptoms. Weed competition is present, though slightly less dense than in other areas. Some plants show stunted growth.",
+        "recommended_interventions": "Control weeds immediately. Apply a balanced fertilizer. Monitor for sap-sucking insects like aphids or whiteflies that could be spreading viruses and treat if populations are high.",
+        "visual_observations": "Mung bean plants showing a range of health from dark green to bright yellow. Some leaves have a crinkled appearance and mottled coloring characteristic of mosaic stress. Weeds are visible in the surrounding soil.",
+        "processing_time_seconds": 6.79
+      }
+    },
+    {
+      "image_name": "frame_00091_1770964024398.jpg",
+      "file_size_mb": 3.383331298828125,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:57:04",
+      "gps_coordinates": {
+        "latitude": 20.3209999,
+        "longitude": 80.1897361,
+        "altitude": 164.79999999999998,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00091_1770964024398.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Significant weed competition and chlorosis (yellowing) on the legume leaves, likely due to nutrient competition or potential viral infection. The crop is struggling to establish dominance over the surrounding weeds.",
+        "recommended_interventions": "Perform immediate manual or mechanical weeding to reduce competition for nutrients and light. Apply a balanced NPK fertilizer to boost crop vigor. Monitor for insect vectors like aphids that may be spreading viruses.",
+        "visual_observations": "Legume crop with trifoliate leaves showing yellow mottling. High density of diverse weed species including grasses and broadleaf varieties on dry, cloddy soil.",
+        "processing_time_seconds": 5.39
+      }
+    },
+    {
+      "image_name": "frame_00092_1770964025128.jpg",
+      "file_size_mb": 3.47637939453125,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:57:05",
+      "gps_coordinates": {
+        "latitude": 20.3210019,
+        "longitude": 80.189737,
+        "altitude": 165.1,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00092_1770964025128.jpg",
+        "health_score": 55.0,
+        "health_status": "fair",
+        "issues_detected": "Moderate to high weed pressure. Some legume leaves show interveinal chlorosis, indicating possible micronutrient deficiency or early-stage competition stress from the surrounding vegetation.",
+        "recommended_interventions": "Prioritize weeding around the base of the crop plants. Consider a foliar micronutrient spray if yellowing persists after weeding. Ensure the soil is not compacted.",
+        "visual_observations": "Legume plants are visible but surrounded by various weeds. The crop leaves are generally green but exhibit some pale patches and minor physical damage.",
+        "processing_time_seconds": 5.39
+      }
+    },
+    {
+      "image_name": "frame_00093_1770964025879.jpg",
+      "file_size_mb": 2.9653396606445312,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:57:06",
+      "gps_coordinates": {
+        "latitude": 20.3210039,
+        "longitude": 80.1897374,
+        "altitude": 165.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00093_1770964025879.jpg",
+        "health_score": 40.0,
+        "health_status": "poor",
+        "issues_detected": "Severe competition from tall, fast-growing weeds which are shading the crop. The legume foliage is noticeably pale and yellowed, suggesting significant nutrient depletion in the immediate root zone.",
+        "recommended_interventions": "Immediate removal of tall weeds is critical to restore light access. Apply a nitrogen-rich fertilizer or compost tea to help the crop recover from the stress of competition.",
+        "visual_observations": "Tall, light-green flowering weeds are overtopping the legume crop. The crop foliage is pale green to yellow and appears stunted.",
+        "processing_time_seconds": 5.39
+      }
+    },
+    {
+      "image_name": "frame_00094_1770964026600.jpg",
+      "file_size_mb": 3.304633140563965,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:57:07",
+      "gps_coordinates": {
+        "latitude": 20.3210071,
+        "longitude": 80.1897354,
+        "altitude": 165.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00094_1770964026600.jpg",
+        "health_score": 35.0,
+        "health_status": "poor",
+        "issues_detected": "Very high weed density is smothering the crop. The legume plants are showing signs of severe stress, including stunting and widespread chlorosis due to lack of resources.",
+        "recommended_interventions": "Conduct intensive weeding. After clearing, evaluate the remaining crop density; if too low, consider inter-planting or replanting. Apply a balanced fertilizer to the remaining plants.",
+        "visual_observations": "A dense, chaotic mix of weeds dominates the frame, with the legume crop barely visible and struggling to compete for space.",
+        "processing_time_seconds": 5.39
+      }
+    },
+    {
+      "image_name": "frame_00095_1770964027337.jpg",
+      "file_size_mb": 3.338703155517578,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:57:07",
+      "gps_coordinates": {
+        "latitude": 20.3210078,
+        "longitude": 80.189735,
+        "altitude": 165.2,
+        "accuracy": 3.0
+      },
+      "gps_source": "csv",
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00095_1770964027337.jpg",
+        "health_score": 30.0,
+        "health_status": "poor",
+        "issues_detected": "The crop is nearly completely overtaken by a dense carpet of weeds. Growth is severely inhibited, and the crop's viability is at risk due to extreme competition.",
+        "recommended_interventions": "Complete clearing of weeds is required. If the crop does not show signs of recovery within a week of weeding and fertilization, the plot may need to be cleared and replanted.",
+        "visual_observations": "The image is dominated by a thick mat of weeds; the legume crop is sparse, small, and showing significant yellowing.",
+        "processing_time_seconds": 5.39
+      }
+    },
+    {
+      "image_name": "frame_00096_1770964028024.jpg",
+      "file_size_mb": 2.7979249954223633,
+      "image_dimensions": {
+        "width": 3264,
+        "height": 2448
+      },
+      "timestamp": "2026-02-13T11:57:08",
+      "gps_coordinates": null,
+      "gps_source": null,
+      "camera": {
+        "make": "realme\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "model": "RMX5264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      "plant_health_analysis": {
+        "image_name": "frame_00096_1770964028024.jpg",
+        "health_score": 45.0,
+        "health_status": "poor",
+        "issues_detected": "Severe weed competition. The primary crop (likely a legume) is being overtaken by a variety of grasses and broadleaf weeds. This competition for light, nutrients, and space will significantly reduce yield. Some mild chlorosis (yellowing) is visible on the crop leaves, likely due to nutrient competition.",
+        "recommended_interventions": "Implement immediate manual or mechanical weeding to remove competition. Apply a selective post-emergence herbicide if suitable for the specific crop. Following weeding, consider applying mulch to suppress further weed growth. For future cycles, improve land preparation and consider pre-emergence weed control measures.",
+        "visual_observations": "The image shows a legume crop (possibly cowpea or beans) struggling within a dense population of weeds. The weeds include various grasses and small broadleaf species. The crop is in a vegetative growth stage. A black irrigation pipe is visible in the bottom left corner.",
+        "processing_time_seconds": 7.81
+      }
+    }
+  ],
+  "summary_statistics": {
+    "average_health_score": 42.645833333333336,
+    "min_health_score": 15.0,
+    "max_health_score": 65.0,
+    "images_with_gps": 95,
+    "total_processing_time_seconds": 478.5,
+    "average_time_per_image_seconds": 4.98
+  }
+}

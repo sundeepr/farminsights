@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In — Sustainable Automation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 24px;
+            padding: 48px 52px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+            text-align: center;
+        }
+
+        .login-logo {
+            font-size: 3em;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .login-brand {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: #2c3e50;
+            letter-spacing: -0.3px;
+        }
+
+        .login-brand-sub {
+            font-size: 0.8em;
+            color: #6c757d;
+            font-weight: 400;
+            margin-bottom: 36px;
+        }
+
+        .login-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
+
+        .login-subtitle {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-bottom: 28px;
+        }
+
+        .login-error {
+            background: #f8d7da;
+            color: #721c24;
+            border-radius: 10px;
+            padding: 11px 14px;
+            font-size: 0.875em;
+            margin-bottom: 16px;
+            text-align: left;
+            display: none;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 0.95em;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            color: #2c3e50;
+        }
+
+        .login-input:focus {
+            outline: none;
+            border-color: #40916c;
+            box-shadow: 0 0 0 3px rgba(64, 145, 108, 0.12);
+        }
+
+        .login-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #2d6a4f 0%, #40916c 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: 'Inter', sans-serif;
+            margin-top: 4px;
+        }
+
+        .login-submit:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(45, 106, 79, 0.35);
+        }
+
+        .login-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .login-divider {
+            border: none;
+            border-top: 1px solid #e9ecef;
+            margin: 28px 0 0;
+        }
+
+        .login-footer {
+            margin-top: 16px;
+            font-size: 0.8em;
+            color: #adb5bd;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                margin: 16px;
+                padding: 36px 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="login-logo">🌱</div>
+        <div class="login-brand">Sustainable Automation</div>
+        <div class="login-brand-sub">Farm Health Monitoring Platform</div>
+
+        <div class="login-title">Welcome Back</div>
+        <div class="login-subtitle">Sign in to access your farm dashboard</div>
+
+        <div id="loginError" class="login-error"></div>
+
+        <form id="loginForm" class="login-form" autocomplete="on">
+            <input name="username" type="text" class="login-input" placeholder="Username"
+                   required autocomplete="username" autofocus>
+            <input name="password" type="password" class="login-input" placeholder="Password"
+                   required autocomplete="current-password">
+            <button type="submit" class="login-submit">Sign In</button>
+        </form>
+
+        <hr class="login-divider">
+        <div class="login-footer">Sustainable Automation &copy; {{ year }}</div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const errorEl = document.getElementById('loginError');
+            const btn = e.target.querySelector('button[type="submit"]');
+
+            errorEl.style.display = 'none';
+            btn.disabled = true;
+            btn.textContent = 'Signing in…';
+
+            try {
+                const res = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username: e.target.username.value.trim(),
+                        password: e.target.password.value,
+                    }),
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    window.location.href = data.redirect_url;
+                } else {
+                    errorEl.textContent = data.error || 'Login failed. Please try again.';
+                    errorEl.style.display = 'block';
+                    btn.disabled = false;
+                    btn.textContent = 'Sign In';
+                }
+            } catch {
+                errorEl.textContent = 'Network error. Please try again.';
+                errorEl.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Sign In';
+            }
+        });
+    </script>
+</body>
+</html>
