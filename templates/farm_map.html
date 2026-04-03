@@ -352,6 +352,18 @@
 
         const rainProbClass = isHighRain ? 'rain-prob-high' : '';
         const t = window._t || {};
+        const wmoDesc = {
+            0: t.wmo_0, 1: t.wmo_1, 2: t.wmo_2, 3: t.wmo_3,
+            45: t.wmo_45, 48: t.wmo_48,
+            51: t.wmo_51, 53: t.wmo_53, 55: t.wmo_55,
+            61: t.wmo_61, 63: t.wmo_63, 65: t.wmo_65,
+            71: t.wmo_71, 73: t.wmo_73, 75: t.wmo_75, 77: t.wmo_77,
+            80: t.wmo_80, 81: t.wmo_81, 82: t.wmo_82,
+            85: t.wmo_85, 86: t.wmo_86,
+            95: t.wmo_95, 96: t.wmo_96, 99: t.wmo_99,
+        };
+        const description = (w.weather_code !== null && w.weather_code !== undefined && wmoDesc[w.weather_code])
+            ? wmoDesc[w.weather_code] : w.description;
         const rainProbLabel = rainProb >= 80 ? (t.rain_high || 'High chance of rain')
             : rainProb >= 50 ? (t.rain_moderate || 'Moderate chance of rain')
             : rainProb >= 20 ? (t.rain_low || 'Low chance of rain')
@@ -362,7 +374,7 @@
                 <div class="weather-icon">${w.icon}</div>
                 <div>
                     <div class="weather-temp">${w.temperature !== null ? w.temperature + '°C' : '—'}</div>
-                    <div class="weather-desc">${w.description}</div>
+                    <div class="weather-desc">${description}</div>
                 </div>
             </div>
             <div class="weather-details">

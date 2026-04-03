@@ -157,12 +157,15 @@ async function fetchWeatherForFarm(farmId) {
         const wxCell = document.getElementById(`wx-${farmId}`);
         const rainCell = document.getElementById(`rain-${farmId}`);
         if (wxCell) {
+            const wmoKey = `wmo_${w.weather_code}`;
+            const description = (w.weather_code !== null && w.weather_code !== undefined && _t[wmoKey])
+                ? _t[wmoKey] : w.description;
             const sparkline = buildSparkline(w.temp_24h || []);
             wxCell.innerHTML = `
                 <div style="display:flex;align-items:center;justify-content:center;gap:8px;">
                     <div>
                         <div>${w.icon} ${w.temperature !== null ? '<strong>' + w.temperature + '°C</strong>' : '—'}</div>
-                        <div style="color:#6c757d;font-size:0.75em;">${w.description}</div>
+                        <div style="color:#6c757d;font-size:0.75em;">${description}</div>
                     </div>
                     ${sparkline}
                 </div>`;
