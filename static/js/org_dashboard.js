@@ -4,14 +4,16 @@
 
 let _orgId = null;
 let _userRole = null;
-let _scopedOrgs = [];   // orgs accessible in this org's subtree
-let _scopedFarms = [];  // farms accessible in this org's subtree
+let _scopedOrgs = [];
+let _scopedFarms = [];
+let _t = {};
 
 document.addEventListener('DOMContentLoaded', () => {
     const el = document.getElementById('orgDashboard');
     if (!el) return;
     _orgId = el.dataset.orgId;
     _userRole = el.dataset.userRole;
+    _t = window._t || {};
     loadOrgData();
     if (_userRole === 'admin' || _userRole === 'org_admin') {
         loadScopedLists();
@@ -61,19 +63,21 @@ function renderMetrics(data) {
     const statusEl = document.getElementById('metHealthStatus');
 
     if (avgHealth !== null) {
-        let cls = 'poor', label = 'Poor';
-        if (avgHealth >= 75) { cls = 'good'; label = 'Good'; }
-        else if (avgHealth >= 65) { cls = 'fair'; label = 'Fair'; }
+        let cls = 'poor', label = _t.poor || 'Poor';
+        if (avgHealth >= 75) { cls = 'good'; label = _t.good || 'Good'; }
+        else if (avgHealth >= 65) { cls = 'fair'; label = _t.fair || 'Fair'; }
         avgEl.innerHTML = `<span class="${cls}">${avgHealth}</span>`;
-        statusEl.textContent = `${label} overall health`;
+        if (avgHealth >= 75) { statusEl.textContent = _t.good_overall_health || 'Good overall health'; }
+        else if (avgHealth >= 65) { statusEl.textContent = _t.fair_overall_health || 'Fair overall health'; }
+        else { statusEl.textContent = _t.poor_overall_health || 'Poor overall health'; }
     } else {
-        avgEl.textContent = 'N/A';
-        statusEl.textContent = 'No data available';
+        avgEl.textContent = _t.na || 'N/A';
+        statusEl.textContent = _t.no_data_available || 'No data available';
     }
 
     document.getElementById('metFarmCount').textContent = data.farm_count;
     document.getElementById('metFarmSub').textContent =
-        data.farm_count === 1 ? '1 farm in this org' : `${data.farm_count} farms in this org`;
+        data.farm_count === 1 ? `1 ${_t.farm_in_this_org || 'farm in this org'}` : `${data.farm_count} ${_t.farms_in_this_org || 'farms in this org'}`;
     document.getElementById('metAlerts').textContent = data.issues_count;
 
     const lastEl = document.getElementById('metLastReport');
@@ -83,7 +87,7 @@ function renderMetrics(data) {
             lastEl.textContent = isNaN(d) ? data.last_report_date : d.toLocaleDateString();
         } catch { lastEl.textContent = data.last_report_date; }
     } else {
-        lastEl.textContent = 'No reports yet';
+        lastEl.textContent = _t.no_reports_yet || 'No reports yet';
     }
 }
 
@@ -103,7 +107,7 @@ function renderSubOrgs(children) {
             <td><span class="metric-value ${status}" style="font-size:1em;">${health}</span></td>
             <td>${child.issues_count}</td>
             <td>${formatDate(child.last_report_date)}</td>
-            <td><a href="/org/${escHtml(child.org_id)}" class="btn-action">View</a></td>
+            <td><a href="/org/${escHtml(child.org_id)}" class="btn-action">${_t.view || 'View'}</a></td>
         `;
         tbody.appendChild(tr);
     });
@@ -113,7 +117,7 @@ function renderFarms(farms) {
     const tbody = document.getElementById('farmsBody');
     if (!farms.length) {
         const canManage = _userRole === 'admin' || _userRole === 'org_admin';
-        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:#adb5bd;padding:30px;">${canManage ? 'No farms yet. Add one with "+ New Farm".' : 'No farms in this organization.'}</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:#adb5bd;padding:30px;">${canManage ? (_t.no_farms_manage || 'No farms yet.') : (_t.no_farms_in_org || 'No farms in this organization.')}</td></tr>`;
         return;
     }
     tbody.innerHTML = '';
@@ -127,14 +131,14 @@ function renderFarms(farms) {
             <td>${health !== null ? health : '—'}</td>
             <td><span class="badge badge-${statusClass}">${farm.status}</span></td>
             <td>${farm.issues_count}</td>
-            <td class="weather-cell" id="wx-${escHtml(farm.farm_id)}"><span style="color:#adb5bd;font-size:0.8em;">Loading…</span></td>
+            <td class="weather-cell" id="wx-${escHtml(farm.farm_id)}"><span style="color:#adb5bd;font-size:0.8em;">${_t.loading_ellipsis || 'Loading…'}</span></td>
             <td class="rain-cell" id="rain-${escHtml(farm.farm_id)}"><span style="color:#adb5bd;font-size:0.8em;">—</span></td>
             <td class="farmers-cell" id="farmers-${escHtml(farm.farm_id)}"><span style="color:#adb5bd;font-size:0.8em;">—</span></td>
             <td>${formatDate(farm.last_report_date)}</td>
             <td>
                 <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;">
-                    <a href="/farm/${escHtml(farm.farm_id)}" class="btn-action">View Map</a>
-                    ${canManage ? `<button class="btn-action" style="background:linear-gradient(135deg,#1565c0,#1976d2);" onclick="openUploadForFarm('${escHtml(farm.farm_id)}')">↑ Upload</button>` : ''}
+                    <a href="/farm/${escHtml(farm.farm_id)}" class="btn-action">${_t.view_map || 'View Map'}</a>
+                    ${canManage ? `<button class="btn-action" style="background:linear-gradient(135deg,#1565c0,#1976d2);" onclick="openUploadForFarm('${escHtml(farm.farm_id)}')">${_t.upload_short || '↑ Upload'}</button>` : ''}
                 </div>
             </td>
         `;
@@ -170,7 +174,7 @@ async function fetchWeatherForFarm(farmId) {
         }
     } catch {
         const wxCell = document.getElementById(`wx-${farmId}`);
-        if (wxCell) wxCell.innerHTML = `<span style="color:#adb5bd;font-size:0.8em;">N/A</span>`;
+        if (wxCell) wxCell.innerHTML = `<span style="color:#adb5bd;font-size:0.8em;">${_t.na || 'N/A'}</span>`;
     }
 }
 
@@ -206,11 +210,12 @@ async function fetchFarmersForFarm(farmId) {
         const cell = document.getElementById(`farmers-${farmId}`);
         if (!cell) return;
         if (!farmers.length) {
-            cell.innerHTML = `<span style="color:#adb5bd;font-size:0.8em;">None</span>`;
+            cell.innerHTML = `<span style="color:#adb5bd;font-size:0.8em;">${_t.none || 'None'}</span>`;
             return;
         }
         const names = farmers.map(f => escHtml(f.username)).join(', ');
-        cell.innerHTML = `<span style="cursor:pointer;color:#1976d2;" title="${names}" onclick="openFarmersModal('${escHtml(farmId)}', ${JSON.stringify(farmers).replace(/"/g, '&quot;')})">${farmers.length} farmer${farmers.length > 1 ? 's' : ''}</span>`;
+        const farmerLabel = farmers.length === 1 ? (_t.farmer || 'farmer') : (_t.farmers || 'farmers');
+        cell.innerHTML = `<span style="cursor:pointer;color:#1976d2;" title="${names}" onclick="openFarmersModal('${escHtml(farmId)}', ${JSON.stringify(farmers).replace(/"/g, '&quot;')})">${farmers.length} ${farmerLabel}</span>`;
     } catch { /* silently ignore */ }
 }
 
@@ -220,12 +225,12 @@ async function fetchFarmersForFarm(farmId) {
 
 function openFarmersModal(farmId, farmers) {
     const farmName = document.querySelector(`#farmers-${farmId}`)?.closest('tr')?.querySelector('td:first-child strong')?.textContent || farmId;
-    document.getElementById('farmersModalTitle').textContent = `Farmers — ${farmName}`;
+    document.getElementById('farmersModalTitle').textContent = `${_t.farmers_title || 'Farmers'} — ${farmName}`;
     const body = document.getElementById('farmersModalBody');
     if (!farmers || !farmers.length) {
-        body.innerHTML = '<div style="color:#adb5bd;padding:10px;">No farmers assigned to this farm.</div>';
+        body.innerHTML = `<div style="color:#adb5bd;padding:10px;">${_t.no_farmers || 'No farmers assigned to this farm.'}</div>`;
     } else {
-        body.innerHTML = `<table class="data-table"><thead><tr><th>Username</th><th>Role</th></tr></thead><tbody>
+        body.innerHTML = `<table class="data-table"><thead><tr><th>${_t.username_col || 'Username'}</th><th>${_t.role || 'Role'}</th></tr></thead><tbody>
             ${farmers.map(f => `<tr><td><strong>${escHtml(f.username)}</strong></td><td><span class="badge badge-${escHtml(f.role)}">${escHtml(f.role).replace('_',' ')}</span></td></tr>`).join('')}
         </tbody></table>`;
     }
@@ -296,11 +301,11 @@ async function submitCreateFarm() {
     const orgIds = [...document.querySelectorAll('#farmOrgCheckboxes input:checked')].map(el => el.value);
     const lat = document.getElementById('farmLat').value;
     const lng = document.getElementById('farmLng').value;
-    if (!name) { setModalError('farm', 'Farm name is required.'); return; }
-    if (!orgIds.length) { setModalError('farm', 'Please select at least one organization.'); return; }
+    if (!name) { setModalError('farm', _t.farm_name_required || 'Farm name is required.'); return; }
+    if (!orgIds.length) { setModalError('farm', _t.select_at_least_one_org || 'Please select at least one organization.'); return; }
 
     const btn = document.getElementById('farmSubmitBtn');
-    btn.disabled = true; btn.textContent = 'Creating…';
+    btn.disabled = true; btn.textContent = _t.creating || 'Creating…';
     try {
         const res = await fetch('/api/admin/farms', {
             method: 'POST',
@@ -313,7 +318,7 @@ async function submitCreateFarm() {
         document.getElementById('farmName').value = '';
         document.getElementById('farmLat').value = '';
         document.getElementById('farmLng').value = '';
-        showToast(`Farm "${name}" created`);
+        showToast((_t.farm_created || 'Farm "{name}" created').replace('{name}', name));
         await loadScopedLists();
         loadOrgData();
     } finally { btn.disabled = false; btn.textContent = 'Create Farm'; }
@@ -322,11 +327,11 @@ async function submitCreateFarm() {
 async function submitUpload() {
     const farmId = document.getElementById('uploadFarm').value;
     const fileInput = document.getElementById('reportFile');
-    if (!farmId) { setModalError('upload', 'Please select a farm.'); return; }
-    if (!fileInput.files.length) { setModalError('upload', 'Please choose a .json file.'); return; }
+    if (!farmId) { setModalError('upload', _t.select_farm_error || 'Please select a farm.'); return; }
+    if (!fileInput.files.length) { setModalError('upload', _t.select_file_error || 'Please choose a .json file.'); return; }
 
     const btn = document.getElementById('uploadBtn');
-    btn.disabled = true; btn.textContent = 'Uploading…';
+    btn.disabled = true; btn.textContent = _t.uploading || 'Uploading…';
     const formData = new FormData();
     formData.append('file', fileInput.files[0]);
     try {
@@ -334,7 +339,7 @@ async function submitUpload() {
         const data = await res.json();
         if (!res.ok) { setModalError('upload', data.error || 'Upload failed.'); return; }
         closeUploadModal();
-        showToast(`Report "${data.filename}" uploaded`);
+        showToast((_t.report_uploaded || 'Report "{name}" uploaded').replace('{name}', data.filename));
         loadOrgData();
     } finally { btn.disabled = false; btn.textContent = 'Upload Report'; }
 }
@@ -346,7 +351,7 @@ async function submitUpload() {
 function onFileSelected(input) {
     if (input.files.length) {
         document.getElementById('fileDropText').innerHTML =
-            `<strong>${escHtml(input.files[0].name)}</strong><br><span style="font-size:0.8em;color:#40916c;">Ready to upload</span>`;
+            `<strong>${escHtml(input.files[0].name)}</strong><br><span style="font-size:0.8em;color:#40916c;">${_t.ready_to_upload || 'Ready to upload'}</span>`;
         document.getElementById('dropZone').classList.add('has-file');
     }
 }
@@ -355,7 +360,7 @@ function resetFilePicker() {
     const input = document.getElementById('reportFile');
     if (input) input.value = '';
     const text = document.getElementById('fileDropText');
-    if (text) text.innerHTML = 'Click to choose a .json file<br><span style="font-size:0.8em;color:#adb5bd;">or drag and drop here</span>';
+    if (text) text.innerHTML = `${_t.click_to_choose || 'Click to choose a .json file'}<br><span style="font-size:0.8em;color:#adb5bd;">${_t.or_drag_drop || 'or drag and drop here'}</span>`;
     const zone = document.getElementById('dropZone');
     if (zone) zone.classList.remove('has-file');
 }

@@ -1,60 +1,60 @@
 {% extends "base.html" %}
 
 {% block breadcrumb %}
-<span class="breadcrumb-item active">Admin Dashboard</span>
+<span class="breadcrumb-item active">{{ t.admin_dashboard }}</span>
 {% endblock %}
 
 {% block content %}
-<div class="page-content">
+<div class="page-content" data-translations="{{ t | tojson | forceescape }}">
 
     <!-- System Metrics -->
     <div class="metrics-bar">
         <div class="metric-card">
-            <div class="metric-label">Organizations</div>
+            <div class="metric-label">{{ t.organizations_metric }}</div>
             <div class="metric-value" id="metTotalOrgs">{{ total_orgs }}</div>
-            <div class="metric-sub">Across all levels</div>
+            <div class="metric-sub">{{ t.across_all_levels }}</div>
         </div>
         <div class="metric-card">
-            <div class="metric-label">Total Farms</div>
+            <div class="metric-label">{{ t.total_farms }}</div>
             <div class="metric-value" id="metTotalFarms">{{ total_farms }}</div>
-            <div class="metric-sub">Registered farms</div>
+            <div class="metric-sub">{{ t.registered_farms }}</div>
         </div>
         <div class="metric-card">
-            <div class="metric-label">Total Users</div>
+            <div class="metric-label">{{ t.total_users }}</div>
             <div class="metric-value" id="metTotalUsers">{{ total_users }}</div>
-            <div class="metric-sub">Active accounts</div>
+            <div class="metric-sub">{{ t.active_accounts }}</div>
         </div>
         <div class="metric-card">
-            <div class="metric-label">System Health</div>
+            <div class="metric-label">{{ t.system_health }}</div>
             <div class="metric-value" id="sysHealth">
                 <span class="skeleton" style="width:60px;height:32px;display:block;"></span>
             </div>
-            <div class="metric-sub" id="sysHealthSub">Loading...</div>
+            <div class="metric-sub" id="sysHealthSub">{{ t.loading }}</div>
         </div>
     </div>
 
     <!-- Organizations Table -->
     <div class="section-card">
         <div class="section-card-header">
-            <div class="section-card-title">Organizations</div>
-            <button class="btn-action" onclick="openModal('orgModal')">+ New Organization</button>
+            <div class="section-card-title">{{ t.organizations }}</div>
+            <button class="btn-action" onclick="openModal('orgModal')">{{ t.new_organization }}</button>
         </div>
         <div class="table-responsive">
             <table class="data-table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Parent</th>
-                        <th>Farms</th>
-                        <th>Users</th>
-                        <th>Avg Health</th>
-                        <th>Alerts</th>
-                        <th>Last Report</th>
+                        <th>{{ t.name }}</th>
+                        <th>{{ t.parent }}</th>
+                        <th>{{ t.farms }}</th>
+                        <th>{{ t.users }}</th>
+                        <th>{{ t.avg_health }}</th>
+                        <th>{{ t.alerts }}</th>
+                        <th>{{ t.last_report }}</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="orgsBody">
-                    <tr><td colspan="8" style="text-align:center;color:#adb5bd;padding:30px;">Loading...</td></tr>
+                    <tr><td colspan="8" style="text-align:center;color:#adb5bd;padding:30px;">{{ t.loading }}</td></tr>
                 </tbody>
             </table>
         </div>
@@ -63,27 +63,27 @@
     <!-- Farms Table -->
     <div class="section-card">
         <div class="section-card-header">
-            <div class="section-card-title">Farms</div>
+            <div class="section-card-title">{{ t.farms }}</div>
             <div style="display:flex;gap:10px;">
-                <button class="btn-action" onclick="openModal('farmModal')">+ New Farm</button>
-                <button class="btn-action" style="background:linear-gradient(135deg,#1565c0,#1976d2);" onclick="openModal('uploadModal')">↑ Upload Report</button>
+                <button class="btn-action" onclick="openModal('farmModal')">{{ t.new_farm }}</button>
+                <button class="btn-action" style="background:linear-gradient(135deg,#1565c0,#1976d2);" onclick="openModal('uploadModal')">{{ t.upload_report }}</button>
             </div>
         </div>
         <div class="table-responsive">
             <table class="data-table">
                 <thead>
                     <tr>
-                        <th>Farm Name</th>
-                        <th>Organization</th>
-                        <th>Avg Health</th>
-                        <th>Status</th>
-                        <th>Reports</th>
-                        <th>Last Report</th>
+                        <th>{{ t.farm_name }}</th>
+                        <th>{{ t.organization }}</th>
+                        <th>{{ t.avg_health }}</th>
+                        <th>{{ t.status }}</th>
+                        <th>{{ t.reports }}</th>
+                        <th>{{ t.last_report }}</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="farmsBody">
-                    <tr><td colspan="7" style="text-align:center;color:#adb5bd;padding:30px;">Loading...</td></tr>
+                    <tr><td colspan="7" style="text-align:center;color:#adb5bd;padding:30px;">{{ t.loading }}</td></tr>
                 </tbody>
             </table>
         </div>
@@ -92,23 +92,23 @@
     <!-- Users Table -->
     <div class="section-card">
         <div class="section-card-header">
-            <div class="section-card-title">Users</div>
-            <button class="btn-action" onclick="openModal('userModal')">+ New User</button>
+            <div class="section-card-title">{{ t.users }}</div>
+            <button class="btn-action" onclick="openModal('userModal')">{{ t.new_user }}</button>
         </div>
         <div class="table-responsive">
             <table class="data-table">
                 <thead>
                     <tr>
-                        <th>Display Name</th>
-                        <th>Username</th>
-                        <th>Role</th>
-                        <th>Assigned Org</th>
-                        <th>Farms</th>
+                        <th>{{ t.display_name }}</th>
+                        <th>{{ t.username_col }}</th>
+                        <th>{{ t.role }}</th>
+                        <th>{{ t.assigned_org }}</th>
+                        <th>{{ t.farms }}</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="usersBody">
-                    <tr><td colspan="6" style="text-align:center;color:#adb5bd;padding:30px;">Loading...</td></tr>
+                    <tr><td colspan="6" style="text-align:center;color:#adb5bd;padding:30px;">{{ t.loading }}</td></tr>
                 </tbody>
             </table>
         </div>
@@ -122,25 +122,25 @@
 <div id="orgModal" class="admin-modal-overlay" style="display:none">
     <div class="admin-modal">
         <div class="admin-modal-header">
-            <div class="admin-modal-title">New Organization</div>
+            <div class="admin-modal-title">{{ t.new_organization_title }}</div>
             <button class="admin-modal-close" onclick="closeModal('orgModal')">&times;</button>
         </div>
         <div id="orgModalError" class="admin-modal-error" style="display:none"></div>
         <form id="orgForm" class="admin-modal-body">
             <div class="form-group">
-                <label>Organization Name <span class="required">*</span></label>
+                <label>{{ t.org_name_label }} <span class="required">*</span></label>
                 <input type="text" id="orgName" placeholder="e.g. Vidarbha Region" required>
             </div>
             <div class="form-group">
-                <label>Parent Organization <span class="optional">(optional)</span></label>
+                <label>{{ t.parent_org_label }} <span class="optional">{{ t.optional }}</span></label>
                 <select id="orgParent">
-                    <option value="">— None (top-level) —</option>
+                    <option value="">{{ t.none_top_level }}</option>
                 </select>
             </div>
         </form>
         <div class="admin-modal-footer">
-            <button class="admin-btn-cancel" onclick="closeModal('orgModal')">Cancel</button>
-            <button class="admin-btn-submit" onclick="submitCreateOrg()">Create Organization</button>
+            <button class="admin-btn-cancel" onclick="closeModal('orgModal')">{{ t.cancel }}</button>
+            <button class="admin-btn-submit" onclick="submitCreateOrg()">{{ t.create_organization }}</button>
         </div>
     </div>
 </div>
@@ -149,34 +149,34 @@
 <div id="farmModal" class="admin-modal-overlay" style="display:none">
     <div class="admin-modal">
         <div class="admin-modal-header">
-            <div class="admin-modal-title">New Farm</div>
+            <div class="admin-modal-title">{{ t.new_farm_title }}</div>
             <button class="admin-modal-close" onclick="closeModal('farmModal')">&times;</button>
         </div>
         <div id="farmModalError" class="admin-modal-error" style="display:none"></div>
         <form id="farmForm" class="admin-modal-body">
             <div class="form-group">
-                <label>Farm Name <span class="required">*</span></label>
+                <label>{{ t.farm_name }} <span class="required">*</span></label>
                 <input type="text" id="farmName" placeholder="e.g. Wardha East Plot" required>
             </div>
             <div class="form-group">
-                <label>Organizations <span class="required">*</span></label>
+                <label>{{ t.orgs_label }} <span class="required">*</span></label>
                 <div id="farmOrgCheckboxes" class="checkbox-list"></div>
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label>Latitude <span class="optional">(optional)</span></label>
+                    <label>{{ t.lat_label }} <span class="optional">{{ t.optional }}</span></label>
                     <input type="number" id="farmLat" placeholder="e.g. 20.3211" step="any">
                 </div>
                 <div class="form-group">
-                    <label>Longitude <span class="optional">(optional)</span></label>
+                    <label>{{ t.lng_label }} <span class="optional">{{ t.optional }}</span></label>
                     <input type="number" id="farmLng" placeholder="e.g. 80.1898" step="any">
                 </div>
             </div>
-            <div class="form-hint">GPS coordinates are used for weather data and map display.</div>
+            <div class="form-hint">{{ t.gps_hint }}</div>
         </form>
         <div class="admin-modal-footer">
-            <button class="admin-btn-cancel" onclick="closeModal('farmModal')">Cancel</button>
-            <button class="admin-btn-submit" onclick="submitCreateFarm()">Create Farm</button>
+            <button class="admin-btn-cancel" onclick="closeModal('farmModal')">{{ t.cancel }}</button>
+            <button class="admin-btn-submit" onclick="submitCreateFarm()">{{ t.create_farm }}</button>
         </div>
     </div>
 </div>
@@ -185,48 +185,48 @@
 <div id="userModal" class="admin-modal-overlay" style="display:none">
     <div class="admin-modal">
         <div class="admin-modal-header">
-            <div class="admin-modal-title">New User</div>
+            <div class="admin-modal-title">{{ t.new_user_title }}</div>
             <button class="admin-modal-close" onclick="closeModal('userModal')">&times;</button>
         </div>
         <div id="userModalError" class="admin-modal-error" style="display:none"></div>
         <form id="userForm" class="admin-modal-body">
             <div class="form-group">
-                <label>Display Name <span class="required">*</span></label>
+                <label>{{ t.display_name_label }} <span class="required">*</span></label>
                 <input type="text" id="userDisplayName" placeholder="e.g. Ramesh Kumar">
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label>Username <span class="required">*</span></label>
+                    <label>{{ t.username_col }} <span class="required">*</span></label>
                     <input type="text" id="userName" placeholder="e.g. ramesh" required>
                 </div>
                 <div class="form-group">
-                    <label>Password <span class="required">*</span></label>
-                    <input type="password" id="userPassword" placeholder="Enter password" required>
+                    <label>{{ t.password_label }} <span class="required">*</span></label>
+                    <input type="password" id="userPassword" placeholder="" required>
                 </div>
             </div>
             <div class="form-group">
-                <label>Role <span class="required">*</span></label>
+                <label>{{ t.role_label }} <span class="required">*</span></label>
                 <select id="userRole" onchange="onRoleChange()" required>
-                    <option value="">— Select role —</option>
-                    <option value="admin">Admin</option>
-                    <option value="org_admin">Org Admin</option>
-                    <option value="user">Normal User</option>
+                    <option value="">{{ t.select_role }}</option>
+                    <option value="admin">{{ t.role_admin }}</option>
+                    <option value="org_admin">{{ t.role_org_admin }}</option>
+                    <option value="user">{{ t.role_user }}</option>
                 </select>
             </div>
             <div id="userOrgGroup" class="form-group" style="display:none">
-                <label>Organization <span class="required">*</span></label>
+                <label>{{ t.organization }} <span class="required">*</span></label>
                 <select id="userOrg">
-                    <option value="">— Select organization —</option>
+                    <option value="">{{ t.select_org }}</option>
                 </select>
             </div>
             <div id="userFarmsGroup" class="form-group" style="display:none">
-                <label>Assign Farms <span class="optional">(select one or more)</span></label>
+                <label>{{ t.assign_farms_label }} <span class="optional">{{ t.select_one_or_more }}</span></label>
                 <div id="farmCheckboxes" class="checkbox-list"></div>
             </div>
         </form>
         <div class="admin-modal-footer">
-            <button class="admin-btn-cancel" onclick="closeModal('userModal')">Cancel</button>
-            <button class="admin-btn-submit" onclick="submitCreateUser()">Create User</button>
+            <button class="admin-btn-cancel" onclick="closeModal('userModal')">{{ t.cancel }}</button>
+            <button class="admin-btn-submit" onclick="submitCreateUser()">{{ t.create_user }}</button>
         </div>
     </div>
 </div>
@@ -235,27 +235,27 @@
 <div id="editUserModal" class="admin-modal-overlay" style="display:none">
     <div class="admin-modal">
         <div class="admin-modal-header">
-            <div class="admin-modal-title">Edit User</div>
+            <div class="admin-modal-title">{{ t.edit_user_title }}</div>
             <button class="admin-modal-close" onclick="closeModal('editUserModal')">&times;</button>
         </div>
         <div id="editUserModalError" class="admin-modal-error" style="display:none"></div>
         <div class="admin-modal-body">
             <div class="form-group">
-                <label>Username</label>
+                <label>{{ t.username_col }}</label>
                 <input type="text" id="editUserUsername" disabled style="background:#f8f9fa;color:#6c757d;">
             </div>
             <div class="form-group">
-                <label>Display Name <span class="required">*</span></label>
+                <label>{{ t.display_name_label }} <span class="required">*</span></label>
                 <input type="text" id="editUserDisplayName" placeholder="e.g. Ramesh Kumar">
             </div>
             <div class="form-group">
-                <label>New Password <span class="optional">(leave blank to keep current)</span></label>
-                <input type="password" id="editUserPassword" placeholder="Enter new password">
+                <label>{{ t.new_password_label }} <span class="optional">{{ t.leave_blank_password }}</span></label>
+                <input type="password" id="editUserPassword" placeholder="">
             </div>
         </div>
         <div class="admin-modal-footer">
-            <button class="admin-btn-cancel" onclick="closeModal('editUserModal')">Cancel</button>
-            <button class="admin-btn-submit" id="editUserSubmitBtn" onclick="submitEditUser()">Save Changes</button>
+            <button class="admin-btn-cancel" onclick="closeModal('editUserModal')">{{ t.cancel }}</button>
+            <button class="admin-btn-submit" id="editUserSubmitBtn" onclick="submitEditUser()">{{ t.save_changes }}</button>
         </div>
     </div>
 </div>
@@ -264,29 +264,29 @@
 <div id="uploadModal" class="admin-modal-overlay" style="display:none">
     <div class="admin-modal">
         <div class="admin-modal-header">
-            <div class="admin-modal-title">Upload Farm Report</div>
+            <div class="admin-modal-title">{{ t.upload_report_title }}</div>
             <button class="admin-modal-close" onclick="closeModal('uploadModal')">&times;</button>
         </div>
         <div id="uploadModalError" class="admin-modal-error" style="display:none"></div>
         <div class="admin-modal-body">
             <div class="form-group">
-                <label>Farm <span class="required">*</span></label>
+                <label>{{ t.farm_label }} <span class="required">*</span></label>
                 <select id="uploadFarm" required>
-                    <option value="">— Select farm —</option>
+                    <option value="">{{ t.select_farm }}</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>Report File (.json) <span class="required">*</span></label>
+                <label>{{ t.report_file_label }} <span class="required">*</span></label>
                 <div class="file-drop-zone" id="dropZone" onclick="document.getElementById('reportFile').click()">
                     <div class="file-drop-icon">📄</div>
-                    <div class="file-drop-text" id="fileDropText">Click to choose a .json file<br><span style="font-size:0.8em;color:#adb5bd;">or drag and drop here</span></div>
+                    <div class="file-drop-text" id="fileDropText">{{ t.click_to_choose }}<br><span style="font-size:0.8em;color:#adb5bd;">{{ t.or_drag_drop }}</span></div>
                     <input type="file" id="reportFile" accept=".json" style="display:none" onchange="onFileSelected(this)">
                 </div>
             </div>
         </div>
         <div class="admin-modal-footer">
-            <button class="admin-btn-cancel" onclick="closeModal('uploadModal')">Cancel</button>
-            <button class="admin-btn-submit" id="uploadBtn" onclick="submitUpload()">Upload Report</button>
+            <button class="admin-btn-cancel" onclick="closeModal('uploadModal')">{{ t.cancel }}</button>
+            <button class="admin-btn-submit" id="uploadBtn" onclick="submitUpload()">{{ t.upload_report_title }}</button>
         </div>
     </div>
 </div>

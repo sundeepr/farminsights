@@ -227,6 +227,23 @@ body.sidebar-open {
     color: white;
 }
 
+/* ---- Language switcher ---- */
+.lang-switcher {
+    margin-bottom: 8px;
+}
+.lang-select {
+    width: 100%;
+    padding: 6px 8px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 6px;
+    font-size: 0.8em;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    appearance: auto;
+}
+
 /* ---- Page wrapper ---- */
 
 .page-wrapper {

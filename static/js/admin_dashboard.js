@@ -2,10 +2,12 @@
  * admin_dashboard.js — Admin dashboard: tables, create org/farm/user, upload report
  */
 
-let _allOrgs = [];   // cache for dropdowns
-let _allFarms = [];  // cache for dropdowns
+let _allOrgs = [];
+let _allFarms = [];
+let _t = {};
 
 document.addEventListener('DOMContentLoaded', () => {
+    _t = window._t || {};
     loadAdminData();
     setupDragDrop();
 });
@@ -47,7 +49,7 @@ function renderOrgs(orgs) {
     const orgMap = Object.fromEntries(_allOrgs.map(o => [o.id, o.name]));
     const tbody = document.getElementById('orgsBody');
     if (!orgs.length) {
-        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:#adb5bd;padding:30px;">No organizations found.</td></tr>';
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;color:#adb5bd;padding:30px;">${_t.no_organizations || 'No organizations found.'}</td></tr>`;
         return;
     }
     tbody.innerHTML = '';
@@ -70,7 +72,7 @@ function renderOrgs(orgs) {
                 : `<span style="color:#adb5bd">0</span>`
             }</td>
             <td>${formatDate(org.last_report_date)}</td>
-            <td><a href="/org/${escHtml(org.id)}" class="btn-action">View</a></td>
+            <td><a href="/org/${escHtml(org.id)}" class="btn-action">${_t.view || 'View'}</a></td>
         `;
         tbody.appendChild(tr);
     });
@@ -80,7 +82,7 @@ async function renderFarmsTable() {
     const orgMap = Object.fromEntries(_allOrgs.map(o => [o.id, o.name]));
     const tbody = document.getElementById('farmsBody');
     if (!_allFarms.length) {
-        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#adb5bd;padding:30px;">No farms found.</td></tr>';
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#adb5bd;padding:30px;">${_t.no_farms_in_org || 'No farms found.'}</td></tr>`;
         return;
     }
     tbody.innerHTML = '';
@@ -96,9 +98,9 @@ async function renderFarmsTable() {
             <td id="fd-${escHtml(farm.id)}"><span style="color:#adb5bd">—</span></td>
             <td>
                 <div style="display:flex;gap:6px;justify-content:center;">
-                    <a href="/farm/${escHtml(farm.id)}" class="btn-action">View</a>
+                    <a href="/farm/${escHtml(farm.id)}" class="btn-action">${_t.view || 'View'}</a>
                     <button class="btn-action" style="background:linear-gradient(135deg,#1565c0,#1976d2);"
-                        onclick="openUploadForFarm('${escHtml(farm.id)}')">↑ Upload</button>
+                        onclick="openUploadForFarm('${escHtml(farm.id)}')">${_t.upload_short || '↑ Upload'}</button>
                 </div>
             </td>
         `;
@@ -124,7 +126,7 @@ async function fetchFarmSummary(farmId) {
             .filter(s => s !== null && s !== undefined);
         const avg = scores.length ? (scores.reduce((a,b) => a+b,0)/scores.length).toFixed(1) : null;
         const cls = avg !== null ? getStatusClass(parseFloat(avg)) : 'unknown';
-        const status = avg === null ? 'no data' : parseFloat(avg) >= 75 ? 'good' : parseFloat(avg) >= 65 ? 'fair' : 'poor';
+        const status = avg === null ? (_t.no_data || 'no data') : parseFloat(avg) >= 75 ? (_t.good || 'good') : parseFloat(avg) >= 65 ? (_t.fair || 'fair') : (_t.poor || 'poor');
         if (avg !== null) {
             document.getElementById(`fh-${farmId}`).innerHTML =
                 `<span class="metric-value ${cls}" style="font-size:1em;">${avg}</span>`;
@@ -143,7 +145,7 @@ function renderUsers(users) {
     const farmMap = Object.fromEntries(_allFarms.map(f => [f.id, f.name]));
     const tbody = document.getElementById('usersBody');
     if (!users.length) {
-        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#adb5bd;padding:30px;">No users found.</td></tr>';
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#adb5bd;padding:30px;">${_t.no_users || 'No users found.'}</td></tr>`;
         return;
     }
     tbody.innerHTML = '';
@@ -160,7 +162,7 @@ function renderUsers(users) {
             <td><span class="badge badge-${escHtml(user.role)}">${escHtml(user.role).replace('_', ' ')}</span></td>
             <td style="color:#6c757d">${escHtml(orgName)}</td>
             <td>${farmList}</td>
-            <td><button class="btn-action" style="font-size:0.8em;padding:4px 10px;" onclick='openEditUserModal(${userData})'>Edit</button></td>
+            <td><button class="btn-action" style="font-size:0.8em;padding:4px 10px;" onclick='openEditUserModal(${userData})'>${_t.edit || 'Edit'}</button></td>
         `;
         tbody.appendChild(tr);
     });
@@ -181,10 +183,10 @@ function openEditUserModal(user) {
 async function submitEditUser() {
     const displayName = document.getElementById('editUserDisplayName').value.trim();
     const password = document.getElementById('editUserPassword').value;
-    if (!displayName) { setModalError('editUser', 'Display name is required.'); return; }
+    if (!displayName) { setModalError('editUser', _t.display_name_required || 'Display name is required.'); return; }
 
     const btn = document.getElementById('editUserSubmitBtn');
-    btn.disabled = true; btn.textContent = 'Saving…';
+    btn.disabled = true; btn.textContent = _t.saving || 'Saving…';
     try {
         const res = await fetch(`/api/admin/users/${_editingUserId}`, {
             method: 'PATCH',
@@ -194,10 +196,10 @@ async function submitEditUser() {
         const data = await res.json();
         if (!res.ok) { setModalError('editUser', data.error || 'Failed to update user.'); return; }
         closeModal('editUserModal');
-        showToast(`User updated`);
+        showToast(_t.user_updated || 'User updated');
         loadAdminData();
     } finally {
-        btn.disabled = false; btn.textContent = 'Save Changes';
+        btn.disabled = false; btn.textContent = _t.save_changes || 'Save Changes';
     }
 }
 
@@ -206,14 +208,14 @@ function computeSystemHealth(orgs) {
     const sysEl = document.getElementById('sysHealth');
     const subEl = document.getElementById('sysHealthSub');
     if (!scores.length) {
-        sysEl.textContent = 'N/A';
-        subEl.textContent = 'No data available';
+        sysEl.textContent = _t.na || 'N/A';
+        subEl.textContent = _t.no_data_available || 'No data available';
         return;
     }
     const avg = (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(1);
     const cls = getStatusClass(parseFloat(avg));
     sysEl.innerHTML = `<span class="${cls}">${avg}</span>`;
-    subEl.textContent = `Across ${scores.length} org(s)`;
+    subEl.textContent = (_t.across_orgs_count || 'Across {n} org(s)').replace('{n}', scores.length);
 }
 
 // ---------------------------------------------------------------------------
@@ -259,7 +261,7 @@ function clearModalError(prefix) {
 
 function populateOrgParentDropdown() {
     const sel = document.getElementById('orgParent');
-    sel.innerHTML = '<option value="">— None (top-level) —</option>';
+    sel.innerHTML = `<option value="">${_t.none_top_level || '\u2014 None (top-level) \u2014'}</option>`;
     _allOrgs.forEach(o => {
         const opt = document.createElement('option');
         opt.value = o.id;
@@ -280,7 +282,7 @@ function populateFarmOrgCheckboxes() {
 
 function populateUserDropdowns() {
     const orgSel = document.getElementById('userOrg');
-    orgSel.innerHTML = '<option value="">— Select organization —</option>';
+    orgSel.innerHTML = `<option value="">${_t.select_org || '\u2014 Select organization \u2014'}</option>`;
     _allOrgs.forEach(o => {
         const opt = document.createElement('option');
         opt.value = o.id;
@@ -299,7 +301,7 @@ function populateUserDropdowns() {
 
 function populateUploadFarmDropdown() {
     const sel = document.getElementById('uploadFarm');
-    sel.innerHTML = '<option value="">— Select farm —</option>';
+    sel.innerHTML = `<option value="">${_t.select_farm || '\u2014 Select farm \u2014'}</option>`;
     _allFarms.forEach(f => {
         const opt = document.createElement('option');
         opt.value = f.id;
@@ -309,7 +311,7 @@ function populateUploadFarmDropdown() {
     // Reset file picker
     document.getElementById('reportFile').value = '';
     document.getElementById('fileDropText').innerHTML =
-        'Click to choose a .json file<br><span style="font-size:0.8em;color:#adb5bd;">or drag and drop here</span>';
+        `${_t.click_to_choose || 'Click to choose a .json file'}<br><span style="font-size:0.8em;color:#adb5bd;">${_t.or_drag_drop || 'or drag and drop here'}</span>`;
     document.getElementById('dropZone').classList.remove('has-file');
 }
 
@@ -333,10 +335,10 @@ async function submitCreateOrg() {
     clearModalError('org');
     const name = document.getElementById('orgName').value.trim();
     const parentId = document.getElementById('orgParent').value;
-    if (!name) { setModalError('org', 'Organization name is required.'); return; }
+    if (!name) { setModalError('org', _t.org_name_required || 'Organization name is required.'); return; }
 
     const btn = document.querySelector('#orgModal .admin-btn-submit');
-    btn.disabled = true; btn.textContent = 'Creating…';
+    btn.disabled = true; btn.textContent = _t.creating || 'Creating…';
 
     try {
         const res = await fetch('/api/admin/orgs', {
@@ -348,11 +350,11 @@ async function submitCreateOrg() {
         if (!res.ok) { setModalError('org', data.error || 'Failed to create organization.'); return; }
         closeModal('orgModal');
         document.getElementById('orgName').value = '';
-        showToast(`Organization "${name}" created`);
+        showToast((_t.org_created || 'Organization "{name}" created').replace('{name}', name));
         await refreshDropdowns();
         loadAdminData();
     } finally {
-        btn.disabled = false; btn.textContent = 'Create Organization';
+        btn.disabled = false; btn.textContent = _t.create_organization || 'Create Organization';
     }
 }
 
@@ -362,11 +364,11 @@ async function submitCreateFarm() {
     const orgIds = [...document.querySelectorAll('#farmOrgCheckboxes input:checked')].map(el => el.value);
     const lat = document.getElementById('farmLat').value;
     const lng = document.getElementById('farmLng').value;
-    if (!name) { setModalError('farm', 'Farm name is required.'); return; }
-    if (!orgIds.length) { setModalError('farm', 'Please select at least one organization.'); return; }
+    if (!name) { setModalError('farm', _t.farm_name_required || 'Farm name is required.'); return; }
+    if (!orgIds.length) { setModalError('farm', _t.select_at_least_one_org || 'Please select at least one organization.'); return; }
 
     const btn = document.querySelector('#farmModal .admin-btn-submit');
-    btn.disabled = true; btn.textContent = 'Creating…';
+    btn.disabled = true; btn.textContent = _t.creating || 'Creating…';
 
     try {
         const res = await fetch('/api/admin/farms', {
@@ -380,11 +382,11 @@ async function submitCreateFarm() {
         document.getElementById('farmName').value = '';
         document.getElementById('farmLat').value = '';
         document.getElementById('farmLng').value = '';
-        showToast(`Farm "${name}" created`);
+        showToast((_t.farm_created || 'Farm "{name}" created').replace('{name}', name));
         await refreshDropdowns();
         loadAdminData();
     } finally {
-        btn.disabled = false; btn.textContent = 'Create Farm';
+        btn.disabled = false; btn.textContent = _t.create_farm || 'Create Farm';
     }
 }
 
@@ -397,14 +399,14 @@ async function submitCreateUser() {
     const orgId = document.getElementById('userOrg').value;
     const farmIds = [...document.querySelectorAll('#farmCheckboxes input:checked')].map(el => el.value);
 
-    if (!displayName) { setModalError('user', 'Display name is required.'); return; }
-    if (!username) { setModalError('user', 'Username is required.'); return; }
-    if (!password) { setModalError('user', 'Password is required.'); return; }
-    if (!role) { setModalError('user', 'Please select a role.'); return; }
-    if (role === 'org_admin' && !orgId) { setModalError('user', 'Please select an organization for this Org Admin.'); return; }
+    if (!displayName) { setModalError('user', _t.display_name_required || 'Display name is required.'); return; }
+    if (!username) { setModalError('user', _t.username_required || 'Username is required.'); return; }
+    if (!password) { setModalError('user', _t.password_required || 'Password is required.'); return; }
+    if (!role) { setModalError('user', _t.select_role_error || 'Please select a role.'); return; }
+    if (role === 'org_admin' && !orgId) { setModalError('user', _t.select_org_for_admin || 'Please select an organization for this Org Admin.'); return; }
 
     const btn = document.querySelector('#userModal .admin-btn-submit');
-    btn.disabled = true; btn.textContent = 'Creating…';
+    btn.disabled = true; btn.textContent = _t.creating || 'Creating…';
 
     try {
         const res = await fetch('/api/admin/users', {
@@ -423,10 +425,10 @@ async function submitCreateUser() {
         document.getElementById('userName').value = '';
         document.getElementById('userPassword').value = '';
         document.getElementById('userRole').value = '';
-        showToast(`User "${displayName}" created`);
+        showToast((_t.user_created || 'User "{name}" created').replace('{name}', displayName));
         loadAdminData();
     } finally {
-        btn.disabled = false; btn.textContent = 'Create User';
+        btn.disabled = false; btn.textContent = _t.create_user || 'Create User';
     }
 }
 
@@ -434,11 +436,11 @@ async function submitUpload() {
     clearModalError('upload');
     const farmId = document.getElementById('uploadFarm').value;
     const fileInput = document.getElementById('reportFile');
-    if (!farmId) { setModalError('upload', 'Please select a farm.'); return; }
-    if (!fileInput.files.length) { setModalError('upload', 'Please choose a .json file.'); return; }
+    if (!farmId) { setModalError('upload', _t.select_farm_error || 'Please select a farm.'); return; }
+    if (!fileInput.files.length) { setModalError('upload', _t.select_file_error || 'Please choose a .json file.'); return; }
 
     const btn = document.getElementById('uploadBtn');
-    btn.disabled = true; btn.textContent = 'Uploading…';
+    btn.disabled = true; btn.textContent = _t.uploading || 'Uploading…';
 
     const formData = new FormData();
     formData.append('file', fileInput.files[0]);
@@ -451,10 +453,10 @@ async function submitUpload() {
         const data = await res.json();
         if (!res.ok) { setModalError('upload', data.error || 'Upload failed.'); return; }
         closeModal('uploadModal');
-        showToast(`Report "${data.filename}" uploaded successfully`);
+        showToast((_t.report_uploaded || 'Report "{name}" uploaded').replace('{name}', data.filename));
         loadAdminData();
     } finally {
-        btn.disabled = false; btn.textContent = 'Upload Report';
+        btn.disabled = false; btn.textContent = _t.upload_report_title || 'Upload Report';
     }
 }
 
@@ -466,7 +468,7 @@ function onFileSelected(input) {
     if (input.files.length) {
         const name = input.files[0].name;
         document.getElementById('fileDropText').innerHTML =
-            `<strong>${escHtml(name)}</strong><br><span style="font-size:0.8em;color:#40916c;">Ready to upload</span>`;
+            `<strong>${escHtml(name)}</strong><br><span style="font-size:0.8em;color:#40916c;">${_t.ready_to_upload || 'Ready to upload'}</span>`;
         document.getElementById('dropZone').classList.add('has-file');
     }
 }

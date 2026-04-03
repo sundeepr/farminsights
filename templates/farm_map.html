@@ -18,25 +18,25 @@
 {% block content %}
 <div id="farmLoading" class="loading-overlay">
     <div class="loading-spinner"></div>
-    <div class="loading-text">Loading farm data...</div>
+    <div class="loading-text">{{ t.loading_farm_data if t else 'Loading farm data...' }}</div>
 </div>
 
 <div class="farm-container">
     <!-- Map Section -->
     <div class="map-section">
         <div class="map-header">
-            <div class="map-title">📍 {{ farm.name }} — Field Map</div>
+            <div class="map-title">📍 {{ farm.name }} — {{ t.field_map if t else 'Field Map' }}</div>
             <div class="map-stats">
                 <div class="map-stat">
-                    <div class="map-stat-label">Total Images</div>
+                    <div class="map-stat-label">{{ t.total_images if t else 'Total Images' }}</div>
                     <div class="map-stat-value" id="totalImages">—</div>
                 </div>
                 <div class="map-stat">
-                    <div class="map-stat-label">Analyzed</div>
+                    <div class="map-stat-label">{{ t.analyzed if t else 'Analyzed' }}</div>
                     <div class="map-stat-value" id="analyzedCount">—</div>
                 </div>
                 <div class="map-stat">
-                    <div class="map-stat-label">Avg Health</div>
+                    <div class="map-stat-label">{{ t.avg_health if t else 'Avg Health' }}</div>
                     <div class="map-stat-value" id="avgHealth">—</div>
                 </div>
             </div>
@@ -45,21 +45,21 @@
                     <input type="checkbox" id="heatmapToggle" checked>
                     <span class="slider"></span>
                 </label>
-                <span style="font-size: 0.85em; color: #6c757d;">Heatmap</span>
+                <span style="font-size: 0.85em; color: #6c757d;">{{ t.heatmap if t else 'Heatmap' }}</span>
                 <button class="btn btn-primary" id="zoomAllBtn">
-                    <span>🔍</span> View All
+                    <span>🔍</span> {{ t.view_all if t else 'View All' }}
                 </button>
             </div>
         </div>
         <div id="map"></div>
     </div>
 
-    <!-- Plant Sidebar -->
+    <!-- Sidebar -->
     <div class="plant-sidebar">
         <!-- Weather Widget -->
         <div id="weatherWidget" class="weather-widget" style="margin:14px 14px 0;">
             <div class="weather-header">
-                <div class="weather-title">Current Weather</div>
+                <div class="weather-title">{{ t.current_weather if t else 'Current Weather' }}</div>
                 <div class="weather-updated" id="weatherUpdated"></div>
             </div>
             <div id="weatherBody" style="text-align:center;padding:10px 0;">
@@ -68,41 +68,32 @@
         </div>
 
         <div class="plant-sidebar-header">
-            <div class="plant-sidebar-title">Filter & Search</div>
+            <div class="plant-sidebar-title">{{ t.filter_search if t else 'Filter & Search' }}</div>
             <div class="filters">
                 <div class="filter-group">
-                    <label for="timelineSelect">Report Timeline</label>
-                    <select id="timelineSelect">
-                        <option value="">Loading...</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="statusFilter">Health Status</label>
+                    <label for="statusFilter">{{ t.health_status if t else 'Health Status' }}</label>
                     <select id="statusFilter">
-                        <option value="all">All Plants</option>
-                        <option value="good">Good Health (75-100)</option>
-                        <option value="fair">Fair Health (65-74)</option>
-                        <option value="poor">Poor Health (0-64)</option>
-                        <option value="unknown">Unknown / Error</option>
+                        <option value="all">{{ t.all_plants if t else 'All Plants' }}</option>
+                        <option value="good">{{ t.good_health if t else 'Good Health (75-100)' }}</option>
+                        <option value="fair">{{ t.fair_health if t else 'Fair Health (65-74)' }}</option>
+                        <option value="poor">{{ t.poor_health if t else 'Poor Health (0-64)' }}</option>
+                        <option value="unknown">{{ t.unknown_error if t else 'Unknown / Error' }}</option>
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label for="searchInput">Search by Name</label>
-                    <input type="text" id="searchInput" placeholder="Enter image name...">
+                    <label for="searchInput">{{ t.search_by_name if t else 'Search by Name' }}</label>
+                    <input type="text" id="searchInput" placeholder="{{ t.enter_image_name if t else 'Enter image name...' }}">
                 </div>
             </div>
             <div class="legend">
-                <div class="legend-title">Health Legend</div>
+                <div class="legend-title">{{ t.health_legend if t else 'Health Legend' }}</div>
                 <div class="legend-items">
-                    <div class="legend-item"><div class="legend-color good"></div><span>Good (75-100)</span></div>
-                    <div class="legend-item"><div class="legend-color fair"></div><span>Fair (65-74)</span></div>
-                    <div class="legend-item"><div class="legend-color poor"></div><span>Poor (0-64)</span></div>
-                    <div class="legend-item"><div class="legend-color unknown"></div><span>Unknown/Error</span></div>
+                    <div class="legend-item"><div class="legend-color good"></div><span>{{ t.good if t else 'Good' }} (75-100)</span></div>
+                    <div class="legend-item"><div class="legend-color fair"></div><span>{{ t.fair if t else 'Fair' }} (65-74)</span></div>
+                    <div class="legend-item"><div class="legend-color poor"></div><span>{{ t.poor if t else 'Poor' }} (0-64)</span></div>
+                    <div class="legend-item"><div class="legend-color unknown"></div><span>{{ t.unknown_error if t else 'Unknown/Error' }}</span></div>
                 </div>
             </div>
-        </div>
-        <div class="plants-list" id="plantsList">
-            <div class="plants-empty">Loading plant data...</div>
         </div>
     </div>
 </div>
@@ -170,43 +161,19 @@
             "Street Map": streetLayer
         }).addTo(map);
 
-        map.on('moveend', () => setTimeout(() => map.invalidateSize(), 100));
-
         mapInitialized = true;
     }
 
-    async function loadFileList() {
+    async function loadLatestFile() {
         try {
             const response = await fetch(`/api/files?farm_id=${FARM_ID}`);
             const files = await response.json();
-            if (files.error) {
-                console.error('Error fetching files:', files.error);
+            if (files.error || !files.length) {
+                document.getElementById('farmLoading').innerHTML =
+                    '<div style="color:#dc3545;padding:20px;">No data files found.</div>';
                 return;
             }
-            const select = document.getElementById('timelineSelect');
-            select.innerHTML = '';
-
-            files.forEach(file => {
-                const option = document.createElement('option');
-                option.value = file.filename;
-                option.textContent = file.display;
-                select.appendChild(option);
-            });
-
-            if (files.length > 0) {
-                currentFile = files[0].filename;
-                await loadData(currentFile);
-                setupFilters();
-            }
-
-            select.addEventListener('change', async (e) => {
-                currentFile = e.target.value;
-                document.getElementById('farmLoading').style.display = 'flex';
-                document.getElementById('statusFilter').value = 'all';
-                document.getElementById('searchInput').value = '';
-                await loadData(currentFile);
-                document.getElementById('farmLoading').style.display = 'none';
-            });
+            await loadData(files[0].filename);
         } catch (err) {
             console.error('Error loading file list:', err);
         }
@@ -233,8 +200,8 @@
             updateHeaderStats(data);
             renderMarkers(allData);
             renderHeatmap(allData);
-            renderPlantsList(allData);
             setupZoomAll(allData);
+            setupFilters();
 
             document.getElementById('farmLoading').style.display = 'none';
         } catch (err) {
@@ -244,7 +211,7 @@
         }
     }
 
-    loadFileList();
+    loadLatestFile();
 
     function updateHeaderStats(data) {
         const images = data.images;
@@ -270,10 +237,7 @@
                 .addTo(map)
                 .bindPopup(createPopupContent(image));
 
-            marker.imageData = image;
             markers.push(marker);
-
-            marker.on('click', () => highlightPlantItem(image.image_name));
         });
     }
 
@@ -328,49 +292,6 @@
             </div>`;
     }
 
-    function renderPlantsList(data) {
-        const listDiv = document.getElementById('plantsList');
-        if (data.length === 0) {
-            listDiv.innerHTML = '<div class="plants-empty">No plants match the current filters.</div>';
-            return;
-        }
-        listDiv.innerHTML = '';
-        data.forEach(image => {
-            const a = image.plant_health_analysis;
-            const score = a.health_score !== null ? `${a.health_score}/100` : 'N/A';
-            const item = document.createElement('div');
-            item.className = 'plant-item';
-            item.dataset.imageName = image.image_name;
-            item.innerHTML = `
-                <div class="plant-header">
-                    <div class="plant-name">${image.image_name}</div>
-                    <span class="plant-status ${a.health_status}">${a.health_status}</span>
-                </div>
-                ${a.health_score !== null
-                    ? `<div class="plant-score">Score: ${score}</div><div class="plant-info">${a.issues_detected || ''}</div>`
-                    : `<div class="plant-info" style="color:#dc3545;">Analysis error</div>`
-                }`;
-            item.addEventListener('click', () => {
-                const marker = markers.find(m => m.imageData.image_name === image.image_name);
-                if (marker) {
-                    map.setView(marker.getLatLng(), 19);
-                    marker.openPopup();
-                    highlightPlantItem(image.image_name);
-                }
-            });
-            listDiv.appendChild(item);
-        });
-    }
-
-    function highlightPlantItem(imageName) {
-        document.querySelectorAll('.plant-item').forEach(el => el.classList.remove('selected'));
-        const item = document.querySelector(`[data-image-name="${imageName}"]`);
-        if (item) {
-            item.classList.add('selected');
-            item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-    }
-
     function setupFilters() {
         const statusFilter = document.getElementById('statusFilter');
         const searchInput = document.getElementById('searchInput');
@@ -386,18 +307,14 @@
             });
             renderMarkers(filtered);
             if (heatmapToggle.checked) renderHeatmap(filtered);
-            renderPlantsList(filtered);
         }
 
         statusFilter.addEventListener('change', applyFilters);
         searchInput.addEventListener('input', applyFilters);
 
         heatmapToggle.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                renderHeatmap(allData);
-            } else if (heatLayer) {
-                map.removeLayer(heatLayer);
-            }
+            if (e.target.checked) renderHeatmap(allData);
+            else if (heatLayer) map.removeLayer(heatLayer);
         });
     }
 

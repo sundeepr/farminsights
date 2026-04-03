@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang | default('en') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,20 +26,20 @@
         <div class="sidebar-logo-icon">🌱</div>
         <div>
             <div class="sidebar-logo-text">Sustainable Automation</div>
-            <div class="sidebar-logo-sub">Farm Health Monitoring</div>
+            <div class="sidebar-logo-sub">{{ t.farm_health_monitoring if t else 'Farm Health Monitoring' }}</div>
         </div>
     </a>
 
     <div class="sidebar-section">
         {% if user %}
             {% if user.role == 'admin' %}
-                <div class="sidebar-section-label">Management</div>
+                <div class="sidebar-section-label">{{ t.management if t else 'Management' }}</div>
                 <a href="/admin" class="sidebar-link {% if request.path == '/admin' %}active{% endif %}">
-                    <span class="link-icon">🏢</span> All Organizations
+                    <span class="link-icon">🏢</span> {{ t.all_organizations if t else 'All Organizations' }}
                 </a>
 
             {% elif user.role == 'org_admin' and nav_context and nav_context.orgs_tree %}
-                <div class="sidebar-section-label">Organizations</div>
+                <div class="sidebar-section-label">{{ t.organizations if t else 'Organizations' }}</div>
                 {% set tree = nav_context.orgs_tree %}
                 <a href="/org/{{ tree.id }}"
                    class="sidebar-link {% if nav_context.current_org_id == tree.id %}active{% endif %}">
@@ -65,7 +65,7 @@
                 {% endif %}
 
                 {% if tree.farms %}
-                    <div class="sidebar-section-label" style="margin-top: 8px;">Farms</div>
+                    <div class="sidebar-section-label" style="margin-top: 8px;">{{ t.farms if t else 'Farms' }}</div>
                     {% for farm in tree.farms %}
                         <a href="/farm/{{ farm.id }}"
                            class="sidebar-link {% if nav_context.current_farm_id == farm.id %}active{% endif %}">
@@ -75,7 +75,7 @@
                 {% endif %}
 
             {% elif user.role == 'user' and nav_context %}
-                <div class="sidebar-section-label">My Farms</div>
+                <div class="sidebar-section-label">{{ t.my_farms if t else 'My Farms' }}</div>
                 {% for farm in nav_context.user_farms %}
                     <a href="/farm/{{ farm.id }}"
                        class="sidebar-link {% if nav_context.current_farm_id == farm.id %}active{% endif %}">
@@ -86,7 +86,7 @@
 
         {% else %}
             <div style="padding: 20px; color: rgba(255,255,255,0.4); font-size: 0.85em;">
-                Sign in to access your farms.
+                {{ t.sign_in_subtitle if t else 'Sign in to access your farms.' }}
             </div>
         {% endif %}
     </div>
@@ -100,7 +100,18 @@
                 <div class="sidebar-role">{{ user.role | replace('_', ' ') | title }}</div>
             </div>
         </div>
-        <button class="btn-logout" id="logoutBtn">Sign Out</button>
+        {% if supported_langs is defined %}
+        <div class="lang-switcher">
+            <select class="lang-select" onchange="setLang(this.value)">
+                {% for code in supported_langs %}
+                <option value="{{ code }}" {% if lang == code %}selected{% endif %}>
+                    {{ t['lang_' + code] if t else code }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        {% endif %}
+        <button class="btn-logout" id="logoutBtn">{{ t.sign_out if t else 'Sign Out' }}</button>
     </div>
     {% endif %}
 </nav>
@@ -120,9 +131,13 @@
 
 </div>
 
+<!-- Translations injected server-side for use by all JS modules -->
+<script>window._t = {{ t | tojson if t else '{}' }};</script>
+
 <!-- Shared JS -->
 <script src="/static/js/auth.js"></script>
 <script src="/static/js/nav.js"></script>
+<script src="/static/js/i18n.js"></script>
 {% block extra_js %}{% endblock %}
 
 </body>

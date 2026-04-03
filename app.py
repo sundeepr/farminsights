@@ -3,12 +3,13 @@ import json
 import glob
 
 from datetime import datetime
-from flask import Flask, render_template, jsonify, send_from_directory, request, redirect
+from flask import Flask, render_template, jsonify, send_from_directory, request, redirect, session
 from werkzeug.utils import secure_filename
 
 import config_loader
 import auth as auth_module
 import weather as weather_module
+import i18n
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
@@ -55,7 +56,10 @@ def login_page():
     user = auth_module.get_current_user()
     if user:
         return redirect(auth_module.get_redirect_for_user(user))
-    return render_template('login.html', year=datetime.now().year)
+    t = i18n.get_translations()
+    lang = i18n.get_lang()
+    return render_template('login.html', year=datetime.now().year, t=t, lang=lang,
+                           supported_langs=i18n.SUPPORTED_LANGS)
 
 
 @app.route('/')
@@ -64,6 +68,17 @@ def index():
     if user:
         return redirect(auth_module.get_redirect_for_user(user))
     return redirect('/login')
+
+
+@app.route('/api/set-lang', methods=['POST'])
+def set_lang():
+    data = request.get_json()
+    lang = data.get('lang', 'en') if data else 'en'
+    if lang not in i18n.SUPPORTED_LANGS:
+        return jsonify({'error': 'Unsupported language'}), 400
+    session['lang'] = lang
+    session.modified = True
+    return jsonify({'ok': True, 'lang': lang})
 
 
 @app.route('/admin')
@@ -75,8 +90,11 @@ def admin_dashboard():
         return jsonify({'error': 'Forbidden'}), 403
     nav_context = config_loader.build_nav_context(user)
     cfg = config_loader.load_config()
+    t = i18n.get_translations()
+    lang = i18n.get_lang()
     return render_template('admin_dashboard.html', user=user, nav_context=nav_context,
-                           page_title='Admin Dashboard',
+                           page_title=t['admin_dashboard'], t=t, lang=lang,
+                           supported_langs=i18n.SUPPORTED_LANGS,
                            total_orgs=len(cfg['organizations']),
                            total_farms=len(cfg['farms']),
                            total_users=len(cfg['users']))
@@ -94,9 +112,11 @@ def org_dashboard(org_id):
         return jsonify({'error': 'Organization not found'}), 404
     nav_context = config_loader.build_nav_context(user, current_org_id=org_id)
     breadcrumb = config_loader.get_org_ancestry(org_id)
+    t = i18n.get_translations()
+    lang = i18n.get_lang()
     return render_template('org_dashboard.html', user=user, nav_context=nav_context,
-                           org=org, breadcrumb=breadcrumb,
-                           page_title=org['name'])
+                           org=org, breadcrumb=breadcrumb, page_title=org['name'],
+                           t=t, lang=lang, supported_langs=i18n.SUPPORTED_LANGS)
 
 
 @app.route('/farm/<farm_id>')
@@ -116,9 +136,11 @@ def farm_map(farm_id):
     breadcrumb = config_loader.get_org_ancestry(context_org_id) if context_org_id else []
     nav_context = config_loader.build_nav_context(user, current_farm_id=farm_id,
                                                    current_org_id=context_org_id)
+    t = i18n.get_translations()
+    lang = i18n.get_lang()
     return render_template('farm_map.html', user=user, nav_context=nav_context,
-                           farm=farm, breadcrumb=breadcrumb,
-                           page_title=farm['name'])
+                           farm=farm, breadcrumb=breadcrumb, page_title=farm['name'],
+                           t=t, lang=lang, supported_langs=i18n.SUPPORTED_LANGS)
 
 
 # ---------------------------------------------------------------------------

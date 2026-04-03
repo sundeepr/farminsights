@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang | default('en') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In — Sustainable Automation</title>
+    <title>{{ t.sign_in if t else 'Sign In' }} — Sustainable Automation</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -144,19 +144,33 @@
     <div class="login-card">
         <div class="login-logo">🌱</div>
         <div class="login-brand">Sustainable Automation</div>
-        <div class="login-brand-sub">Farm Health Monitoring Platform</div>
+        <div class="login-brand-sub">{{ t.farm_health_monitoring if t else 'Farm Health Monitoring Platform' }}</div>
 
-        <div class="login-title">Welcome Back</div>
-        <div class="login-subtitle">Sign in to access your farm dashboard</div>
+        {% if supported_langs is defined %}
+        <div style="display:flex;justify-content:center;margin-bottom:20px;">
+            <select id="loginLangSelect" style="padding:6px 10px;border-radius:8px;border:1px solid #dee2e6;background:#f8f9fa;color:#495057;font-size:0.85em;cursor:pointer;font-family:inherit;">
+                {% for code in supported_langs %}
+                <option value="{{ code }}" {% if lang == code %}selected{% endif %}>
+                    {{ t['lang_' + code] if t else code }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        {% endif %}
+
+        <div class="login-title">{{ t.welcome_back if t else 'Welcome Back' }}</div>
+        <div class="login-subtitle">{{ t.sign_in_subtitle if t else 'Sign in to access your farm dashboard' }}</div>
 
         <div id="loginError" class="login-error"></div>
 
         <form id="loginForm" class="login-form" autocomplete="on">
-            <input name="username" type="text" class="login-input" placeholder="Username"
+            <input name="username" type="text" class="login-input"
+                   placeholder="{{ t.username if t else 'Username' }}"
                    required autocomplete="username" autofocus>
-            <input name="password" type="password" class="login-input" placeholder="Password"
+            <input name="password" type="password" class="login-input"
+                   placeholder="{{ t.password if t else 'Password' }}"
                    required autocomplete="current-password">
-            <button type="submit" class="login-submit">Sign In</button>
+            <button type="submit" class="login-submit">{{ t.sign_in if t else 'Sign In' }}</button>
         </form>
 
         <hr class="login-divider">
@@ -164,6 +178,21 @@
     </div>
 
     <script>
+        // Language switcher on login page
+        const langSelect = document.getElementById('loginLangSelect');
+        if (langSelect) {
+            langSelect.addEventListener('change', async () => {
+                await fetch('/api/set-lang', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ lang: langSelect.value }),
+                });
+                window.location.reload();
+            });
+        }
+
+        const _t = {{ t | tojson if t else '{}' }};
+
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const errorEl = document.getElementById('loginError');
@@ -171,7 +200,7 @@
 
             errorEl.style.display = 'none';
             btn.disabled = true;
-            btn.textContent = 'Signing in…';
+            btn.textContent = (_t.loading_ellipsis || 'Signing in…');
 
             try {
                 const res = await fetch('/api/login', {
@@ -186,16 +215,16 @@
                 if (res.ok) {
                     window.location.href = data.redirect_url;
                 } else {
-                    errorEl.textContent = data.error || 'Login failed. Please try again.';
+                    errorEl.textContent = data.error || (_t.login_failed || 'Login failed. Please try again.');
                     errorEl.style.display = 'block';
                     btn.disabled = false;
-                    btn.textContent = 'Sign In';
+                    btn.textContent = (_t.sign_in || 'Sign In');
                 }
             } catch {
-                errorEl.textContent = 'Network error. Please try again.';
+                errorEl.textContent = (_t.network_error || 'Network error. Please try again.');
                 errorEl.style.display = 'block';
                 btn.disabled = false;
-                btn.textContent = 'Sign In';
+                btn.textContent = (_t.sign_in || 'Sign In');
             }
         });
     </script>
