@@ -156,5 +156,14 @@
   "lang_hi": "\u0939\u093f\u0902\u0926\u0940",
   "lang_te": "\u0c24\u0c46\u0c32\u0c41\u0c17\u0c41",
   "lang_mr": "\u092e\u0930\u093e\u0920\u0940",
-  "across_orgs_count": "Across {n} org(s)"
+  "across_orgs_count": "Across {n} org(s)",
+  "more_details": "More Details",
+  "weather_unavailable": "Weather unavailable",
+  "humidity": "Humidity",
+  "wind": "Wind",
+  "rain_prob_24h": "Rain probability (next 24h)",
+  "rain_high": "High chance of rain",
+  "rain_moderate": "Moderate chance of rain",
+  "rain_low": "Low chance of rain",
+  "rain_unlikely": "Rain unlikely"
 }

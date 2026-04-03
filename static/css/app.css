@@ -234,14 +234,18 @@ body.sidebar-open {
 .lang-select {
     width: 100%;
     padding: 6px 8px;
-    background: rgba(255,255,255,0.08);
-    color: rgba(255,255,255,0.85);
-    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.25);
     border-radius: 6px;
     font-size: 0.8em;
     font-family: 'Inter', sans-serif;
     cursor: pointer;
     appearance: auto;
+}
+.lang-select option {
+    background: #2d6a4f;
+    color: #ffffff;
 }
 
 /* ---- Page wrapper ---- */

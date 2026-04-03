@@ -156,5 +156,14 @@
   "lang_hi": "हिंदी",
   "lang_te": "తెలుగు",
   "lang_mr": "मराठी",
-  "across_orgs_count": "{n} संस्थांमध्ये"
+  "across_orgs_count": "{n} संस्थांमध्ये",
+  "more_details": "अधिक तपशील",
+  "weather_unavailable": "हवामान उपलब्ध नाही",
+  "humidity": "आर्द्रता",
+  "wind": "वारा",
+  "rain_prob_24h": "पावसाची शक्यता (पुढील 24h)",
+  "rain_high": "पावसाची जास्त शक्यता",
+  "rain_moderate": "पावसाची मध्यम शक्यता",
+  "rain_low": "पावसाची कमी शक्यता",
+  "rain_unlikely": "पाऊस होण्याची शक्यता नाही"
 }

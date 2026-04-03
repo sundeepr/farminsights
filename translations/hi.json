@@ -156,5 +156,14 @@
   "lang_hi": "हिंदी",
   "lang_te": "తెలుగు",
   "lang_mr": "मराठी",
-  "across_orgs_count": "{n} संगठनों में"
+  "across_orgs_count": "{n} संगठनों में",
+  "more_details": "अधिक जानकारी",
+  "weather_unavailable": "मौसम उपलब्ध नहीं",
+  "humidity": "नमी",
+  "wind": "हवा",
+  "rain_prob_24h": "बारिश की संभावना (अगले 24h)",
+  "rain_high": "बारिश की अधिक संभावना",
+  "rain_moderate": "बारिश की मध्यम संभावना",
+  "rain_low": "बारिश की कम संभावना",
+  "rain_unlikely": "बारिश की संभावना नहीं"
 }

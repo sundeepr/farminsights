@@ -80,10 +80,6 @@
                         <option value="unknown">{{ t.unknown_error if t else 'Unknown / Error' }}</option>
                     </select>
                 </div>
-                <div class="filter-group">
-                    <label for="searchInput">{{ t.search_by_name if t else 'Search by Name' }}</label>
-                    <input type="text" id="searchInput" placeholder="{{ t.enter_image_name if t else 'Enter image name...' }}">
-                </div>
             </div>
             <div class="legend">
                 <div class="legend-title">{{ t.health_legend if t else 'Health Legend' }}</div>
@@ -294,23 +290,18 @@
 
     function setupFilters() {
         const statusFilter = document.getElementById('statusFilter');
-        const searchInput = document.getElementById('searchInput');
         const heatmapToggle = document.getElementById('heatmapToggle');
 
         function applyFilters() {
             const status = statusFilter.value;
-            const search = searchInput.value.toLowerCase();
-            const filtered = allData.filter(img => {
-                const matchStatus = status === 'all' || img.plant_health_analysis.health_status === status;
-                const matchSearch = !search || img.image_name.toLowerCase().includes(search);
-                return matchStatus && matchSearch;
-            });
+            const filtered = allData.filter(img =>
+                status === 'all' || img.plant_health_analysis.health_status === status
+            );
             renderMarkers(filtered);
             if (heatmapToggle.checked) renderHeatmap(filtered);
         }
 
         statusFilter.addEventListener('change', applyFilters);
-        searchInput.addEventListener('input', applyFilters);
 
         heatmapToggle.addEventListener('change', (e) => {
             if (e.target.checked) renderHeatmap(allData);
@@ -335,13 +326,13 @@
             const w = await res.json();
             if (!res.ok || w.error) {
                 document.getElementById('weatherBody').innerHTML =
-                    `<div class="weather-error">Weather unavailable</div>`;
+                    `<div class="weather-error">${(window._t||{}).weather_unavailable || 'Weather unavailable'}</div>`;
                 return;
             }
             renderWeather(w);
         } catch {
             document.getElementById('weatherBody').innerHTML =
-                `<div class="weather-error">Weather unavailable</div>`;
+                `<div class="weather-error">${(window._t||{}).weather_unavailable || 'Weather unavailable'}</div>`;
         }
     }
 
@@ -360,10 +351,11 @@
         }
 
         const rainProbClass = isHighRain ? 'rain-prob-high' : '';
-        const rainProbLabel = rainProb >= 80 ? 'High chance of rain'
-            : rainProb >= 50 ? 'Moderate chance of rain'
-            : rainProb >= 20 ? 'Low chance of rain'
-            : 'Rain unlikely';
+        const t = window._t || {};
+        const rainProbLabel = rainProb >= 80 ? (t.rain_high || 'High chance of rain')
+            : rainProb >= 50 ? (t.rain_moderate || 'Moderate chance of rain')
+            : rainProb >= 20 ? (t.rain_low || 'Low chance of rain')
+            : (t.rain_unlikely || 'Rain unlikely');
 
         document.getElementById('weatherBody').innerHTML = `
             <div class="weather-main">
@@ -375,15 +367,15 @@
             </div>
             <div class="weather-details">
                 <div class="weather-detail">
-                    <div class="weather-detail-label">Humidity</div>
+                    <div class="weather-detail-label">${t.humidity || 'Humidity'}</div>
                     <div class="weather-detail-value">${w.humidity !== null ? w.humidity + '%' : '—'}</div>
                 </div>
                 <div class="weather-detail">
-                    <div class="weather-detail-label">Wind</div>
+                    <div class="weather-detail-label">${t.wind || 'Wind'}</div>
                     <div class="weather-detail-value">${w.wind_speed !== null ? w.wind_speed + ' km/h' : '—'}</div>
                 </div>
                 <div class="weather-detail" style="grid-column: 1 / -1;">
-                    <div class="weather-detail-label">Rain probability (next 24h)</div>
+                    <div class="weather-detail-label">${t.rain_prob_24h || 'Rain probability (next 24h)'}</div>
                     <div class="weather-detail-value">${rainProb}% — ${rainProbLabel}</div>
                     <div class="rain-prob-bar ${rainProbClass}">
                         <div class="rain-prob-fill" style="width:${rainProb}%"></div>

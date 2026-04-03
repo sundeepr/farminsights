@@ -137,7 +137,7 @@ function renderFarms(farms) {
             <td>${formatDate(farm.last_report_date)}</td>
             <td>
                 <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;">
-                    <a href="/farm/${escHtml(farm.farm_id)}" class="btn-action">${_t.view_map || 'View Map'}</a>
+                    <a href="/farm/${escHtml(farm.farm_id)}" class="btn-action">${_t.more_details || 'More Details'}</a>
                     ${canManage ? `<button class="btn-action" style="background:linear-gradient(135deg,#1565c0,#1976d2);" onclick="openUploadForFarm('${escHtml(farm.farm_id)}')">${_t.upload_short || '↑ Upload'}</button>` : ''}
                 </div>
             </td>

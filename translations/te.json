@@ -156,5 +156,14 @@
   "lang_hi": "हिंदी",
   "lang_te": "తెలుగు",
   "lang_mr": "मराठी",
-  "across_orgs_count": "{n} సంస్థ(ల)లో"
+  "across_orgs_count": "{n} సంస్థ(ల)లో",
+  "more_details": "మరిన్ని వివరాలు",
+  "weather_unavailable": "వాతావరణం అందుబాటులో లేదు",
+  "humidity": "తేమ",
+  "wind": "గాలి",
+  "rain_prob_24h": "వర్షపాత సంభావ్యత (తదుపరి 24h)",
+  "rain_high": "వర్షపాత అధిక సంభావ్యత",
+  "rain_moderate": "వర్షపాత మధ్యమ సంభావ్యత",
+  "rain_low": "వర్షపాత తక్కువ సంభావ్యత",
+  "rain_unlikely": "వర్షపాత సంభావ్యత లేదు"
 }
