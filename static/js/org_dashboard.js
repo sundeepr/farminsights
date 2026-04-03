@@ -183,24 +183,24 @@ async function fetchWeatherForFarm(farmId) {
 
 function buildSparkline(temps) {
     if (!temps || temps.length < 2) return '';
-    const W = 80, H = 32, pad = 2;
+    const labelW = 28, W = 70, H = 36, pad = 2;
     const min = Math.min(...temps);
     const max = Math.max(...temps);
     const range = max - min || 1;
     const points = temps.map((t, i) => {
-        const x = pad + (i / (temps.length - 1)) * (W - pad * 2);
+        const x = labelW + pad + (i / (temps.length - 1)) * (W - pad * 2);
         const y = pad + (1 - (t - min) / range) * (H - pad * 2);
         return `${x.toFixed(1)},${y.toFixed(1)}`;
     }).join(' ');
     const minTemp = min.toFixed(1);
     const maxTemp = max.toFixed(1);
     return `<div title="24h temp: ${minTemp}°C – ${maxTemp}°C">
-        <svg width="${W}" height="${H}" style="display:block;overflow:visible;">
+        <svg width="${labelW + W}" height="${H}" style="display:block;">
+            <text x="${labelW - 2}" y="10" font-size="8" fill="#e07b39" text-anchor="end">${maxTemp}°</text>
+            <text x="${labelW - 2}" y="${H - 2}" font-size="8" fill="#74c69d" text-anchor="end">${minTemp}°</text>
             <polyline points="${points}"
                 fill="none" stroke="#40916c" stroke-width="1.5"
                 stroke-linejoin="round" stroke-linecap="round"/>
-            <text x="0" y="${H}" font-size="8" fill="#adb5bd">${minTemp}°</text>
-            <text x="0" y="8" font-size="8" fill="#adb5bd">${maxTemp}°</text>
         </svg>
     </div>`;
 }
