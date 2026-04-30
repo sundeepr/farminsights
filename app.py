@@ -29,7 +29,19 @@ def api_login():
     if not user:
         return jsonify({'error': 'Invalid username or password'}), 401
     redirect_url = auth_module.get_redirect_for_user(user)
-    return jsonify({'ok': True, 'role': user['role'], 'redirect_url': redirect_url})
+    return jsonify({
+        'ok': True,
+        'role': user['role'],
+        'redirect_url': redirect_url,
+        'user': {
+            'id': user['id'],
+            'username': user['username'],
+            'display_name': user.get('display_name', user['username']),
+            'role': user['role'],
+            'org_id': user.get('org_id'),
+            'farm_ids': user.get('farm_ids', []),
+        },
+    })
 
 
 @app.route('/api/logout', methods=['POST'])
@@ -43,8 +55,14 @@ def api_me():
     user = auth_module.get_current_user()
     if not user:
         return jsonify({'error': 'Not authenticated'}), 401
-    return jsonify({'id': user['id'], 'username': user['username'],
-                    'display_name': user.get('display_name', user['username']), 'role': user['role']})
+    return jsonify({
+        'id': user['id'],
+        'username': user['username'],
+        'display_name': user.get('display_name', user['username']),
+        'role': user['role'],
+        'org_id': user.get('org_id'),
+        'farm_ids': user.get('farm_ids', []),
+    })
 
 
 # ---------------------------------------------------------------------------
@@ -204,6 +222,80 @@ def org_summary(org_id):
         summary['farms'] = [f for f in summary['farms'] if f['farm_id'] in accessible_ids]
         summary['farm_count'] = len(summary['farms'])
     return jsonify(summary)
+
+
+@app.route('/api/farms')
+@auth_module.require_login
+def list_farms():
+    """List all farms accessible to the current user."""
+    user = auth_module.get_current_user()
+    farms = config_loader.get_accessible_farms(user)
+    return jsonify([
+        {'id': f['id'], 'name': f['name'], 'org_ids': f.get('org_ids', []),
+         'lat': f.get('lat'), 'lng': f.get('lng')}
+        for f in farms
+    ])
+
+
+@app.route('/api/orgs')
+@auth_module.require_login
+def list_orgs():
+    """List all orgs accessible to the current user."""
+    user = auth_module.get_current_user()
+    orgs = config_loader.get_accessible_orgs(user)
+    return jsonify([
+        {'id': o['id'], 'name': o['name'], 'parent_id': o.get('parent_id'),
+         'children': o.get('children', []), 'farms': o.get('farms', [])}
+        for o in orgs
+    ])
+
+
+@app.route('/api/farm/<farm_id>')
+@auth_module.require_login
+def get_farm_detail(farm_id):
+    """Get details for a single farm."""
+    user = auth_module.get_current_user()
+    if not auth_module.can_access_farm(user, farm_id):
+        return jsonify({'error': 'Forbidden'}), 403
+    farm = config_loader.get_farm(farm_id)
+    if not farm:
+        return jsonify({'error': 'Farm not found'}), 404
+    return jsonify({
+        'id': farm['id'], 'name': farm['name'],
+        'org_ids': farm.get('org_ids', []),
+        'lat': farm.get('lat'), 'lng': farm.get('lng'),
+    })
+
+
+@app.route('/api/org/<org_id>/detail')
+@auth_module.require_login
+def get_org_detail(org_id):
+    """Get details for a single org."""
+    user = auth_module.get_current_user()
+    if not auth_module.can_access_org(user, org_id):
+        return jsonify({'error': 'Forbidden'}), 403
+    org = config_loader.get_org(org_id)
+    if not org:
+        return jsonify({'error': 'Organization not found'}), 404
+    return jsonify({
+        'id': org['id'], 'name': org['name'],
+        'parent_id': org.get('parent_id'),
+        'children': org.get('children', []),
+        'farms': org.get('farms', []),
+    })
+
+
+@app.route('/api/farm/<farm_id>/summary')
+@auth_module.require_login
+def get_farm_summary(farm_id):
+    """Get health summary for a single farm."""
+    user = auth_module.get_current_user()
+    if not auth_module.can_access_farm(user, farm_id):
+        return jsonify({'error': 'Forbidden'}), 403
+    farm = config_loader.get_farm(farm_id)
+    if not farm:
+        return jsonify({'error': 'Farm not found'}), 404
+    return jsonify(config_loader.compute_farm_summary(farm))
 
 
 @app.route('/api/admin/orgs/list')
