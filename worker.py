@@ -47,15 +47,11 @@ def _get_client() -> genai.Client:
 # ---------------------------------------------------------------------------
 
 def _to_jpeg_bytes(image_path: Path) -> bytes:
-    """Convert any supported image format to a resized JPEG byte payload."""
+    """Convert any supported image format to JPEG bytes."""
     try:
         img = Image.open(image_path)
         if img.mode != 'RGB':
             img = img.convert('RGB')
-        max_side = 1024
-        ratio = max_side / max(img.size)
-        new_size = (int(img.width * ratio), int(img.height * ratio))
-        img = img.resize(new_size, Image.Resampling.LANCZOS)
         buf = BytesIO()
         img.save(buf, format='JPEG', quality=90, optimize=True)
         return buf.getvalue()
