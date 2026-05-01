@@ -403,6 +403,61 @@ Lightweight list of all orgs (for dropdowns).
 
 ---
 
+## Image Upload Endpoint
+
+### `POST /api/upload/<session_id>`
+
+Upload an image with GPS coordinates. The server groups uploads by a client-supplied `session_id` (UUID), creating a dedicated folder for each session. Calling the endpoint multiple times with the same `session_id` adds images to the existing folder and appends to the same GPS log.
+
+**Auth:** Required (any role)
+
+**Request:** `multipart/form-data`
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `file` | binary | yes | Image file |
+| `lat` | float | yes | Latitude |
+| `lng` | float | yes | Longitude |
+| `alt` | float | no | Altitude in metres |
+
+Supported image formats: `.jpg`, `.jpeg`, `.png`, `.heic`, `.heif`, `.webp`, `.tiff`, `.tif`, `.bmp`
+
+**Response `201`:**
+```json
+{
+  "ok": true,
+  "session_id": "3f6e2a1b-4c5d-6e7f-8a9b-0c1d2e3f4a5b",
+  "image_filename": "20260501_103045_123456_IMG_001.jpg",
+  "gps": { "latitude": 17.709, "longitude": 78.423, "altitude": 631.3 }
+}
+```
+
+**Error responses:**
+
+| Code | Cause |
+|------|-------|
+| 400 | `session_id` is not a valid UUID |
+| 400 | `lat` or `lng` missing or not a number |
+| 400 | `alt` provided but not a number |
+| 400 | No file in request, or unsupported file type |
+| 401 | Not authenticated |
+
+**Session folder structure on the server:**
+
+```
+data/uploads/<session_id>/
+  20260501_103045_123456_IMG_001.jpg   ← image, prefixed with UTC timestamp
+  20260501_103112_654321_IMG_002.jpg
+  gps.jsonl                            ← one JSON line per upload
+```
+
+Each line in `gps.jsonl`:
+```json
+{"image_filename": "20260501_103045_123456_IMG_001.jpg", "latitude": 17.709, "longitude": 78.423, "altitude": 631.3, "timestamp": "2026-05-01T10:30:45.123456"}
+```
+
+---
+
 ## Data Models
 
 ### Plant Health Report (returned by `GET /api/data/<farm_id>/<filename>`)
@@ -485,7 +540,7 @@ All errors follow: `{ "error": "<message>" }`
    val client = OkHttpClient.Builder().cookieJar(cookieJar).build()
    ```
 
-2. **File upload**: Use `MultipartBody` for `POST /api/admin/farms/<farm_id>/upload`.
+2. **File upload**: Use `MultipartBody` for both `POST /api/upload/<session_id>` (image + GPS) and `POST /api/admin/farms/<farm_id>/upload` (JSON health reports).
 
 3. **Suggested startup flow**:
    - Call `GET /api/me` → if 401, show login screen
