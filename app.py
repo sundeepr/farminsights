@@ -11,6 +11,8 @@ import config_loader
 import auth as auth_module
 import weather as weather_module
 import i18n
+import session_state
+import worker as worker_module
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
@@ -18,6 +20,22 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-i
 
 _UPLOADS_BASE = 'data/uploads'
 _ALLOWED_IMAGE_EXTS = {'.jpg', '.jpeg', '.png', '.heic', '.heif', '.webp', '.tiff', '.tif', '.bmp'}
+_FLUSH_INTERVAL_MINUTES = int(os.environ.get('FLUSH_INTERVAL_MINUTES', '5'))
+
+# Start background worker on first request (thread-safe, works with Flask reloader)
+import threading as _threading
+_worker_started = False
+_worker_lock = _threading.Lock()
+
+
+@app.before_request
+def _ensure_worker():
+    global _worker_started
+    if not _worker_started:
+        with _worker_lock:
+            if not _worker_started:
+                worker_module.start_worker(flush_interval_minutes=_FLUSH_INTERVAL_MINUTES)
+                _worker_started = True
 
 
 # ---------------------------------------------------------------------------
@@ -589,11 +607,17 @@ def upload_image(session_id):
     with open(os.path.join(session_dir, 'gps.jsonl'), 'a') as jf:
         jf.write(json.dumps(entry) + '\n')
 
+    batch = session_state.add_image(session_id, filename)
+    if batch:
+        batch_index, image_paths = batch
+        worker_module.batch_queue.put((session_id, batch_index, image_paths))
+
     return jsonify({
         'ok': True,
         'session_id': session_id,
         'image_filename': filename,
         'gps': {'latitude': lat, 'longitude': lng, 'altitude': alt},
+        'batch_queued': batch is not None,
     }), 201
 
 
