@@ -1,6 +1,7 @@
 import os
 import json
 import glob
+import uuid
 
 from datetime import datetime
 from flask import Flask, render_template, jsonify, send_from_directory, request, redirect, session
@@ -14,6 +15,9 @@ import i18n
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production')
+
+_UPLOADS_BASE = 'data/uploads'
+_ALLOWED_IMAGE_EXTS = {'.jpg', '.jpeg', '.png', '.heic', '.heif', '.webp', '.tiff', '.tif', '.bmp'}
 
 
 # ---------------------------------------------------------------------------
@@ -521,6 +525,76 @@ def admin_update_user(user_id):
         return jsonify(updated)
     except ValueError as e:
         return jsonify({'error': str(e)}), 404
+
+
+# ---------------------------------------------------------------------------
+# Image upload with GPS
+# ---------------------------------------------------------------------------
+
+@app.route('/api/upload/<session_id>', methods=['POST'])
+@auth_module.require_login
+def upload_image(session_id):
+    """Upload an image with GPS coordinates into a named session folder.
+
+    Multipart fields:
+      file  — image file (jpg/jpeg/png/heic/heif/webp/tiff/bmp)
+      lat   — latitude (float, required)
+      lng   — longitude (float, required)
+      alt   — altitude in metres (float, optional)
+    """
+    try:
+        uuid.UUID(session_id)
+    except ValueError:
+        return jsonify({'error': 'Invalid session_id: must be a UUID'}), 400
+
+    try:
+        lat = float(request.form['lat'])
+        lng = float(request.form['lng'])
+    except (KeyError, ValueError, TypeError):
+        return jsonify({'error': 'lat and lng are required and must be numbers'}), 400
+
+    alt_raw = request.form.get('alt')
+    try:
+        alt = float(alt_raw) if alt_raw not in (None, '') else None
+    except (ValueError, TypeError):
+        return jsonify({'error': 'alt must be a number if provided'}), 400
+
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file provided'}), 400
+    f = request.files['file']
+    if not f.filename:
+        return jsonify({'error': 'File has no name'}), 400
+
+    ext = os.path.splitext(f.filename)[1].lower()
+    if ext not in _ALLOWED_IMAGE_EXTS:
+        allowed = ', '.join(sorted(_ALLOWED_IMAGE_EXTS))
+        return jsonify({'error': f'Unsupported file type. Allowed: {allowed}'}), 400
+
+    session_dir = os.path.join(_UPLOADS_BASE, session_id)
+    os.makedirs(session_dir, exist_ok=True)
+
+    now = datetime.utcnow()
+    timestamp_str = now.strftime('%Y%m%d_%H%M%S_%f')
+    safe_name = secure_filename(f.filename) or f'image{ext}'
+    filename = f'{timestamp_str}_{safe_name}'
+    f.save(os.path.join(session_dir, filename))
+
+    entry = {
+        'image_filename': filename,
+        'latitude': lat,
+        'longitude': lng,
+        'altitude': alt,
+        'timestamp': now.isoformat(),
+    }
+    with open(os.path.join(session_dir, 'gps.jsonl'), 'a') as jf:
+        jf.write(json.dumps(entry) + '\n')
+
+    return jsonify({
+        'ok': True,
+        'session_id': session_id,
+        'image_filename': filename,
+        'gps': {'latitude': lat, 'longitude': lng, 'altitude': alt},
+    }), 201
 
 
 # ---------------------------------------------------------------------------
