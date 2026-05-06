@@ -1,5 +1,8 @@
 Flask==3.0.0
 Werkzeug==3.0.1
+python-dotenv
+requests
+python-jose[cryptography]
 google-genai
 Pillow
 pillow-heif

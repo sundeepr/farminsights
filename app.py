@@ -3,6 +3,9 @@ import json
 import glob
 import uuid
 
+from dotenv import load_dotenv
+load_dotenv()
+
 from datetime import datetime
 from flask import Flask, render_template, jsonify, send_from_directory, request, redirect, session
 from werkzeug.utils import secure_filename

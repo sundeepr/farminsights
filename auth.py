@@ -1,14 +1,28 @@
 from functools import wraps
 from flask import session, jsonify, request
 import config_loader
+import cognito_auth
 
 
 def get_current_user():
-    """Return the current user dict from session, or None if not logged in."""
+    """Return the current user dict, or None if not authenticated.
+
+    Checks in order:
+    1. Bearer token (Cognito JWT) — used by the Android app
+    2. Session cookie — used by the web browser
+    """
+    auth_header = request.headers.get('Authorization', '')
+    if auth_header.startswith('Bearer '):
+        token = auth_header[7:]
+        username = cognito_auth.get_username(token)
+        if username:
+            return config_loader.get_user_by_username(username)
+
     user_id = session.get('user_id')
-    if not user_id:
-        return None
-    return config_loader.get_user_by_id(user_id)
+    if user_id:
+        return config_loader.get_user_by_id(user_id)
+
+    return None
 
 
 def login_user(username, password):
