@@ -3,17 +3,29 @@ from flask import jsonify, request
 import config_loader
 import cognito_auth
 
+_COOKIE_NAME = 'access_token'
+
 
 def get_current_user():
-    """Return user from Cognito Bearer token, or None if unauthenticated."""
+    """Return user dict or None. Checks in order:
+    1. Authorization: Bearer <token>  — Android app
+    2. access_token httpOnly cookie   — web browser
+    """
+    # 1. Bearer token (Android)
     auth_header = request.headers.get('Authorization', '')
-    if not auth_header.startswith('Bearer '):
-        return None
-    token = auth_header[7:]
-    username = cognito_auth.get_username(token)
-    if not username:
-        return None
-    return config_loader.get_user_by_username(username)
+    if auth_header.startswith('Bearer '):
+        username = cognito_auth.get_username(auth_header[7:])
+        if username:
+            return config_loader.get_user_by_username(username)
+
+    # 2. httpOnly cookie (web browser)
+    token = request.cookies.get(_COOKIE_NAME)
+    if token:
+        username = cognito_auth.get_username(token)
+        if username:
+            return config_loader.get_user_by_username(username)
+
+    return None
 
 
 def require_login(f):

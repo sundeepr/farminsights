@@ -66,5 +66,40 @@ def get_username(token: str) -> str | None:
     return claims.get('cognito:username') or claims.get('username')
 
 
+def authenticate_user(username: str, password: str) -> dict | None:
+    """Call Cognito USER_PASSWORD_AUTH. Returns tokens dict or None on failure.
+
+    Requires ALLOW_USER_PASSWORD_AUTH enabled on the Cognito app client.
+    Returns: {access_token, id_token, refresh_token, expires_in} or None.
+    """
+    if not _is_configured():
+        return None
+    url = f'https://cognito-idp.{COGNITO_REGION}.amazonaws.com/'
+    headers = {
+        'Content-Type': 'application/x-amz-json-1.1',
+        'X-Amz-Target': 'AWSCognitoIdentityProviderService.InitiateAuth',
+    }
+    body = {
+        'AuthFlow': 'USER_PASSWORD_AUTH',
+        'AuthParameters': {'USERNAME': username, 'PASSWORD': password},
+        'ClientId': COGNITO_APP_CLIENT_ID,
+    }
+    try:
+        resp = requests.post(url, json=body, headers=headers, timeout=10)
+        if resp.status_code != 200:
+            logger.debug('Cognito auth failed: %s %s', resp.status_code, resp.text)
+            return None
+        result = resp.json().get('AuthenticationResult', {})
+        return {
+            'access_token': result.get('AccessToken'),
+            'id_token': result.get('IdToken'),
+            'refresh_token': result.get('RefreshToken'),
+            'expires_in': result.get('ExpiresIn', 3600),
+        }
+    except Exception as e:
+        logger.error('Cognito authenticate_user error: %s', e)
+        return None
+
+
 def is_configured() -> bool:
     return _is_configured()

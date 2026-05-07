@@ -1,12 +1,6 @@
-"""
-i18n.py — Translation loader and language helpers.
-Translations live in translations/<lang>.json.
-Language is stored in Flask session under 'lang'.
-"""
-
 import json
 import os
-from flask import session
+from flask import request
 
 SUPPORTED_LANGS = ['en', 'hi', 'te', 'mr']
 DEFAULT_LANG = 'en'
@@ -20,13 +14,11 @@ def _load(lang):
     return _cache[lang]
 
 def get_lang():
-    """Return the active language code from session, defaulting to 'en'."""
-    lang = session.get('lang', DEFAULT_LANG)
+    """Return active language from cookie, defaulting to 'en'."""
+    lang = request.cookies.get('lang', DEFAULT_LANG)
     return lang if lang in SUPPORTED_LANGS else DEFAULT_LANG
 
 def get_translations(lang=None):
-    """Return the full translation dict for the given (or session) language.
-    Falls back to English for any missing keys."""
     if lang is None:
         lang = get_lang()
     if lang not in SUPPORTED_LANGS:

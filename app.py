@@ -7,12 +7,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from datetime import datetime
-from flask import Flask, jsonify, send_from_directory, request
+from flask import Flask, jsonify, make_response, render_template, redirect, request, send_from_directory
 from werkzeug.utils import secure_filename
 
 import config_loader
 import auth as auth_module
+import cognito_auth
 import weather as weather_module
+import i18n
 import session_state
 import worker as worker_module
 
@@ -22,6 +24,7 @@ app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
 _UPLOADS_BASE = 'data/uploads'
+_COOKIE_SECURE = os.environ.get('COOKIE_SECURE', 'true').lower() != 'false'
 _ALLOWED_IMAGE_EXTS = {'.jpg', '.jpeg', '.png', '.heic', '.heif', '.webp', '.tiff', '.tif', '.bmp'}
 _FLUSH_INTERVAL_MINUTES = int(os.environ.get('FLUSH_INTERVAL_MINUTES', '5'))
 
@@ -56,6 +59,163 @@ def api_me():
         'org_id': user.get('org_id'),
         'farm_ids': user.get('farm_ids', []),
     })
+
+
+# ---------------------------------------------------------------------------
+# Login / logout
+# ---------------------------------------------------------------------------
+
+@app.route('/api/login', methods=['POST'])
+def api_login():
+    data = request.get_json()
+    if not data:
+        return jsonify({'error': 'Invalid request'}), 400
+    tokens = cognito_auth.authenticate_user(data.get('username', ''), data.get('password', ''))
+    if not tokens or not tokens.get('access_token'):
+        return jsonify({'error': 'Invalid username or password'}), 401
+    username = cognito_auth.get_username(tokens['access_token'])
+    user = config_loader.get_user_by_username(username)
+    if not user:
+        return jsonify({'error': 'User not found'}), 401
+    redirect_url = _redirect_for_user(user)
+    resp = make_response(jsonify({
+        'ok': True,
+        'redirect_url': redirect_url,
+        'user': {
+            'id': user['id'],
+            'username': user['username'],
+            'display_name': user.get('display_name', user['username']),
+            'role': user['role'],
+            'org_id': user.get('org_id'),
+            'farm_ids': user.get('farm_ids', []),
+        },
+    }))
+    resp.set_cookie('access_token', tokens['access_token'],
+                    httponly=True, secure=_COOKIE_SECURE, samesite='Strict',
+                    max_age=tokens['expires_in'])
+    return resp
+
+
+@app.route('/api/logout', methods=['POST'])
+def api_logout():
+    resp = make_response(jsonify({'ok': True}))
+    resp.delete_cookie('access_token')
+    return resp
+
+
+@app.route('/api/set-lang', methods=['POST'])
+def set_lang():
+    data = request.get_json()
+    lang = data.get('lang', 'en') if data else 'en'
+    if lang not in i18n.SUPPORTED_LANGS:
+        return jsonify({'error': 'Unsupported language'}), 400
+    resp = make_response(jsonify({'ok': True, 'lang': lang}))
+    resp.set_cookie('lang', lang, max_age=60 * 60 * 24 * 365,
+                    httponly=False, samesite='Strict')
+    return resp
+
+
+def _redirect_for_user(user):
+    if user['role'] == 'admin':
+        return '/admin'
+    elif user['role'] == 'org_admin':
+        return f'/org/{user["org_id"]}'
+    else:
+        farms = config_loader.get_accessible_farms(user)
+        if farms:
+            org_ids = farms[0].get('org_ids', [])
+            return f'/org/{org_ids[0]}' if org_ids else f'/farm/{farms[0]["id"]}'
+        return '/'
+
+
+# ---------------------------------------------------------------------------
+# Page routes
+# ---------------------------------------------------------------------------
+
+@app.route('/')
+def index():
+    user = auth_module.get_current_user()
+    if user:
+        return redirect(_redirect_for_user(user))
+    return redirect('/login')
+
+
+@app.route('/login')
+def login_page():
+    user = auth_module.get_current_user()
+    if user:
+        return redirect(_redirect_for_user(user))
+    t = i18n.get_translations()
+    lang = i18n.get_lang()
+    return render_template('login.html', year=datetime.now().year, t=t, lang=lang,
+                           supported_langs=i18n.SUPPORTED_LANGS)
+
+
+@app.route('/admin')
+def admin_dashboard():
+    user = auth_module.get_current_user()
+    if not user:
+        return redirect('/login')
+    if user['role'] != 'admin':
+        return jsonify({'error': 'Forbidden'}), 403
+    nav_context = config_loader.build_nav_context(user)
+    cfg = config_loader.load_config()
+    t = i18n.get_translations()
+    lang = i18n.get_lang()
+    return render_template('admin_dashboard.html', user=user, nav_context=nav_context,
+                           page_title=t['admin_dashboard'], t=t, lang=lang,
+                           supported_langs=i18n.SUPPORTED_LANGS,
+                           total_orgs=len(cfg['organizations']),
+                           total_farms=len(cfg['farms']),
+                           total_users=len(cfg['users']))
+
+
+@app.route('/org/<org_id>')
+def org_dashboard(org_id):
+    user = auth_module.get_current_user()
+    if not user:
+        return redirect('/login')
+    if not auth_module.can_access_org(user, org_id):
+        return jsonify({'error': 'Forbidden'}), 403
+    org = config_loader.get_org(org_id)
+    if not org:
+        return jsonify({'error': 'Organization not found'}), 404
+    nav_context = config_loader.build_nav_context(user, current_org_id=org_id)
+    breadcrumb = config_loader.get_org_ancestry(org_id)
+    t = i18n.get_translations()
+    lang = i18n.get_lang()
+    return render_template('org_dashboard.html', user=user, nav_context=nav_context,
+                           org=org, breadcrumb=breadcrumb, page_title=org['name'],
+                           t=t, lang=lang, supported_langs=i18n.SUPPORTED_LANGS)
+
+
+@app.route('/farm/<farm_id>')
+def farm_map(farm_id):
+    user = auth_module.get_current_user()
+    if not user:
+        return redirect('/login')
+    if not auth_module.can_access_farm(user, farm_id):
+        return jsonify({'error': 'Forbidden'}), 403
+    farm = config_loader.get_farm(farm_id)
+    if not farm:
+        return jsonify({'error': 'Farm not found'}), 404
+    org_ids = farm.get('org_ids', [])
+    context_org_id = request.args.get('org') or (org_ids[0] if org_ids else None)
+    if context_org_id and context_org_id not in org_ids:
+        context_org_id = org_ids[0] if org_ids else None
+    breadcrumb = config_loader.get_org_ancestry(context_org_id) if context_org_id else []
+    nav_context = config_loader.build_nav_context(user, current_farm_id=farm_id,
+                                                   current_org_id=context_org_id)
+    t = i18n.get_translations()
+    lang = i18n.get_lang()
+    return render_template('farm_map.html', user=user, nav_context=nav_context,
+                           farm=farm, breadcrumb=breadcrumb, page_title=farm['name'],
+                           t=t, lang=lang, supported_langs=i18n.SUPPORTED_LANGS)
+
+
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    return send_from_directory('static', filename)
 
 
 # ---------------------------------------------------------------------------
