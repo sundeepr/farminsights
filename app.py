@@ -199,7 +199,7 @@ def org_dashboard(org_id):
 
 
 @app.route('/farm/<farm_id>')
-def farm_map(farm_id):
+def farm_reports(farm_id):
     user = auth_module.get_current_user()
     if not user:
         return redirect('/login')
@@ -210,15 +210,40 @@ def farm_map(farm_id):
         return jsonify({'error': 'Farm not found'}), 404
     org_ids = farm.get('org_ids', [])
     context_org_id = request.args.get('org') or (org_ids[0] if org_ids else None)
-    if context_org_id and context_org_id not in org_ids:
-        context_org_id = org_ids[0] if org_ids else None
     breadcrumb = config_loader.get_org_ancestry(context_org_id) if context_org_id else []
     nav_context = config_loader.build_nav_context(user, current_farm_id=farm_id,
                                                    current_org_id=context_org_id)
     t = i18n.get_translations()
     lang = i18n.get_lang()
-    return render_template('farm_map.html', user=user, nav_context=nav_context,
+    return render_template('farm_reports.html', user=user, nav_context=nav_context,
                            farm=farm, breadcrumb=breadcrumb, page_title=farm['name'],
+                           t=t, lang=lang, supported_langs=i18n.SUPPORTED_LANGS)
+
+
+@app.route('/farm/<farm_id>/report/<path:filename>')
+def farm_map(farm_id, filename):
+    user = auth_module.get_current_user()
+    if not user:
+        return redirect('/login')
+    if not auth_module.can_access_farm(user, farm_id):
+        return jsonify({'error': 'Forbidden'}), 403
+    farm = config_loader.get_farm(farm_id)
+    if not farm:
+        return jsonify({'error': 'Farm not found'}), 404
+    if '/' in filename or '..' in filename:
+        return jsonify({'error': 'Invalid filename'}), 400
+    org_ids = farm.get('org_ids', [])
+    context_org_id = request.args.get('org') or (org_ids[0] if org_ids else None)
+    breadcrumb = config_loader.get_org_ancestry(context_org_id) if context_org_id else []
+    nav_context = config_loader.build_nav_context(user, current_farm_id=farm_id,
+                                                   current_org_id=context_org_id)
+    report_display = filename.replace('.json', '').replace('_', ' ')
+    t = i18n.get_translations()
+    lang = i18n.get_lang()
+    return render_template('farm_map.html', user=user, nav_context=nav_context,
+                           farm=farm, breadcrumb=breadcrumb,
+                           page_title=f'{farm["name"]} — {report_display}',
+                           report_filename=filename, report_display=report_display,
                            t=t, lang=lang, supported_langs=i18n.SUPPORTED_LANGS)
 
 

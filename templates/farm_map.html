@@ -12,7 +12,9 @@
         <span class="breadcrumb-sep">/</span>
     {% endfor %}
 {% endif %}
-<span class="breadcrumb-item active">{{ farm.name }}</span>
+<a href="/farm/{{ farm.id }}" class="breadcrumb-item">{{ farm.name }}</a>
+<span class="breadcrumb-sep">/</span>
+<span class="breadcrumb-item active">{{ report_display }}</span>
 {% endblock %}
 
 {% block content %}
@@ -103,6 +105,7 @@
 
 <script>
     const FARM_ID = {{ farm.id | tojson }};
+    const REPORT_FILE = {{ report_filename | tojson }};
 
     let map;
     let markers = [];
@@ -160,20 +163,6 @@
         mapInitialized = true;
     }
 
-    async function loadLatestFile() {
-        try {
-            const response = await fetch(`/api/files?farm_id=${FARM_ID}`);
-            const files = await response.json();
-            if (files.error || !files.length) {
-                document.getElementById('farmLoading').innerHTML =
-                    '<div style="color:#dc3545;padding:20px;">No data files found.</div>';
-                return;
-            }
-            await loadData(files[0].filename);
-        } catch (err) {
-            console.error('Error loading file list:', err);
-        }
-    }
 
     async function loadData(filename) {
         try {
@@ -207,7 +196,7 @@
         }
     }
 
-    loadLatestFile();
+    loadData(REPORT_FILE);
 
     function updateHeaderStats(data) {
         const images = data.images;

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block breadcrumb %}
+{% if breadcrumb %}
+    {% for crumb in breadcrumb %}
+        <a href="/org/{{ crumb.id }}" class="breadcrumb-item">{{ crumb.name }}</a>
+        <span class="breadcrumb-sep">/</span>
+    {% endfor %}
+{% endif %}
+<span class="breadcrumb-item active">{{ farm.name }}</span>
+{% endblock %}
+
+{% block content %}
+<div class="page-content">
+    <div class="section-card">
+        <div class="section-card-header">
+            <div class="section-card-title">📋 {{ farm.name }} — Reports</div>
+        </div>
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{{ t.report_name if t else 'Report' }}</th>
+                        <th>{{ t.last_report if t else 'Date' }}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="reportsBody">
+                    <tr>
+                        <td colspan="4" style="text-align:center;color:#adb5bd;padding:30px;">
+                            {{ t.loading_ellipsis if t else 'Loading…' }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const FARM_ID = {{ farm.id | tojson }};
+
+async function loadReports() {
+    const tbody = document.getElementById('reportsBody');
+    try {
+        const res = await fetch(`/api/files?farm_id=${FARM_ID}`);
+        const files = await res.json();
+
+        if (!files || files.error || !files.length) {
+            tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;color:#adb5bd;padding:30px;">No reports available for this farm.</td></tr>`;
+            return;
+        }
+
+        tbody.innerHTML = '';
+        files.forEach((f, idx) => {
+            const label = f.display
+                .replace(/^plant health report /i, '')
+                .replace(/_/g, ' ');
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td style="color:#adb5bd;font-size:0.85em;">${idx + 1}</td>
+                <td><strong>${f.display}</strong></td>
+                <td style="color:#6c757d;font-size:0.88em;font-family:monospace;">${f.filename.replace('.json','')}</td>
+                <td style="text-align:center;">
+                    <a href="/farm/${FARM_ID}/report/${encodeURIComponent(f.filename)}"
+                       class="btn-action">
+                        View Report →
+                    </a>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    } catch (e) {
+        tbody.innerHTML = `<tr><td colspan="4" style="color:#dc3545;text-align:center;padding:20px;">Error loading reports.</td></tr>`;
+    }
+}
+
+loadReports();
+</script>
+{% endblock %}
