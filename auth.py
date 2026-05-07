@@ -14,16 +14,16 @@ def get_current_user():
     # 1. Bearer token (Android)
     auth_header = request.headers.get('Authorization', '')
     if auth_header.startswith('Bearer '):
-        username = cognito_auth.get_username(auth_header[7:])
-        if username:
-            return config_loader.get_user_by_username(username)
+        email = cognito_auth.get_username(auth_header[7:])
+        if email:
+            return config_loader.get_user_by_email(email)
 
     # 2. httpOnly cookie (web browser)
     token = request.cookies.get(_COOKIE_NAME)
     if token:
-        username = cognito_auth.get_username(token)
-        if username:
-            return config_loader.get_user_by_username(username)
+        email = cognito_auth.get_username(token)
+        if email:
+            return config_loader.get_user_by_email(email)
 
     return None
 

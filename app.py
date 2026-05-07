@@ -6,6 +6,9 @@ import uuid
 from dotenv import load_dotenv
 load_dotenv()
 
+import logging
+logging.basicConfig(level=logging.WARNING)
+
 from datetime import datetime
 from flask import Flask, jsonify, make_response, render_template, redirect, request, send_from_directory
 from werkzeug.utils import secure_filename
@@ -73,8 +76,8 @@ def api_login():
     tokens = cognito_auth.authenticate_user(data.get('username', ''), data.get('password', ''))
     if not tokens or not tokens.get('access_token'):
         return jsonify({'error': 'Invalid username or password'}), 401
-    username = cognito_auth.get_username(tokens['access_token'])
-    user = config_loader.get_user_by_username(username)
+    email = cognito_auth.get_username(tokens['access_token'])
+    user = config_loader.get_user_by_email(email)
     if not user:
         return jsonify({'error': 'User not found'}), 401
     redirect_url = _redirect_for_user(user)

@@ -116,6 +116,13 @@ def update_user(user_id, display_name=None, password=None):
             return {k: v for k, v in user.items() if k != 'password'}
     raise ValueError(f"User '{user_id}' not found")
 
+def get_user_by_email(email):
+    config = load_config()
+    for user in config['users']:
+        if user.get('email', '').lower() == email.lower():
+            return user
+    return None
+
 def get_user_by_username(username):
     config = load_config()
     for user in config['users']:

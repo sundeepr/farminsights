@@ -3,6 +3,7 @@
     {
       "id": "u1",
       "username": "admin",
+      "email": "admin@sustainableautomation.in",
       "display_name": "Administrator",
       "password": "admin123",
       "role": "admin",
@@ -12,6 +13,7 @@
     {
       "id": "u2",
       "username": "anil",
+      "email": "anil@sustainableautomation.in",
       "display_name": "Anil Kumar",
       "password": "secret123",
       "role": "org_admin",
@@ -21,6 +23,7 @@
     {
       "id": "u3",
       "username": "sundeep",
+      "email": "sundeep@sustainableautomation.in",
       "display_name": "Sundeep Reddy",
       "password": "farmerpass",
       "role": "user",
@@ -32,6 +35,7 @@
     {
       "id": "u4",
       "username": "priya",
+      "email": "priya@sustainableautomation.in",
       "display_name": "Priya Sharma",
       "password": "priya123",
       "role": "org_admin",
@@ -41,6 +45,7 @@
     {
       "id": "u5",
       "username": "kavitha",
+      "email": "kavitha@sustainableautomation.in",
       "display_name": "Kavitha Nair",
       "password": "kavitha123",
       "role": "user",
@@ -52,6 +57,7 @@
     {
       "id": "u6",
       "username": "arjun",
+      "email": "arjun@sustainableautomation.in",
       "display_name": "Arjun Patil",
       "password": "arjun123",
       "role": "user",
@@ -64,6 +70,7 @@
     {
       "id": "u7",
       "username": "meena",
+      "email": "meena@sustainableautomation.in",
       "display_name": "Meena Rao",
       "password": "meena123",
       "role": "org_admin",
@@ -73,6 +80,7 @@
     {
       "id": "u8",
       "username": "rajesh",
+      "email": "rajesh@sustainableautomation.in",
       "display_name": "Rajesh Desai",
       "password": "rajesh123",
       "role": "user",
@@ -84,6 +92,7 @@
     {
       "id": "u9",
       "username": "deepak",
+      "email": "deepak@sustainableautomation.in",
       "display_name": "Deepak Verma",
       "password": "deepak123",
       "role": "user",
