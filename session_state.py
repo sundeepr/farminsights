@@ -28,7 +28,7 @@ def _load(session_id: str) -> dict:
                 return json.load(f)
         except Exception:
             pass
-    return {'pending': [], 'batches': []}
+    return {'farm_id': None, 'pending': [], 'batches': []}
 
 
 def _save(session_id: str, state: dict):
@@ -52,25 +52,33 @@ def _abs_paths(session_id: str, filenames: list[str]) -> list[str]:
     return [os.path.abspath(os.path.join(session_dir, f)) for f in filenames]
 
 
-def add_image(session_id: str, filename: str) -> tuple[int, list[str]] | None:
-    """Add filename to pending list. Returns (batch_index, abs_image_paths) when 5
-    images are ready, otherwise None. Thread-safe per session."""
+def add_image(session_id: str, filename: str,
+              farm_id: str | None = None) -> tuple[int, list[str], str | None] | None:
+    """Add filename to pending list.
+
+    Returns (batch_index, abs_image_paths, farm_id) when _BATCH_SIZE images
+    are ready, otherwise None. Thread-safe per session.
+    farm_id is stored on first call and reused for subsequent calls.
+    """
     lock = _get_lock(session_id)
     with lock:
         state = _load(session_id)
+        if farm_id and not state.get('farm_id'):
+            state['farm_id'] = farm_id
         state['pending'].append(filename)
         if len(state['pending']) >= _BATCH_SIZE:
             batch_files = state['pending'][:_BATCH_SIZE]
             state['pending'] = state['pending'][_BATCH_SIZE:]
             batch_index = _make_batch_entry(state, batch_files)
             _save(session_id, state)
-            return batch_index, _abs_paths(session_id, batch_files)
+            return batch_index, _abs_paths(session_id, batch_files), state.get('farm_id')
         _save(session_id, state)
         return None
 
 
-def flush_session(session_id: str) -> tuple[int, list[str]] | None:
-    """Dispatch all pending images (even < 5) as one batch. Returns None if nothing pending."""
+def flush_session(session_id: str) -> tuple[int, list[str], str | None] | None:
+    """Dispatch all pending images (even < 5) as one batch.
+    Returns (batch_index, abs_image_paths, farm_id) or None if nothing pending."""
     lock = _get_lock(session_id)
     with lock:
         state = _load(session_id)
@@ -80,7 +88,7 @@ def flush_session(session_id: str) -> tuple[int, list[str]] | None:
         state['pending'] = []
         batch_index = _make_batch_entry(state, batch_files)
         _save(session_id, state)
-        return batch_index, _abs_paths(session_id, batch_files)
+        return batch_index, _abs_paths(session_id, batch_files), state.get('farm_id')
 
 
 def sessions_with_pending() -> list[str]:

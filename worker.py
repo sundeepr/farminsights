@@ -16,6 +16,7 @@ from google import genai
 from google.genai import types
 
 import session_state
+import config_loader
 
 register_heif_opener()
 
@@ -266,26 +267,41 @@ def process_batch(session_id: str, batch_index: int, image_paths: list[str]) -> 
 # Worker threads
 # ---------------------------------------------------------------------------
 
-def _save_report(session_id: str, batch_index: int, report: dict) -> str:
-    timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
-    filename = f'report_batch_{batch_index}_{timestamp}.json'
-    with open(os.path.join(_UPLOADS_BASE, session_id, filename), 'w') as f:
+def _save_report(save_dir: str, report: dict) -> str:
+    """Save report to save_dir. Returns the filename."""
+    timestamp = datetime.utcnow().strftime('%Y-%m-%d_%H-%M-%S')
+    filename = f'plant_health_report_{timestamp}.json'
+    os.makedirs(save_dir, exist_ok=True)
+    with open(os.path.join(save_dir, filename), 'w') as f:
         json.dump(report, f, indent=2)
     return filename
+
+
+def _resolve_save_dir(session_id: str, farm_id: str | None) -> str:
+    """Return the directory where the report should be saved.
+    If farm_id is provided and valid, save to the farm's data_folder.
+    Otherwise fall back to the session uploads folder.
+    """
+    if farm_id:
+        farm = config_loader.get_farm(farm_id)
+        if farm and farm.get('data_folder'):
+            return farm['data_folder']
+    return os.path.join(_UPLOADS_BASE, session_id)
 
 
 def worker_loop():
     while True:
         job = batch_queue.get()
-        session_id, batch_index, image_paths = job
+        session_id, batch_index, image_paths, farm_id = job
         try:
-            logger.info('Processing batch %d for session %s (%d images)',
-                        batch_index, session_id, len(image_paths))
+            logger.info('Processing batch %d for session %s (%d images) → farm %s',
+                        batch_index, session_id, len(image_paths), farm_id)
             report = process_batch(session_id, batch_index, image_paths)
-            report_filename = _save_report(session_id, batch_index, report)
+            save_dir = _resolve_save_dir(session_id, farm_id)
+            report_filename = _save_report(save_dir, report)
             session_state.mark_batch_complete(session_id, batch_index, report_filename)
-            logger.info('Batch %d for session %s complete → %s',
-                        batch_index, session_id, report_filename)
+            logger.info('Batch %d for session %s complete → %s/%s',
+                        batch_index, session_id, save_dir, report_filename)
         except Exception as e:
             logger.error('Batch %d for session %s failed: %s', batch_index, session_id, e)
             session_state.mark_batch_failed(session_id, batch_index, str(e))
@@ -299,8 +315,8 @@ def flush_pending(interval_minutes: int):
         for sid in session_state.sessions_with_pending():
             result = session_state.flush_session(sid)
             if result:
-                batch_index, image_paths = result
-                batch_queue.put((sid, batch_index, image_paths))
+                batch_index, image_paths, farm_id = result
+                batch_queue.put((sid, batch_index, image_paths, farm_id))
                 logger.info('Flush: queued %d image(s) for session %s as batch %d',
                             len(image_paths), sid, batch_index)
 

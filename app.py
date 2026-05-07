@@ -610,6 +610,14 @@ def upload_image(session_id):
     except ValueError:
         return jsonify({'error': 'Invalid session_id: must be a UUID'}), 400
 
+    farm_id = request.form.get('farm_id', '').strip() or None
+    if farm_id:
+        user = auth_module.get_current_user()
+        if not auth_module.can_access_farm(user, farm_id):
+            return jsonify({'error': 'Forbidden: no access to this farm'}), 403
+        if not config_loader.get_farm(farm_id):
+            return jsonify({'error': 'Farm not found'}), 404
+
     try:
         lat = float(request.form['lat'])
         lng = float(request.form['lng'])
@@ -644,13 +652,16 @@ def upload_image(session_id):
     with open(os.path.join(session_dir, 'gps.jsonl'), 'a') as jf:
         jf.write(json.dumps(entry) + '\n')
 
-    batch = session_state.add_image(session_id, filename)
+    batch = session_state.add_image(session_id, filename, farm_id=farm_id)
     if batch:
-        batch_index, image_paths = batch
-        worker_module.batch_queue.put((session_id, batch_index, image_paths))
+        batch_index, image_paths, resolved_farm_id = batch
+        worker_module.batch_queue.put((session_id, batch_index, image_paths, resolved_farm_id))
 
     return jsonify({
-        'ok': True, 'session_id': session_id, 'image_filename': filename,
+        'ok': True,
+        'session_id': session_id,
+        'farm_id': farm_id,
+        'image_filename': filename,
         'gps': {'latitude': lat, 'longitude': lng, 'altitude': alt},
         'batch_queued': batch is not None,
     }), 201
