@@ -58,12 +58,23 @@ def verify_token(token: str) -> dict | None:
         return None
 
 
-def get_username(token: str) -> str | None:
-    """Return the username from a valid Cognito token, or None."""
+def get_email(token: str) -> str | None:
+    """Return the email from a valid Cognito ID token, or None.
+
+    The ID token (not the access token) contains the email attribute.
+    """
     claims = verify_token(token)
     if not claims:
         return None
-    return claims.get('cognito:username') or claims.get('username')
+    return claims.get('email')
+
+
+def get_username(token: str) -> str | None:
+    """Return email from ID token, falling back to cognito:username."""
+    claims = verify_token(token)
+    if not claims:
+        return None
+    return claims.get('email') or claims.get('cognito:username') or claims.get('username')
 
 
 def authenticate_user(username: str, password: str) -> dict | None:
@@ -87,7 +98,7 @@ def authenticate_user(username: str, password: str) -> dict | None:
     try:
         resp = requests.post(url, json=body, headers=headers, timeout=10)
         if resp.status_code != 200:
-            logger.debug('Cognito auth failed: %s %s', resp.status_code, resp.text)
+            logger.warning('Cognito auth failed: %s %s', resp.status_code, resp.text)
             return None
         result = resp.json().get('AuthenticationResult', {})
         return {

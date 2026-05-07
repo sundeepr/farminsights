@@ -8,6 +8,7 @@ load_dotenv()
 
 import logging
 logging.basicConfig(level=logging.WARNING)
+logger = logging.getLogger(__name__)
 
 from datetime import datetime
 from flask import Flask, jsonify, make_response, render_template, redirect, request, send_from_directory
@@ -76,7 +77,11 @@ def api_login():
     tokens = cognito_auth.authenticate_user(data.get('username', ''), data.get('password', ''))
     if not tokens or not tokens.get('access_token'):
         return jsonify({'error': 'Invalid username or password'}), 401
-    email = cognito_auth.get_username(tokens['access_token'])
+    # Use the ID token — it contains the email attribute unlike the access token
+    id_token = tokens.get('id_token')
+    if not id_token:
+        return jsonify({'error': 'No ID token returned from Cognito'}), 500
+    email = cognito_auth.get_email(id_token)
     user = config_loader.get_user_by_email(email)
     if not user:
         return jsonify({'error': 'User not found'}), 401
@@ -93,7 +98,8 @@ def api_login():
             'farm_ids': user.get('farm_ids', []),
         },
     }))
-    resp.set_cookie('access_token', tokens['access_token'],
+    # Store ID token in cookie — it contains email for user lookup
+    resp.set_cookie('access_token', id_token,
                     httponly=True, secure=_COOKIE_SECURE, samesite='Strict',
                     max_age=tokens['expires_in'])
     return resp
