@@ -349,6 +349,43 @@ def get_data(farm_id, filename):
         return jsonify({'error': 'Invalid JSON data'}), 500
 
 
+def _summary_paths(farm, filename):
+    base = filename.replace('.json', '')
+    folder = farm['data_folder']
+    return (
+        os.path.join(folder, f'{base}_summary.json'),
+        os.path.join(folder, f'{base}_summary_status.json'),
+    )
+
+
+def _write_status(status_path, status, error=None):
+    payload = {'status': status, 'updated_at': datetime.utcnow().isoformat()}
+    if error:
+        payload['error'] = error
+    with open(status_path, 'w') as f:
+        json.dump(payload, f)
+
+
+@app.route('/api/farm/<farm_id>/report/<path:filename>/summary-status')
+@auth_module.require_login
+def summary_status(farm_id, filename):
+    """Return current summary generation status for a report."""
+    user = auth_module.get_current_user()
+    if not auth_module.can_access_farm(user, farm_id):
+        return jsonify({'error': 'Forbidden'}), 403
+    farm = config_loader.get_farm(farm_id)
+    if not farm:
+        return jsonify({'error': 'Farm not found'}), 404
+    summary_path, status_path = _summary_paths(farm, filename)
+
+    if os.path.exists(summary_path):
+        return jsonify({'status': 'done'})
+    if os.path.exists(status_path):
+        with open(status_path, 'r') as f:
+            return jsonify(json.load(f))
+    return jsonify({'status': 'not_started'})
+
+
 @app.route('/api/farm/<farm_id>/report/<path:filename>/generate-summary', methods=['POST'])
 @auth_module.require_login
 def generate_report_summary(farm_id, filename):
@@ -365,8 +402,7 @@ def generate_report_summary(farm_id, filename):
     if not os.path.exists(report_path):
         return jsonify({'error': 'Report file not found'}), 404
 
-    summary_filename = filename.replace('.json', '_summary.json')
-    summary_path = os.path.join(farm['data_folder'], summary_filename)
+    summary_path, status_path = _summary_paths(farm, filename)
 
     if os.path.exists(summary_path):
         with open(summary_path, 'r', encoding='utf-8') as f:
@@ -375,14 +411,20 @@ def generate_report_summary(farm_id, filename):
     with open(report_path, 'r', encoding='utf-8') as f:
         report_data = json.load(f)
 
+    _write_status(status_path, 'generating')
+
     def _run():
         try:
             worker_module.generate_report_summary(report_data, summary_path)
+            if os.path.exists(status_path):
+                os.remove(status_path)
         except Exception as e:
             logger.error('Summary generation failed for %s: %s', filename, e)
+            _write_status(status_path, 'failed', error=str(e))
 
     import threading as _t
     _t.Thread(target=_run, daemon=True).start()
+    summary_filename = filename.replace('.json', '_summary.json')
     return jsonify({'status': 'generating', 'summary_file': summary_filename}), 202
 
 

@@ -339,34 +339,50 @@ window.generateSummary = async function() {
 };
 
 function pollForSummary(btn) {
-    const MAX_WAIT_MS = 3 * 60 * 1000; // 3 minutes
+    const MAX_WAIT_MS = 5 * 60 * 1000; // 5 minutes
     const INTERVAL_MS = 5000;
     const started = Date.now();
+
+    const resetBtn = (label) => {
+        if (btn) { btn.disabled = false; btn.textContent = label; }
+    };
 
     const tick = async () => {
         const elapsed = Math.round((Date.now() - started) / 1000);
         if (btn) btn.textContent = `Generating… ${elapsed}s`;
 
         try {
-            const res = await fetch(`/api/data/${FARM_ID}/${SUMMARY_FILE}`);
-            if (res.ok) {
-                const summary = await res.json();
-                if (summary && summary.english_report) {
-                    _cachedSummary = summary;
-                    renderSummary(summary, null);
-                    return; // done
+            const statusRes = await fetch(
+                `/api/farm/${FARM_ID}/report/${encodeURIComponent(REPORT_FILE)}/summary-status`
+            );
+            const status = await statusRes.json();
+
+            if (status.status === 'done') {
+                // Fetch and render the summary
+                const sumRes = await fetch(`/api/data/${FARM_ID}/${SUMMARY_FILE}`);
+                if (sumRes.ok) {
+                    const summary = await sumRes.json();
+                    if (summary && summary.english_report) {
+                        _cachedSummary = summary;
+                        renderSummary(summary, null);
+                        return;
+                    }
                 }
+            } else if (status.status === 'failed') {
+                resetBtn('Retry Summary Generation');
+                const errMsg = status.error || 'Unknown error';
+                document.getElementById('mainSection').innerHTML += `
+                    <div style="color:#dc3545;font-size:0.85em;text-align:center;margin-top:8px;">
+                        Generation failed: ${errMsg}
+                    </div>`;
+                return;
             }
         } catch {}
 
         if (Date.now() - started < MAX_WAIT_MS) {
             setTimeout(tick, INTERVAL_MS);
         } else {
-            if (btn) {
-                btn.disabled = false;
-                btn.textContent = 'Retry Summary Generation';
-            }
-            alert('Generation is taking longer than expected. Please try again or refresh the page.');
+            resetBtn('Retry Summary Generation');
         }
     };
 
