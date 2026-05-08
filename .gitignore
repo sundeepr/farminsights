@@ -31,3 +31,6 @@ Thumbs.db
 # Environment / secrets
 .env
 .env.local
+
+# Runtime upload sessions
+data/uploads/

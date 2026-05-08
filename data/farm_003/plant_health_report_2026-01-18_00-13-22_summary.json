@@ -1,0 +1,137 @@
+{
+  "report_metadata": {
+    "report_title": "Tomato Crop Health Analysis Report",
+    "crop_name": "Tomato (Solanum lycopersicum)",
+    "crop_growth_stage": "Early Flowering / Early Fruiting",
+    "assessment_date": "10 Jan 2026",
+    "field_location_median_gps": {
+      "latitude": 17.709747222222223,
+      "longitude": 78.42359166666667
+    },
+    "total_images": 137,
+    "successful_analyses": 96,
+    "valid_images_used_for_summary": 26,
+    "model_used": "qwen3-vl",
+    "data_quality_notes": [
+      "Several images failed processing due to model parsing errors.",
+      "Analysis based on 26 valid image samples from the provided set."
+    ]
+  },
+  "computed_metrics": {
+    "average_health_score": 73.15,
+    "median_health_score": 72.0,
+    "field_health_status": "Fair",
+    "issue_frequency": {
+      "weed_competition": 2,
+      "nutrition_deficiency": 7,
+      "moisture_stress": 21,
+      "pest_pressure": 6,
+      "possible_viral_symptoms": 1,
+      "weak_establishment": 0
+    }
+  },
+  "english_report": {
+    "title": "Field Health Summary Report",
+    "header": {
+      "crop_name": "Tomato",
+      "crop_growth_stage": "Early Flowering",
+      "assessment_date": "18 Jan 2026",
+      "field_location": "17.7097, 78.4236",
+      "images_analyzed": "26"
+    },
+    "overall_field_health": {
+      "health_status": "Fair",
+      "summary_points": [
+        "The crop is generally in a fair state of health, with most plants showing moderate vigor.",
+        "Widespread moisture stress is evident across the field, indicated by dry, cracked soil.",
+        "Soil salinity is a significant concern, with white mineral deposits visible in many areas.",
+        "Minor nutrient deficiencies and localized pest activity (leaf miners, caterpillars) were observed."
+      ]
+    },
+    "key_issues_observed": [
+      "Widespread moisture stress due to dry soil conditions.",
+      "Significant soil salinity/mineral buildup on the surface.",
+      "Localized pest damage from leaf miners and caterpillars.",
+      "Suspected magnesium or calcium deficiency in several plants."
+    ],
+    "recommended_interventions_next_5_7_days": [
+      {
+        "area": "Irrigation Management",
+        "organic_option": "Increase irrigation frequency to maintain consistent moisture; use mulch to reduce evaporation.",
+        "non_organic_option": "Ensure drip irrigation system is fully functional and delivering water uniformly."
+      },
+      {
+        "area": "Soil Health",
+        "organic_option": "Apply organic compost to improve soil structure and help buffer against salinity.",
+        "non_organic_option": "Leach excess salts by applying a deep irrigation cycle if water quality allows."
+      },
+      {
+        "area": "Pest Control",
+        "organic_option": "Manually remove visible caterpillars; apply neem oil for leaf miners and mites.",
+        "non_organic_option": "Apply a targeted insecticide if pest populations exceed economic thresholds."
+      },
+      {
+        "area": "Nutrition",
+        "organic_option": "Apply a foliar spray of seaweed extract or compost tea.",
+        "non_organic_option": "Apply a water-soluble balanced fertilizer with added micronutrients (Ca/Mg)."
+      }
+    ],
+    "expected_outcome": [
+      "Improved plant turgidity and reduced wilting within 48 hours of increased irrigation.",
+      "Stabilization of nutrient deficiency symptoms over the next 7-10 days.",
+      "Reduction in new pest damage following treatment."
+    ]
+  },
+  "marathi_report": {
+    "title": "पीक आरोग्य सारांश अहवाल",
+    "header": {
+      "crop_name": "टोमॅटो",
+      "crop_growth_stage": "फुलोरा अवस्था",
+      "assessment_date": "१८ जानेवारी २०२६",
+      "field_location": "१७.७०९७, ७८.४२३६",
+      "images_analyzed": "२६"
+    },
+    "overall_field_health": {
+      "health_status": "साधारण (Fair)",
+      "summary_points": [
+        "पीक साधारणपणे निरोगी आहे, परंतु अनेक ठिकाणी झाडांची वाढ मध्यम आहे.",
+        "कोरड्या जमिनीमुळे संपूर्ण शेतात पाण्याची कमतरता (Moisture Stress) दिसून येत आहे.",
+        "जमिनीवर पांढरे क्षार साचल्याचे दिसत असून क्षारांचे प्रमाण जास्त असण्याची शक्यता आहे.",
+        "काही झाडांवर अन्नद्रव्यांची कमतरता आणि कीड (पाने खाणारी अळी, नागअळी) दिसून आली आहे."
+      ]
+    },
+    "key_issues_observed": [
+      "कोरड्या जमिनीमुळे पाण्याची तीव्र कमतरता.",
+      "जमिनीच्या पृष्ठभागावर क्षारांचे प्रमाण जास्त असणे.",
+      "नागअळी आणि अळीचा मर्यादित प्रादुर्भाव.",
+      "मॅग्नेशियम किंवा कॅल्शियमची संभाव्य कमतरता."
+    ],
+    "recommended_interventions_next_5_7_days": [
+      {
+        "area": "पाणी व्यवस्थापन",
+        "organic_option": "पाणी देण्याचे प्रमाण वाढवा; ओलावा टिकवण्यासाठी आच्छादनाचा (Mulching) वापर करा.",
+        "non_organic_option": "ठिबक सिंचन संच व्यवस्थित चालत असल्याची आणि पाणी सर्वत्र पोहोचत असल्याची खात्री करा."
+      },
+      {
+        "area": "जमीन आरोग्य",
+        "organic_option": "जमिनीचा पोत सुधारण्यासाठी आणि क्षारांचा परिणाम कमी करण्यासाठी सेंद्रिय खतांचा वापर करा.",
+        "non_organic_option": "क्षार वाहून घालवण्यासाठी जमिनीला एकदा भरपूर पाणी द्या."
+      },
+      {
+        "area": "कीड नियंत्रण",
+        "organic_option": "दिसणाऱ्या अळ्या हाताने काढून नष्ट करा; नागअळीसाठी निम अर्काची फवारणी करा.",
+        "non_organic_option": "किडीचा प्रादुर्भाव वाढल्यास शिफारसीत कीटकनाशकाचा वापर करा."
+      },
+      {
+        "area": "अन्नद्रव्य व्यवस्थापन",
+        "organic_option": "सीवीड अर्क किंवा जीवामृताची फवारणी करावी.",
+        "non_organic_option": "कॅल्शियम आणि मॅग्नेशियमयुक्त विद्राव्य खतांचा वापर करा."
+      }
+    ],
+    "expected_outcome": [
+      "पाणी वाढवल्यानंतर ४८ तासांत झाडांमधील टवटवीतपणा वाढेल.",
+      "पुढील ७-१० दिवसांत अन्नद्रव्यांच्या कमतरतेची लक्षणे कमी होतील.",
+      "उपचारानंतर नवीन किडीचा प्रादुर्भाव थांबेल."
+    ]
+  }
+}
