@@ -222,12 +222,17 @@ function renderSummary(summary, reportMeta) {
     const outcomeItems = (r.expected_outcome || []).map(o => `<li>${o}</li>`).join('');
 
     main.innerHTML = `
-        <!-- Language toggle -->
-        <div style="display:flex;justify-content:flex-end;margin-bottom:4px;">
+        <!-- Language toggle — only show buttons for languages present in this summary -->
+        <div style="display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:4px;">
+            ${Object.keys(LANG_KEYS).filter(code => !!summary[LANG_KEYS[code]]).length < 4
+                ? `<span style="font-size:0.75em;color:#adb5bd;">Regenerate for all languages</span>`
+                : ''}
             <div class="lang-toggle">
-                ${Object.entries(LANG_LABELS).map(([code, label]) =>
-                    `<button class="lang-btn ${currentLang===code?'active':''}" onclick="switchLang('${code}')">${label}</button>`
-                ).join('')}
+                ${Object.entries(LANG_LABELS)
+                    .filter(([code]) => !!summary[LANG_KEYS[code]])
+                    .map(([code, label]) =>
+                        `<button class="lang-btn ${currentLang===code?'active':''}" onclick="switchLang('${code}')">${label}</button>`
+                    ).join('')}
             </div>
         </div>
 
@@ -294,7 +299,7 @@ let _cachedSummary = null;
 let _cachedReportMeta = null;
 
 window.switchLang = function(lang) {
-    currentLang = lang;
+    currentLang = (_cachedSummary && _cachedSummary[LANG_KEYS[lang]]) ? lang : 'en';
     if (_cachedSummary) renderSummary(_cachedSummary, _cachedReportMeta);
 };
 
