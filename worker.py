@@ -18,6 +18,227 @@ from google.genai import types
 import session_state
 import config_loader
 
+_SUMMARY_PROMPT = """You are an expert agricultural report data generator.
+
+Your task is to read the provided crop-health analysis JSON and convert it into a clean, field-level report-data JSON that will be used by a PDF generation script.
+
+The input JSON contains:
+- report_metadata
+- image-level GPS coordinates
+- image-level plant health scores
+- image-level health status
+- image-level issues detected
+- image-level recommended interventions
+- image-level visual observations
+- possible failed analyses where health_score is null or health_status is "unknown"
+
+You must NOT generate a PDF.
+You must ONLY return valid JSON.
+Do not include markdown, comments, explanations, or extra text.
+
+========================
+CORE OBJECTIVE
+========================
+
+Create a farmer-ready, field-level crop advisory report in two languages:
+
+1. English
+2. Marathi
+
+The report must summarize the entire field, not individual images.
+
+The final JSON will be consumed by a PDF renderer, so the output must be structured, concise, and deterministic.
+
+========================
+INPUT HANDLING RULES
+========================
+
+1. Use only valid image analyses for agronomic conclusions:
+   - Include images where plant_health_analysis.health_score is a number.
+   - Exclude images where health_score is null.
+   - Exclude images where health_status is "unknown".
+   - Exclude images where issues_detected contains "Error parsing model response".
+
+2. Still count the following separately:
+   - total_images from report_metadata.total_images
+   - successful_analyses from report_metadata.successful_analyses
+   - valid_images_used_for_summary = number of usable records after filtering
+
+3. Use GPS coordinates only:
+   - Extract all valid latitude and longitude values.
+   - Compute the median latitude.
+   - Compute the median longitude.
+   - Do NOT infer village, district, state, or country.
+   - Do NOT use reverse geocoding.
+
+4. Determine assessment date:
+   - Prefer the earliest valid image timestamp date if available.
+   - Otherwise use report_metadata.generated_at date.
+   - Format English date as: "18 Jan 2026"
+   - Format Marathi date in Marathi numerals and month name if possible.
+
+5. Crop name and growth stage:
+   - If crop name is explicitly present in the JSON, use it.
+   - If crop name is repeatedly mentioned in visual_observations, infer it only if confidence is high.
+   - If uncertain, use "Crop not specified".
+   - Infer growth stage only from repeated visual observations.
+   - Examples: seedling, early vegetative, flowering, early fruiting.
+   - If uncertain, use "Not specified".
+
+========================
+FIELD-LEVEL ANALYSIS RULES
+========================
+
+You must synthesize image-level data into field-level insights.
+
+1. Overall health score:
+   - Calculate average_health_score from all valid images.
+   - Also calculate median_health_score.
+   - Use these thresholds for field_health_status:
+     - 80-100: Good
+     - 60-79: Fair
+     - 40-59: Poor
+     - 0-39: Critical
+
+2. Health summary:
+   - Write a short field-level summary.
+   - Do not list every image.
+   - Mention whether crop condition is uniform or uneven.
+   - Mention dominant stress patterns.
+
+3. Key issues:
+   - Aggregate repeated issue themes from issues_detected and visual_observations.
+   - Group similar terms:
+     - "yellowing", "nitrogen deficiency", "nutrient deficiency", "micronutrient deficiency" -> Nutrition deficiency
+     - "dry soil", "water stress", "moisture stress", "irrigation" -> Moisture stress
+     - "weeds", "weed competition" -> Weed competition
+     - "pest damage", "holes", "aphids", "mites", "thrips", "whiteflies" -> Pest pressure
+     - "leaf curl", "mottling", "viral symptoms" -> Possible viral symptoms
+     - "wilting", "stunted", "weak growth" -> Weak establishment
+
+4. Prioritize issues:
+   - Rank issues by frequency and severity.
+   - Mark one issue as primary_issue.
+   - Mark other issues as secondary_issues.
+   - Do not exaggerate.
+   - Use "possible" when the evidence is not conclusive.
+
+5. Recommendations:
+   - Generate field-level recommendations for the next 5-7 days.
+   - Provide both organic and non-organic options where possible.
+   - Keep recommendations practical for farmers.
+   - Do not recommend restricted, dangerous, or highly specific pesticide dosages unless clearly supported.
+   - For pest/disease, recommend inspection first unless evidence is repeated and strong.
+   - Include roguing only when viral symptoms or severely distorted plants are observed.
+
+6. Expected outcome:
+   - Provide realistic expected outcomes.
+   - Mention time range such as 7-10 days only for visible recovery indicators.
+   - Do not guarantee yield improvement.
+
+========================
+LANGUAGE RULES
+========================
+
+1. English:
+   - Use clear farmer-friendly language.
+   - Keep sentences short.
+   - Avoid technical jargon unless necessary.
+
+2. Marathi:
+   - Use natural Marathi suitable for farmers.
+   - Do not mix English words unless unavoidable.
+   - Marathi text must be Unicode Devanagari.
+   - Do not transliterate Marathi using Latin letters.
+   - Keep the Marathi version semantically equivalent to English.
+   - Use Marathi labels, not English labels.
+
+========================
+OUTPUT JSON SCHEMA
+========================
+
+Return JSON exactly in this structure:
+
+{
+  "report_metadata": {
+    "report_title": "",
+    "crop_name": "",
+    "crop_growth_stage": "",
+    "assessment_date": "",
+    "field_location_median_gps": {"latitude": 0.0, "longitude": 0.0},
+    "total_images": 0,
+    "successful_analyses": 0,
+    "valid_images_used_for_summary": 0,
+    "model_used": "",
+    "data_quality_notes": []
+  },
+  "computed_metrics": {
+    "average_health_score": 0.0,
+    "median_health_score": 0.0,
+    "min_health_score": 0.0,
+    "max_health_score": 0.0,
+    "field_health_status": "",
+    "issue_frequency": {
+      "weed_competition": 0, "nutrition_deficiency": 0, "moisture_stress": 0,
+      "pest_pressure": 0, "possible_viral_symptoms": 0, "weak_establishment": 0
+    }
+  },
+  "english_report": {
+    "title": "",
+    "header": {"crop_name": "", "crop_growth_stage": "", "assessment_date": "", "field_location": "", "images_analyzed": ""},
+    "overall_field_health": {"health_status": "", "summary_points": []},
+    "key_issues_observed": [],
+    "recommended_interventions_next_5_7_days": [
+      {"area": "Weed Control", "organic_option": "", "non_organic_option": ""},
+      {"area": "Nutrition", "organic_option": "", "non_organic_option": ""},
+      {"area": "Pest / Disease", "organic_option": "", "non_organic_option": ""},
+      {"area": "Roguing / Plant Removal", "organic_option": "", "non_organic_option": ""}
+    ],
+    "expected_outcome": []
+  },
+  "marathi_report": {
+    "title": "",
+    "header": {"crop_name": "", "crop_growth_stage": "", "assessment_date": "", "field_location": "", "images_analyzed": ""},
+    "overall_field_health": {"health_status": "", "summary_points": []},
+    "key_issues_observed": [],
+    "recommended_interventions_next_5_7_days": [
+      {"area": "\\u0924\\u0923 \\u0928\\u093f\\u092f\\u0902\\u0924\\u094d\\u0930\\u0923", "organic_option": "", "non_organic_option": ""},
+      {"area": "\\u092a\\u094b\\u0937\\u0923", "organic_option": "", "non_organic_option": ""},
+      {"area": "\\u0915\\u0940\\u0921 / \\u0930\\u094b\\u0917", "organic_option": "", "non_organic_option": ""},
+      {"area": "\\u091d\\u093e\\u0921\\u0947 \\u0915\\u093e\\u0922\\u0923\\u0947", "organic_option": "", "non_organic_option": ""}
+    ],
+    "expected_outcome": []
+  }
+}
+
+========================
+STYLE CONSTRAINTS
+========================
+
+- Keep each summary point under 18 words.
+- Keep each key issue under 12 words.
+- Keep each intervention cell under 25 words.
+- Keep expected outcomes under 12 words each.
+- Do not mention individual image names.
+- Do not mention bounding boxes.
+- Do not mention processing time.
+- Do not mention model errors except in data_quality_notes.
+- Do not invent exact chemical recommendations if the input is weak.
+- Do not overstate disease diagnosis from visual symptoms alone.
+- Use "possible" or "likely" where appropriate.
+
+========================
+FINAL OUTPUT REQUIREMENT
+========================
+
+Return only valid JSON.
+No markdown.
+No explanation.
+No surrounding text.
+
+Here is the crop-health analysis JSON:
+"""
+
 register_heif_opener()
 
 logger = logging.getLogger(__name__)
@@ -319,6 +540,33 @@ def flush_pending(interval_minutes: int):
                 batch_queue.put((sid, batch_index, image_paths, farm_id))
                 logger.info('Flush: queued %d image(s) for session %s as batch %d',
                             len(image_paths), sid, batch_index)
+
+
+def generate_report_summary(report_data: dict, summary_path: str) -> dict:
+    """Call Gemini to generate a field-level summary and save as JSON.
+
+    Raises on failure — caller should catch and handle.
+    """
+    client = _get_client()
+    contents = [_SUMMARY_PROMPT, json.dumps(report_data, ensure_ascii=False)]
+    response = client.models.generate_content(
+        model=_GEMINI_MODEL,
+        contents=contents,
+        config=types.GenerateContentConfig(
+            temperature=0.2,
+            response_mime_type='application/json',
+        ),
+    )
+    response_text = (response.text or '').strip()
+    if '```json' in response_text:
+        response_text = response_text.split('```json')[1].split('```')[0].strip()
+    elif '```' in response_text:
+        response_text = response_text.split('```')[1].split('```')[0].strip()
+    summary = json.loads(response_text)
+    with open(summary_path, 'w', encoding='utf-8') as f:
+        json.dump(summary, f, indent=2, ensure_ascii=False)
+    logger.info('Summary saved → %s', summary_path)
+    return summary
 
 
 def start_worker(flush_interval_minutes: int = 5):

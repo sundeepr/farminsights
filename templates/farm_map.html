@@ -306,28 +306,72 @@ function renderGenerateCard() {
         </div>
     `;
 }
+
 window.generateSummary = async function() {
     const btn = document.getElementById('generateBtn');
     btn.disabled = true;
-    btn.textContent = 'Generating…';
+    btn.textContent = 'Requesting…';
     try {
-        const res = await fetch(`/api/farm/${FARM_ID}/report/${encodeURIComponent(REPORT_FILE)}/generate-summary`, { method: 'POST' });
-        if (res.status === 501) {
-            alert('Summary generation is coming soon.');
+        const res = await fetch(
+            `/api/farm/${FARM_ID}/report/${encodeURIComponent(REPORT_FILE)}/generate-summary`,
+            { method: 'POST' }
+        );
+        if (res.status === 202) {
+            // Generation started — poll for the result
+            btn.textContent = 'Generating… 0s';
+            pollForSummary(btn);
         } else if (res.ok) {
+            // Already existed, returned directly
             const summary = await res.json();
             _cachedSummary = summary;
             renderSummary(summary, null);
         } else {
             const e = await res.json();
             alert('Error: ' + (e.error || 'Unknown error'));
+            btn.disabled = false;
+            btn.textContent = 'Generate Summary Report';
         }
     } catch(e) {
         alert('Request failed: ' + e.message);
-    } finally {
-        if (btn) { btn.disabled = false; btn.textContent = 'Generate Summary Report'; }
+        btn.disabled = false;
+        btn.textContent = 'Generate Summary Report';
     }
 };
+
+function pollForSummary(btn) {
+    const MAX_WAIT_MS = 3 * 60 * 1000; // 3 minutes
+    const INTERVAL_MS = 5000;
+    const started = Date.now();
+
+    const tick = async () => {
+        const elapsed = Math.round((Date.now() - started) / 1000);
+        if (btn) btn.textContent = `Generating… ${elapsed}s`;
+
+        try {
+            const res = await fetch(`/api/data/${FARM_ID}/${SUMMARY_FILE}`);
+            if (res.ok) {
+                const summary = await res.json();
+                if (summary && summary.english_report) {
+                    _cachedSummary = summary;
+                    renderSummary(summary, null);
+                    return; // done
+                }
+            }
+        } catch {}
+
+        if (Date.now() - started < MAX_WAIT_MS) {
+            setTimeout(tick, INTERVAL_MS);
+        } else {
+            if (btn) {
+                btn.disabled = false;
+                btn.textContent = 'Retry Summary Generation';
+            }
+            alert('Generation is taking longer than expected. Please try again or refresh the page.');
+        }
+    };
+
+    setTimeout(tick, INTERVAL_MS);
+}
 
 // ── Main load ─────────────────────────────────────────────────
 async function loadReport() {

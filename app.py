@@ -352,7 +352,38 @@ def get_data(farm_id, filename):
 @app.route('/api/farm/<farm_id>/report/<path:filename>/generate-summary', methods=['POST'])
 @auth_module.require_login
 def generate_report_summary(farm_id, filename):
-    return jsonify({'error': 'Summary generation not yet implemented'}), 501
+    user = auth_module.get_current_user()
+    if not auth_module.can_access_farm(user, farm_id):
+        return jsonify({'error': 'Forbidden'}), 403
+    farm = config_loader.get_farm(farm_id)
+    if not farm:
+        return jsonify({'error': 'Farm not found'}), 404
+    if '/' in filename or '..' in filename:
+        return jsonify({'error': 'Invalid filename'}), 400
+
+    report_path = os.path.join(farm['data_folder'], filename)
+    if not os.path.exists(report_path):
+        return jsonify({'error': 'Report file not found'}), 404
+
+    summary_filename = filename.replace('.json', '_summary.json')
+    summary_path = os.path.join(farm['data_folder'], summary_filename)
+
+    if os.path.exists(summary_path):
+        with open(summary_path, 'r', encoding='utf-8') as f:
+            return jsonify(json.load(f))
+
+    with open(report_path, 'r', encoding='utf-8') as f:
+        report_data = json.load(f)
+
+    def _run():
+        try:
+            worker_module.generate_report_summary(report_data, summary_path)
+        except Exception as e:
+            logger.error('Summary generation failed for %s: %s', filename, e)
+
+    import threading as _t
+    _t.Thread(target=_run, daemon=True).start()
+    return jsonify({'status': 'generating', 'summary_file': summary_filename}), 202
 
 
 @app.route('/api/weather/<farm_id>')
