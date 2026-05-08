@@ -324,6 +324,8 @@ def get_files():
     files = []
     for f in sorted(data_files, reverse=True):
         filename = os.path.basename(f)
+        if filename.endswith('_summary.json') or filename.endswith('_summary_status.json'):
+            continue
         files.append({'filename': filename, 'display': filename.replace('.json', '').replace('_', ' ')})
     return jsonify(files)
 
