@@ -40,10 +40,12 @@ Do not include markdown, comments, explanations, or extra text.
 CORE OBJECTIVE
 ========================
 
-Create a farmer-ready, field-level crop advisory report in two languages:
+Create a farmer-ready, field-level crop advisory report in four languages:
 
 1. English
 2. Marathi
+3. Hindi
+4. Telugu
 
 The report must summarize the entire field, not individual images.
 
@@ -153,6 +155,22 @@ LANGUAGE RULES
    - Keep the Marathi version semantically equivalent to English.
    - Use Marathi labels, not English labels.
 
+3. Hindi:
+   - Use simple, clear Hindi suitable for farmers.
+   - Do not mix English words unless unavoidable.
+   - Hindi text must be Unicode Devanagari.
+   - Do not transliterate Hindi using Latin letters.
+   - Keep semantically equivalent to English.
+   - Use Hindi labels, not English labels.
+
+4. Telugu:
+   - Use natural Telugu suitable for farmers in Andhra Pradesh and Telangana.
+   - Do not mix English words unless unavoidable.
+   - Telugu text must be Unicode Telugu script.
+   - Do not transliterate Telugu using Latin letters.
+   - Keep semantically equivalent to English.
+   - Use Telugu labels, not English labels.
+
 ========================
 OUTPUT JSON SCHEMA
 ========================
@@ -202,10 +220,36 @@ Return JSON exactly in this structure:
     "overall_field_health": {"health_status": "", "summary_points": []},
     "key_issues_observed": [],
     "recommended_interventions_next_5_7_days": [
-      {"area": "\\u0924\\u0923 \\u0928\\u093f\\u092f\\u0902\\u0924\\u094d\\u0930\\u0923", "organic_option": "", "non_organic_option": ""},
-      {"area": "\\u092a\\u094b\\u0937\\u0923", "organic_option": "", "non_organic_option": ""},
-      {"area": "\\u0915\\u0940\\u0921 / \\u0930\\u094b\\u0917", "organic_option": "", "non_organic_option": ""},
-      {"area": "\\u091d\\u093e\\u0921\\u0947 \\u0915\\u093e\\u0922\\u0923\\u0947", "organic_option": "", "non_organic_option": ""}
+      {"area": "तण नियंत्रण", "organic_option": "", "non_organic_option": ""},
+      {"area": "पोषण", "organic_option": "", "non_organic_option": ""},
+      {"area": "कीड / रोग", "organic_option": "", "non_organic_option": ""},
+      {"area": "झाडे काढणे", "organic_option": "", "non_organic_option": ""}
+    ],
+    "expected_outcome": []
+  },
+  "hindi_report": {
+    "title": "",
+    "header": {"crop_name": "", "crop_growth_stage": "", "assessment_date": "", "field_location": "", "images_analyzed": ""},
+    "overall_field_health": {"health_status": "", "summary_points": []},
+    "key_issues_observed": [],
+    "recommended_interventions_next_5_7_days": [
+      {"area": "खरपतवार नियंत्रण", "organic_option": "", "non_organic_option": ""},
+      {"area": "पोषण", "organic_option": "", "non_organic_option": ""},
+      {"area": "कीट / रोग", "organic_option": "", "non_organic_option": ""},
+      {"area": "पौध निकालना", "organic_option": "", "non_organic_option": ""}
+    ],
+    "expected_outcome": []
+  },
+  "telugu_report": {
+    "title": "",
+    "header": {"crop_name": "", "crop_growth_stage": "", "assessment_date": "", "field_location": "", "images_analyzed": ""},
+    "overall_field_health": {"health_status": "", "summary_points": []},
+    "key_issues_observed": [],
+    "recommended_interventions_next_5_7_days": [
+      {"area": "కలుపు నియంత్రణ", "organic_option": "", "non_organic_option": ""},
+      {"area": "పోషణ", "organic_option": "", "non_organic_option": ""},
+      {"area": "చీడపీడ / వ్యాధి", "organic_option": "", "non_organic_option": ""},
+      {"area": "మొక్కలు తొలగించడం", "organic_option": "", "non_organic_option": ""}
     ],
     "expected_outcome": []
   }

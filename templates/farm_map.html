@@ -107,6 +107,8 @@ const SUMMARY_FILE = REPORT_FILE.replace('.json', '_summary.json');
 
 let map, markers = [], heatLayer, allData = [], mapInitialized = false;
 let currentLang = 'en';
+const LANG_KEYS = { en: 'english_report', mr: 'marathi_report', hi: 'hindi_report', te: 'telugu_report' };
+const LANG_LABELS = { en: 'English', mr: 'मराठी', hi: 'हिंदी', te: 'తెలుగు' };
 
 // ── Map ──────────────────────────────────────────────────────
 function initMap(center) {
@@ -200,8 +202,8 @@ function statusClass(s) {
 
 function renderSummary(summary, reportMeta) {
     const main = document.getElementById('mainSection');
-    const isEn = currentLang === 'en';
-    const r = isEn ? summary.english_report : summary.marathi_report;
+    const key = LANG_KEYS[currentLang] || 'english_report';
+    const r = summary[key] || summary.english_report;
     const m = summary.computed_metrics;
     const sm = summary.report_metadata;
 
@@ -223,8 +225,9 @@ function renderSummary(summary, reportMeta) {
         <!-- Language toggle -->
         <div style="display:flex;justify-content:flex-end;margin-bottom:4px;">
             <div class="lang-toggle">
-                <button class="lang-btn ${currentLang==='en'?'active':''}" onclick="switchLang('en')">English</button>
-                <button class="lang-btn ${currentLang==='mr'?'active':''}" onclick="switchLang('mr')">मराठी</button>
+                ${Object.entries(LANG_LABELS).map(([code, label]) =>
+                    `<button class="lang-btn ${currentLang===code?'active':''}" onclick="switchLang('${code}')">${label}</button>`
+                ).join('')}
             </div>
         </div>
 
@@ -290,11 +293,10 @@ function renderSummary(summary, reportMeta) {
 let _cachedSummary = null;
 let _cachedReportMeta = null;
 
-function switchLang(lang) {
+window.switchLang = function(lang) {
     currentLang = lang;
     if (_cachedSummary) renderSummary(_cachedSummary, _cachedReportMeta);
-}
-window.switchLang = switchLang;
+};
 
 function renderGenerateCard() {
     document.getElementById('mainSection').innerHTML = `
