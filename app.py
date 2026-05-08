@@ -349,6 +349,12 @@ def get_data(farm_id, filename):
         return jsonify({'error': 'Invalid JSON data'}), 500
 
 
+@app.route('/api/farm/<farm_id>/report/<path:filename>/generate-summary', methods=['POST'])
+@auth_module.require_login
+def generate_report_summary(farm_id, filename):
+    return jsonify({'error': 'Summary generation not yet implemented'}), 501
+
+
 @app.route('/api/weather/<farm_id>')
 @auth_module.require_login
 def get_weather(farm_id):

@@ -20,372 +20,406 @@
 {% block content %}
 <div id="farmLoading" class="loading-overlay">
     <div class="loading-spinner"></div>
-    <div class="loading-text">{{ t.loading_farm_data if t else 'Loading farm data...' }}</div>
+    <div class="loading-text">{{ t.loading_farm_data if t else 'Loading report…' }}</div>
 </div>
 
 <div class="farm-container">
-    <!-- Map Section -->
-    <div class="map-section">
-        <div class="map-header">
-            <div class="map-title">📍 {{ farm.name }} — {{ t.field_map if t else 'Field Map' }}</div>
-            <div class="map-stats">
-                <div class="map-stat">
-                    <div class="map-stat-label">{{ t.total_images if t else 'Total Images' }}</div>
-                    <div class="map-stat-value" id="totalImages">—</div>
-                </div>
-                <div class="map-stat">
-                    <div class="map-stat-label">{{ t.analyzed if t else 'Analyzed' }}</div>
-                    <div class="map-stat-value" id="analyzedCount">—</div>
-                </div>
-                <div class="map-stat">
-                    <div class="map-stat-label">{{ t.avg_health if t else 'Avg Health' }}</div>
-                    <div class="map-stat-value" id="avgHealth">—</div>
-                </div>
-            </div>
-            <div class="map-controls">
-                <label class="toggle-switch" title="Toggle heatmap">
-                    <input type="checkbox" id="heatmapToggle" checked>
-                    <span class="slider"></span>
-                </label>
-                <span style="font-size: 0.85em; color: #6c757d;">{{ t.heatmap if t else 'Heatmap' }}</span>
-                <button class="btn btn-primary" id="zoomAllBtn">
-                    <span>🔍</span> {{ t.view_all if t else 'View All' }}
-                </button>
-            </div>
-        </div>
-        <div id="map"></div>
+
+    <!-- ── LEFT: Summary or Generate button ── -->
+    <div class="main-section" id="mainSection">
+        <!-- filled by JS -->
     </div>
 
-    <!-- Sidebar -->
+    <!-- ── RIGHT: Sidebar ── -->
     <div class="plant-sidebar">
-        <!-- Weather Widget -->
-        <div id="weatherWidget" class="weather-widget" style="margin:14px 14px 0;">
+
+        <!-- Weather -->
+        <div id="weatherWidget" class="weather-widget">
             <div class="weather-header">
                 <div class="weather-title">{{ t.current_weather if t else 'Current Weather' }}</div>
                 <div class="weather-updated" id="weatherUpdated"></div>
             </div>
             <div id="weatherBody" style="text-align:center;padding:10px 0;">
-                <div class="loading-spinner" style="width:28px;height:28px;border-width:2px;margin:4px auto;"></div>
+                <div class="loading-spinner" style="width:24px;height:24px;border-width:2px;margin:4px auto;"></div>
             </div>
         </div>
 
-        <div class="plant-sidebar-header">
-            <div class="plant-sidebar-title">{{ t.filter_search if t else 'Filter & Search' }}</div>
-            <div class="filters">
-                <div class="filter-group">
-                    <label for="statusFilter">{{ t.health_status if t else 'Health Status' }}</label>
-                    <select id="statusFilter">
-                        <option value="all">{{ t.all_plants if t else 'All Plants' }}</option>
-                        <option value="good">{{ t.good_health if t else 'Good Health (75-100)' }}</option>
-                        <option value="fair">{{ t.fair_health if t else 'Fair Health (65-74)' }}</option>
-                        <option value="poor">{{ t.poor_health if t else 'Poor Health (0-64)' }}</option>
-                        <option value="unknown">{{ t.unknown_error if t else 'Unknown / Error' }}</option>
-                    </select>
+        <!-- Map Card -->
+        <div class="map-card">
+            <div class="map-card-header">
+                <div class="map-card-title">📍 {{ t.field_map if t else 'Field Map' }}</div>
+                <div style="display:flex;gap:8px;align-items:center;">
+                    <div class="map-card-stats">
+                        <div class="map-card-stat">
+                            <div class="map-card-stat-label">Images</div>
+                            <div class="map-card-stat-value" id="totalImages">—</div>
+                        </div>
+                        <div class="map-card-stat">
+                            <div class="map-card-stat-label">Avg</div>
+                            <div class="map-card-stat-value" id="avgHealth">—</div>
+                        </div>
+                    </div>
+                    <label class="toggle-switch" title="Toggle heatmap">
+                        <input type="checkbox" id="heatmapToggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <button class="btn btn-primary" id="zoomAllBtn" style="padding:5px 10px;font-size:0.75em;">🔍</button>
                 </div>
             </div>
+            <div id="map"></div>
+        </div>
+
+        <!-- Filter & Legend -->
+        <div class="sidebar-filters">
+            <div class="sidebar-filters-title">{{ t.filter_search if t else 'Filter & Search' }}</div>
+            <div class="filter-group">
+                <label>{{ t.health_status if t else 'Health Status' }}</label>
+                <select id="statusFilter">
+                    <option value="all">{{ t.all_plants if t else 'All Plants' }}</option>
+                    <option value="good">Good (75-100)</option>
+                    <option value="fair">Fair (65-74)</option>
+                    <option value="poor">Poor (0-64)</option>
+                    <option value="unknown">Unknown / Error</option>
+                </select>
+            </div>
             <div class="legend">
-                <div class="legend-title">{{ t.health_legend if t else 'Health Legend' }}</div>
+                <div class="legend-title">{{ t.health_legend if t else 'Legend' }}</div>
                 <div class="legend-items">
-                    <div class="legend-item"><div class="legend-color good"></div><span>{{ t.good if t else 'Good' }} (75-100)</span></div>
-                    <div class="legend-item"><div class="legend-color fair"></div><span>{{ t.fair if t else 'Fair' }} (65-74)</span></div>
-                    <div class="legend-item"><div class="legend-color poor"></div><span>{{ t.poor if t else 'Poor' }} (0-64)</span></div>
-                    <div class="legend-item"><div class="legend-color unknown"></div><span>{{ t.unknown_error if t else 'Unknown/Error' }}</span></div>
+                    <div class="legend-item"><div class="legend-color good"></div><span>Good (75-100)</span></div>
+                    <div class="legend-item"><div class="legend-color fair"></div><span>Fair (65-74)</span></div>
+                    <div class="legend-item"><div class="legend-color poor"></div><span>Poor (0-64)</span></div>
+                    <div class="legend-item"><div class="legend-color unknown"></div><span>Unknown</span></div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 {% endblock %}
 
 {% block extra_js %}
-<!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<!-- Leaflet Heat Plugin -->
 <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
-
 <script>
-    const FARM_ID = {{ farm.id | tojson }};
-    const REPORT_FILE = {{ report_filename | tojson }};
+const FARM_ID = {{ farm.id | tojson }};
+const REPORT_FILE = {{ report_filename | tojson }};
+const SUMMARY_FILE = REPORT_FILE.replace('.json', '_summary.json');
 
-    let map;
-    let markers = [];
-    let heatLayer;
-    let allData = [];
-    let currentFile = null;
-    let mapInitialized = false;
+let map, markers = [], heatLayer, allData = [], mapInitialized = false;
+let currentLang = 'en';
 
-    function initMap(center) {
-        if (mapInitialized) {
-            map.setView(center, 18);
-            return;
-        }
+// ── Map ──────────────────────────────────────────────────────
+function initMap(center) {
+    if (mapInitialized) { map.setView(center, 18); return; }
+    map = L.map('map', { scrollWheelZoom: true, minZoom: 2, maxZoom: 22, preferCanvas: false })
+            .setView(center, 18);
+    const sat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', { attribution: '© Google', maxZoom: 22 });
+    const esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: '© Esri', maxZoom: 22 });
+    const street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap', maxZoom: 19 });
+    sat.addTo(map);
+    L.control.layers({ 'Satellite (Google)': sat, 'Satellite (Esri)': esri, 'Street Map': street }).addTo(map);
+    mapInitialized = true;
+}
 
-        map = L.map('map', {
-            scrollWheelZoom: true,
-            minZoom: 2,
-            maxZoom: 22,
-            preferCanvas: false,
-            zoomControl: true
-        }).setView(center, 18);
+function renderMarkers(data) {
+    markers.forEach(m => map.removeLayer(m));
+    markers = [];
+    data.forEach(img => {
+        const c = img.gps_coordinates;
+        L.circleMarker([c.latitude, c.longitude], { radius: 8, fillOpacity: 0, opacity: 0, interactive: true })
+            .addTo(map).bindPopup(createPopupContent(img));
+        markers.push(markers[markers.length] || {});
+        // re-add properly
+    });
+    markers = [];
+    data.forEach(img => {
+        const c = img.gps_coordinates;
+        const m = L.circleMarker([c.latitude, c.longitude], { radius: 8, fillOpacity: 0, opacity: 0, interactive: true })
+            .addTo(map).bindPopup(createPopupContent(img));
+        markers.push(m);
+    });
+}
 
-        const streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors',
-            maxZoom: 19,
-            keepBuffer: 4,
-            updateWhenIdle: false,
-            updateWhenZooming: false
-        });
+function renderHeatmap(data) {
+    if (heatLayer) map.removeLayer(heatLayer);
+    const pts = data.filter(i => i.plant_health_analysis.health_score !== null)
+        .map(i => [i.gps_coordinates.latitude, i.gps_coordinates.longitude, (100 - i.plant_health_analysis.health_score) / 100]);
+    heatLayer = L.heatLayer(pts, { radius: 35, blur: 25, maxZoom: 20, max: 1.0, minOpacity: 0.6,
+        gradient: { 0.0: '#00ff00', 0.25: '#66ff66', 0.5: '#ffcc00', 0.7: '#ff6600', 1.0: '#ff0000' }
+    }).addTo(map);
+}
 
-        const googleSatellite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            attribution: '© Google',
-            maxZoom: 22,
-            keepBuffer: 4,
-            updateWhenIdle: false,
-            updateWhenZooming: false
-        });
+function createPopupContent(image) {
+    const a = image.plant_health_analysis;
+    const score = a.health_score !== null ? `${a.health_score}/100` : 'N/A';
+    return `<div class="popup-container">
+        <div class="popup-header">${image.image_name}</div>
+        <div class="popup-section"><div class="popup-label">Status</div>
+            <div class="popup-value"><span class="plant-status ${a.health_status}">${a.health_status}</span></div></div>
+        <div class="popup-section"><div class="popup-label">Score</div>
+            <div class="popup-value" style="font-weight:700;font-size:1.1em;">${score}</div></div>
+        ${a.health_score !== null ? `
+        <div class="popup-section"><div class="popup-label">Issues</div><div class="popup-value">${a.issues_detected}</div></div>
+        <div class="popup-section"><div class="popup-label">Recommendations</div><div class="popup-value">${a.recommended_interventions}</div></div>
+        ` : `<div class="popup-section"><div class="popup-value" style="color:#dc3545;">Analysis error</div></div>`}
+        <div class="popup-section"><div class="popup-label">Timestamp</div>
+            <div class="popup-value">${image.timestamp ? new Date(image.timestamp).toLocaleString() : '—'}</div></div>
+    </div>`;
+}
 
-        const esriSatellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-            attribution: 'Tiles © Esri',
-            maxZoom: 22,
-            keepBuffer: 4,
-            updateWhenIdle: false,
-            updateWhenZooming: false
-        });
+function setupMapControls() {
+    document.getElementById('statusFilter').addEventListener('change', () => applyFilters());
+    document.getElementById('heatmapToggle').addEventListener('change', e => {
+        applyFilters();
+        if (!e.target.checked && heatLayer) map.removeLayer(heatLayer);
+    });
+    document.getElementById('zoomAllBtn').addEventListener('click', () => {
+        if (!allData.length) return;
+        map.fitBounds(L.latLngBounds(allData.map(i => [i.gps_coordinates.latitude, i.gps_coordinates.longitude])), { padding: [40, 40], maxZoom: 18 });
+    });
+}
 
-        googleSatellite.addTo(map);
+function applyFilters() {
+    const status = document.getElementById('statusFilter').value;
+    const filtered = allData.filter(i => status === 'all' || i.plant_health_analysis.health_status === status);
+    renderMarkers(filtered);
+    if (document.getElementById('heatmapToggle').checked) renderHeatmap(filtered);
+    else if (heatLayer) map.removeLayer(heatLayer);
+}
 
-        L.control.layers({
-            "Satellite (Google)": googleSatellite,
-            "Satellite (Esri)": esriSatellite,
-            "Street Map": streetLayer
-        }).addTo(map);
+// ── Summary rendering ─────────────────────────────────────────
+function statusClass(s) {
+    if (!s) return 'no-data';
+    const l = s.toLowerCase();
+    if (l === 'good' || l === 'excellent') return 'good';
+    if (l === 'fair') return 'fair';
+    if (l === 'poor') return 'poor';
+    if (l === 'critical') return 'critical';
+    return 'no-data';
+}
 
-        mapInitialized = true;
-    }
+function renderSummary(summary, reportMeta) {
+    const main = document.getElementById('mainSection');
+    const isEn = currentLang === 'en';
+    const r = isEn ? summary.english_report : summary.marathi_report;
+    const m = summary.computed_metrics;
+    const sm = summary.report_metadata;
 
+    const sc = statusClass(m.field_health_status);
+    const scoreDisplay = m.average_health_score !== null ? m.average_health_score.toFixed(1) : '—';
 
-    async function loadData(filename) {
-        try {
-            const response = await fetch(`/api/data/${FARM_ID}/${filename}`);
-            const data = await response.json();
+    const recRows = (r.recommended_interventions_next_5_7_days || []).map(rec => `
+        <tr>
+            <td class="rec-area">${rec.area || ''}</td>
+            <td>${rec.organic_option || '—'}</td>
+            <td>${rec.non_organic_option || '—'}</td>
+        </tr>`).join('');
 
-            allData = data.images.filter(img => img.gps_coordinates);
+    const issueItems = (r.key_issues_observed || []).map(i => `<li>${i}</li>`).join('');
+    const summaryItems = (r.overall_field_health?.summary_points || []).map(p => `<li>${p}</li>`).join('');
+    const outcomeItems = (r.expected_outcome || []).map(o => `<li>${o}</li>`).join('');
 
-            if (allData.length === 0) {
-                document.getElementById('plantsList').innerHTML =
-                    '<div class="plants-empty">No GPS data found in this report.</div>';
-                document.getElementById('farmLoading').style.display = 'none';
-                return;
-            }
+    main.innerHTML = `
+        <!-- Language toggle -->
+        <div style="display:flex;justify-content:flex-end;margin-bottom:4px;">
+            <div class="lang-toggle">
+                <button class="lang-btn ${currentLang==='en'?'active':''}" onclick="switchLang('en')">English</button>
+                <button class="lang-btn ${currentLang==='mr'?'active':''}" onclick="switchLang('mr')">मराठी</button>
+            </div>
+        </div>
 
-            const avgLat = allData.reduce((s, img) => s + img.gps_coordinates.latitude, 0) / allData.length;
-            const avgLng = allData.reduce((s, img) => s + img.gps_coordinates.longitude, 0) / allData.length;
-            initMap([avgLat, avgLng]);
-
-            updateHeaderStats(data);
-            renderMarkers(allData);
-            renderHeatmap(allData);
-            setupZoomAll(allData);
-            setupFilters();
-
-            document.getElementById('farmLoading').style.display = 'none';
-        } catch (err) {
-            console.error('Error loading data:', err);
-            document.getElementById('farmLoading').innerHTML =
-                '<div style="color:#dc3545; padding:20px;">Error loading farm data.</div>';
-        }
-    }
-
-    loadData(REPORT_FILE);
-
-    function updateHeaderStats(data) {
-        const images = data.images;
-        const analyzed = images.filter(img => img.plant_health_analysis.health_score !== null);
-        const avgHealth = analyzed.length > 0
-            ? (analyzed.reduce((s, img) => s + img.plant_health_analysis.health_score, 0) / analyzed.length).toFixed(1)
-            : 'N/A';
-
-        document.getElementById('totalImages').textContent = data.report_metadata.total_images;
-        document.getElementById('analyzedCount').textContent = data.report_metadata.successful_analyses;
-        document.getElementById('avgHealth').textContent = avgHealth;
-    }
-
-    function renderMarkers(data) {
-        markers.forEach(m => map.removeLayer(m));
-        markers = [];
-
-        data.forEach(image => {
-            const coords = image.gps_coordinates;
-            const marker = L.circleMarker([coords.latitude, coords.longitude], {
-                radius: 8, fillOpacity: 0, opacity: 0, interactive: true
-            })
-                .addTo(map)
-                .bindPopup(createPopupContent(image));
-
-            markers.push(marker);
-        });
-    }
-
-    function renderHeatmap(data) {
-        if (heatLayer) map.removeLayer(heatLayer);
-
-        const heatData = data
-            .filter(img => img.plant_health_analysis.health_score !== null)
-            .map(img => {
-                const c = img.gps_coordinates;
-                const intensity = (100 - img.plant_health_analysis.health_score) / 100;
-                return [c.latitude, c.longitude, intensity];
-            });
-
-        heatLayer = L.heatLayer(heatData, {
-            radius: 35, blur: 25, maxZoom: 20, max: 1.0, minOpacity: 0.6,
-            gradient: {
-                0.0: '#00ff00', 0.25: '#66ff66', 0.35: '#99ff99',
-                0.5: '#ffcc00', 0.7: '#ff6600', 1.0: '#ff0000'
-            }
-        }).addTo(map);
-    }
-
-    function createPopupContent(image) {
-        const a = image.plant_health_analysis;
-        const score = a.health_score !== null ? `${a.health_score}/100` : 'N/A';
-        return `
-            <div class="popup-container">
-                <div class="popup-header">${image.image_name}</div>
-                <div class="popup-section">
-                    <div class="popup-label">Health Status</div>
-                    <div class="popup-value"><span class="plant-status ${a.health_status}">${a.health_status}</span></div>
-                </div>
-                <div class="popup-section">
-                    <div class="popup-label">Health Score</div>
-                    <div class="popup-value" style="font-weight:700;color:#40916c;font-size:1.15em;">${score}</div>
-                </div>
-                ${a.health_score !== null ? `
-                    <div class="popup-section">
-                        <div class="popup-label">Issues Detected</div>
-                        <div class="popup-value">${a.issues_detected}</div>
-                    </div>
-                    <div class="popup-section">
-                        <div class="popup-label">Recommendations</div>
-                        <div class="popup-value">${a.recommended_interventions}</div>
-                    </div>
-                ` : `<div class="popup-section"><div class="popup-value" style="color:#dc3545;">Analysis error</div></div>`}
-                <div class="popup-section">
-                    <div class="popup-label">Timestamp</div>
-                    <div class="popup-value">${new Date(image.timestamp).toLocaleString()}</div>
-                </div>
-            </div>`;
-    }
-
-    function setupFilters() {
-        const statusFilter = document.getElementById('statusFilter');
-        const heatmapToggle = document.getElementById('heatmapToggle');
-
-        function applyFilters() {
-            const status = statusFilter.value;
-            const filtered = allData.filter(img =>
-                status === 'all' || img.plant_health_analysis.health_status === status
-            );
-            renderMarkers(filtered);
-            if (heatmapToggle.checked) renderHeatmap(filtered);
-        }
-
-        statusFilter.addEventListener('change', applyFilters);
-
-        heatmapToggle.addEventListener('change', (e) => {
-            if (e.target.checked) renderHeatmap(allData);
-            else if (heatLayer) map.removeLayer(heatLayer);
-        });
-    }
-
-    function setupZoomAll(data) {
-        document.getElementById('zoomAllBtn').addEventListener('click', () => {
-            if (!data.length) return;
-            const bounds = L.latLngBounds(data.map(img => [
-                img.gps_coordinates.latitude, img.gps_coordinates.longitude
-            ]));
-            map.fitBounds(bounds, { padding: [50, 50], maxZoom: 18 });
-        });
-    }
-
-    // ---- Weather Widget ----
-    async function loadWeather() {
-        try {
-            const res = await fetch(`/api/weather/${FARM_ID}`);
-            const w = await res.json();
-            if (!res.ok || w.error) {
-                document.getElementById('weatherBody').innerHTML =
-                    `<div class="weather-error">${(window._t||{}).weather_unavailable || 'Weather unavailable'}</div>`;
-                return;
-            }
-            renderWeather(w);
-        } catch {
-            document.getElementById('weatherBody').innerHTML =
-                `<div class="weather-error">${(window._t||{}).weather_unavailable || 'Weather unavailable'}</div>`;
-        }
-    }
-
-    function renderWeather(w) {
-        const rainProb = w.rain_prob_24h ?? 0;
-        const isHighRain = rainProb >= 60;
-
-        const widget = document.getElementById('weatherWidget');
-        if (isHighRain) widget.classList.add('rain-alert');
-
-        // Format updated time
-        if (w.fetched_at) {
-            const d = new Date(w.fetched_at);
-            document.getElementById('weatherUpdated').textContent =
-                d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        }
-
-        const rainProbClass = isHighRain ? 'rain-prob-high' : '';
-        const t = window._t || {};
-        const wmoDesc = {
-            0: t.wmo_0, 1: t.wmo_1, 2: t.wmo_2, 3: t.wmo_3,
-            45: t.wmo_45, 48: t.wmo_48,
-            51: t.wmo_51, 53: t.wmo_53, 55: t.wmo_55,
-            61: t.wmo_61, 63: t.wmo_63, 65: t.wmo_65,
-            71: t.wmo_71, 73: t.wmo_73, 75: t.wmo_75, 77: t.wmo_77,
-            80: t.wmo_80, 81: t.wmo_81, 82: t.wmo_82,
-            85: t.wmo_85, 86: t.wmo_86,
-            95: t.wmo_95, 96: t.wmo_96, 99: t.wmo_99,
-        };
-        const description = (w.weather_code !== null && w.weather_code !== undefined && wmoDesc[w.weather_code])
-            ? wmoDesc[w.weather_code] : w.description;
-        const rainProbLabel = rainProb >= 80 ? (t.rain_high || 'High chance of rain')
-            : rainProb >= 50 ? (t.rain_moderate || 'Moderate chance of rain')
-            : rainProb >= 20 ? (t.rain_low || 'Low chance of rain')
-            : (t.rain_unlikely || 'Rain unlikely');
-
-        document.getElementById('weatherBody').innerHTML = `
-            <div class="weather-main">
-                <div class="weather-icon">${w.icon}</div>
-                <div>
-                    <div class="weather-temp">${w.temperature !== null ? w.temperature + '°C' : '—'}</div>
-                    <div class="weather-desc">${description}</div>
+        <!-- Health banner -->
+        <div class="health-banner ${sc}">
+            <div class="health-banner-left">
+                <div class="health-banner-status">${m.field_health_status || 'No Data'}</div>
+                <div class="health-banner-sub">${r.overall_field_health?.health_status || ''}</div>
+                <div class="meta-row" style="margin-top:10px;">
+                    <div class="meta-chip">📅 <span>${sm.assessment_date || '—'}</span></div>
+                    <div class="meta-chip">🌾 <span>${sm.crop_name || 'Crop not specified'}</span></div>
+                    <div class="meta-chip">🌱 <span>${sm.crop_growth_stage || 'Stage unknown'}</span></div>
+                    <div class="meta-chip">📸 <span>${sm.valid_images_used_for_summary} / ${sm.total_images} images</span></div>
                 </div>
             </div>
-            <div class="weather-details">
-                <div class="weather-detail">
-                    <div class="weather-detail-label">${t.humidity || 'Humidity'}</div>
-                    <div class="weather-detail-value">${w.humidity !== null ? w.humidity + '%' : '—'}</div>
-                </div>
-                <div class="weather-detail">
-                    <div class="weather-detail-label">${t.wind || 'Wind'}</div>
-                    <div class="weather-detail-value">${w.wind_speed !== null ? w.wind_speed + ' km/h' : '—'}</div>
-                </div>
-                <div class="weather-detail" style="grid-column: 1 / -1;">
-                    <div class="weather-detail-label">${t.rain_prob_24h || 'Rain probability (next 24h)'}</div>
-                    <div class="weather-detail-value">${rainProb}% — ${rainProbLabel}</div>
-                    <div class="rain-prob-bar ${rainProbClass}">
-                        <div class="rain-prob-fill" style="width:${rainProb}%"></div>
-                    </div>
-                </div>
+            <div class="health-score-circle">
+                <div class="health-score-number">${scoreDisplay}</div>
+                <div class="health-score-label">/ 100</div>
             </div>
-        `;
-    }
+        </div>
 
-    loadWeather();
+        <!-- Summary points -->
+        ${summaryItems ? `
+        <div class="summary-card">
+            <div class="summary-card-header"><div class="summary-card-title">Field Summary</div></div>
+            <div class="summary-card-body">
+                <ul class="summary-point-list">${summaryItems}</ul>
+            </div>
+        </div>` : ''}
+
+        <!-- Key issues -->
+        ${issueItems ? `
+        <div class="summary-card">
+            <div class="summary-card-header"><div class="summary-card-title">Key Issues Observed</div></div>
+            <div class="summary-card-body">
+                <ul class="summary-point-list">${issueItems}</ul>
+            </div>
+        </div>` : ''}
+
+        <!-- Recommendations -->
+        ${recRows ? `
+        <div class="summary-card">
+            <div class="summary-card-header"><div class="summary-card-title">Recommended Actions (Next 5–7 Days)</div></div>
+            <div class="summary-card-body" style="padding:0;">
+                <table class="rec-table">
+                    <thead><tr><th>Area</th><th>Organic</th><th>Non-Organic</th></tr></thead>
+                    <tbody>${recRows}</tbody>
+                </table>
+            </div>
+        </div>` : ''}
+
+        <!-- Expected outcome -->
+        ${outcomeItems ? `
+        <div class="summary-card">
+            <div class="summary-card-header"><div class="summary-card-title">Expected Outcome</div></div>
+            <div class="summary-card-body">
+                <ul class="summary-point-list">${outcomeItems}</ul>
+            </div>
+        </div>` : ''}
+    `;
+}
+
+let _cachedSummary = null;
+let _cachedReportMeta = null;
+
+function switchLang(lang) {
+    currentLang = lang;
+    if (_cachedSummary) renderSummary(_cachedSummary, _cachedReportMeta);
+}
+window.switchLang = switchLang;
+
+function renderGenerateCard() {
+    document.getElementById('mainSection').innerHTML = `
+        <div class="generate-card">
+            <div class="generate-icon">📊</div>
+            <div class="generate-title">No Summary Report Yet</div>
+            <div class="generate-sub">Generate an AI-powered field advisory report in English and Marathi based on this health data.</div>
+            <button class="generate-btn" id="generateBtn" onclick="generateSummary()">Generate Summary Report</button>
+        </div>
+    `;
+}
+window.generateSummary = async function() {
+    const btn = document.getElementById('generateBtn');
+    btn.disabled = true;
+    btn.textContent = 'Generating…';
+    try {
+        const res = await fetch(`/api/farm/${FARM_ID}/report/${encodeURIComponent(REPORT_FILE)}/generate-summary`, { method: 'POST' });
+        if (res.status === 501) {
+            alert('Summary generation is coming soon.');
+        } else if (res.ok) {
+            const summary = await res.json();
+            _cachedSummary = summary;
+            renderSummary(summary, null);
+        } else {
+            const e = await res.json();
+            alert('Error: ' + (e.error || 'Unknown error'));
+        }
+    } catch(e) {
+        alert('Request failed: ' + e.message);
+    } finally {
+        if (btn) { btn.disabled = false; btn.textContent = 'Generate Summary Report'; }
+    }
+};
+
+// ── Main load ─────────────────────────────────────────────────
+async function loadReport() {
+    try {
+        const [reportRes, summaryRes] = await Promise.all([
+            fetch(`/api/data/${FARM_ID}/${REPORT_FILE}`),
+            fetch(`/api/data/${FARM_ID}/${SUMMARY_FILE}`)
+        ]);
+
+        const report = await reportRes.json();
+        if (reportRes.ok && report.images) {
+            allData = report.images.filter(i => i.gps_coordinates);
+            if (allData.length) {
+                const avgLat = allData.reduce((s, i) => s + i.gps_coordinates.latitude, 0) / allData.length;
+                const avgLng = allData.reduce((s, i) => s + i.gps_coordinates.longitude, 0) / allData.length;
+                initMap([avgLat, avgLng]);
+                renderMarkers(allData);
+                renderHeatmap(allData);
+            }
+            const analyzed = report.images.filter(i => i.plant_health_analysis?.health_score !== null);
+            const avg = analyzed.length ? (analyzed.reduce((s,i) => s + i.plant_health_analysis.health_score, 0) / analyzed.length).toFixed(1) : '—';
+            document.getElementById('totalImages').textContent = report.report_metadata?.total_images ?? report.images.length;
+            document.getElementById('avgHealth').textContent = avg;
+        }
+
+        if (summaryRes.ok) {
+            const summary = await summaryRes.json();
+            if (summary && summary.english_report) {
+                _cachedSummary = summary;
+                _cachedReportMeta = report.report_metadata;
+                renderSummary(summary, report.report_metadata);
+            } else {
+                renderGenerateCard();
+            }
+        } else {
+            renderGenerateCard();
+        }
+
+        setupMapControls();
+        document.getElementById('farmLoading').style.display = 'none';
+    } catch(err) {
+        console.error(err);
+        document.getElementById('farmLoading').innerHTML = '<div style="color:#dc3545;padding:20px;">Error loading report.</div>';
+    }
+}
+
+loadReport();
+
+// ── Weather ───────────────────────────────────────────────────
+async function loadWeather() {
+    try {
+        const res = await fetch(`/api/weather/${FARM_ID}`);
+        const w = await res.json();
+        if (!res.ok || w.error) throw new Error(w.error);
+        renderWeather(w);
+    } catch {
+        document.getElementById('weatherBody').innerHTML = '<div class="weather-error">Weather unavailable</div>';
+    }
+}
+
+function renderWeather(w) {
+    const rainProb = w.rain_prob_24h ?? 0;
+    if (rainProb >= 60) document.getElementById('weatherWidget').classList.add('rain-alert');
+    if (w.fetched_at) {
+        const d = new Date(w.fetched_at);
+        document.getElementById('weatherUpdated').textContent = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+    const rainProbClass = rainProb >= 60 ? 'rain-prob-high' : '';
+    const rainLabel = rainProb >= 80 ? 'High chance of rain' : rainProb >= 50 ? 'Moderate chance' : rainProb >= 20 ? 'Low chance' : 'Rain unlikely';
+    document.getElementById('weatherBody').innerHTML = `
+        <div class="weather-main">
+            <div class="weather-icon">${w.icon}</div>
+            <div><div class="weather-temp">${w.temperature !== null ? w.temperature + '°C' : '—'}</div>
+                 <div class="weather-desc">${w.description || ''}</div></div>
+        </div>
+        <div class="weather-details">
+            <div class="weather-detail">
+                <div class="weather-detail-label">Humidity</div>
+                <div class="weather-detail-value">${w.humidity !== null ? w.humidity + '%' : '—'}</div>
+            </div>
+            <div class="weather-detail">
+                <div class="weather-detail-label">Wind</div>
+                <div class="weather-detail-value">${w.wind_speed !== null ? w.wind_speed + ' km/h' : '—'}</div>
+            </div>
+            <div class="weather-detail" style="grid-column:1/-1;">
+                <div class="weather-detail-label">Rain prob. (24h)</div>
+                <div class="weather-detail-value">${rainProb}% — ${rainLabel}</div>
+                <div class="rain-prob-bar ${rainProbClass}"><div class="rain-prob-fill" style="width:${rainProb}%"></div></div>
+            </div>
+        </div>`;
+}
+
+loadWeather();
 </script>
 {% endblock %}
