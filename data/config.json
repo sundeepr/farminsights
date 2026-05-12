@@ -120,7 +120,9 @@
       "children": [
         "org_district_gadchiroli"
       ],
-      "farms": []
+      "farms": [
+        "farm_008"
+      ]
     },
     {
       "id": "org_district_gadchiroli",
@@ -168,7 +170,8 @@
       "farms": [
         "farm_003",
         "farm_004",
-        "farm_005"
+        "farm_005",
+        "farm_007"
       ]
     }
   ],
@@ -220,6 +223,22 @@
       "data_folder": "data/farm_006",
       "lat": 20.3211,
       "lng": 80.1898
+    },
+    {
+      "id": "farm_007",
+      "name": "Kanukunta Farm",
+      "org_ids": ["org_mandal_gummadidala"],
+      "data_folder": "data/farm_007",
+      "lat": 17.5449,
+      "lng": 78.3889
+    },
+    {
+      "id": "farm_008",
+      "name": "Nashik Farm",
+      "org_ids": ["org_region_mh"],
+      "data_folder": "data/farm_008",
+      "lat": 19.9975,
+      "lng": 73.7898
     }
   ]
 }
